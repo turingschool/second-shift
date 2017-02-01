@@ -29,4 +29,4 @@ Goodbye!
 
 Hint: Look at the split method to convert a string into an array.
 
-Bonus: If you complete the above, tweak your calculator to be able to handle expressions with more than one operation, i.e. `1 2 3 + -` (edited)
+Bonus: If you complete the above, tweak your calculator to be able to handle expressions with more than one operation, i.e. `1 2 3 + -`
