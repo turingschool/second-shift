@@ -16,7 +16,7 @@ This course will cover the basics of JavaScript, HTML, and CSS. Students will:
 
 Every class will have a warmup, 10-20 minutes in the beginning of the class where we solve some kind of logic problem or code challenge in pairs.
 
-Retro and Gear Up are things Turing students do every Friday and are also big parts of Turing's mission. We will do a Gear Up session in the middle of the course and a retro at the end. 
+Retro and Gear Up are things Turing students do every Friday and are also big parts of Turing's mission. We will do a Gear Up session in the middle of the course and a retro at the end.
 
 ### Working Agreements
 
@@ -25,9 +25,9 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 * Respect other's learning
 * There are no stupid questions
 
-## Class outline
+## Week 1
 
-### [Week 1 Tuesday](class-1)
+### [Tuesday](class-1)
 
 * Introduction and how to be successful at Turing
 * Warmup
@@ -36,11 +36,7 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 * Preparing your development environment
 * JavaScript 1: Strings, Integers, Operators
 
-#### Exercises
-
-* [string and integer exercises](https://s3.amazonaws.com/TrainingNerd/JavaScriptForBeginners/exercises/variables.html)
-
-### [Week 1 Thursday](class-2)
+### [Thursday](class-2)
 
 * Warmup and review from last week
 * JavaScript 2: Conditionals and Functions
@@ -48,19 +44,18 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 #### Exercises
 
 * [Superfizz](https://gist.github.com/applegrain/dedf53076576bbe7335ea2b359968dc7)
+* [string and integer exercises](https://s3.amazonaws.com/TrainingNerd/JavaScriptForBeginners/exercises/variables.html)
 
-### [Week 2 Tuesday](class-3)
+---
+
+## Week 2
+
+### [Tuesday](class-3)
 
 * Warmup and review from last class
 * Introduction to HTML and CSS
 
-#### Exercises
-
-* [CSS selectors: CSS Diner](https://flukeout.github.io/)
-* [CSS selectors: CSS grid garden](http://cssgridgarden.com/)
-* Start working on a personal website
-
-### [Week 2 Thursday](class-4)
+### [Thursday](class-4)
 
 * Warmup and review from last class
 * JavaScript 3: Objects and Arrays
@@ -68,21 +63,24 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 
 #### Exercises
 
+* [CSS selectors: CSS Diner](https://flukeout.github.io/)
+* [CSS selectors: CSS grid garden](http://cssgridgarden.com/)
+* Start working on a personal website
 * [javascript-foundations/wizarding-objects](https://github.com/turingschool-examples/javascript-foundations/tree/master/wizarding-objects)
 * [javascript-foundations/wizarding-arrays](https://github.com/turingschool-examples/javascript-foundations/tree/master/wizarding-arrays)
 
-### [Week 3 Tuesday](class-5)
+---
+
+## Week 3
+
+### [Tuesday](class-5)
 
 * Warmup and review from last class
 * Adding JavaScript to an HTML page
 * Interacting with the DOM 1
-* Project: build a thing
+* Project: TodoList
 
-#### Exercises
-
-* Number Guesser
-
-### [Week 3 Thursday](class-6)
+### [Thursday](class-6)
 
 * Warmup and review from last class
 * Object oriented JavaScript
@@ -91,19 +89,19 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 #### Exercises
 
 * Mythical Creatures
+* Number Guesser
 
-### [Week 4 Tuesday](class-7)
+---
+
+## Week 4
+
+### [Tuesday](class-7)
 
 * Warmup and review from last class
 * JavaScript foundations 1-4 review
 * JavaScript 5: Local and Session storage
 
-#### Exercises
-
-* JavaScript foundations exercises
-* Write your own mythical creature exercise
-
-### [Week 4 Thursday](class-8)
+### [Thursday](class-8)
 
 * Warmup and review from last class
 * Interacting with the DOM 2
@@ -111,17 +109,20 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 
 #### Exercises
 
-### [Week 5 Tuesday](class-9)
+* JavaScript foundations exercises
+* Write your own mythical creature exercise
+
+---
+
+## Week 5
+
+### [Tuesday](class-9)
 
 * Warmup and review from last class
 * JavaScript 5: Prototype methods on String, Number
 * JavaScript 6: Prototype methods on Array and Object
 
-#### Exercises
-
-* Tutorial: TasksCase
-
-### [Week 5 Thursday](class-10)
+### [Thursday](class-10)
 
 * Warmup and review from last class
 * JavaScript 7: Events
@@ -129,16 +130,17 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 #### Exercises
 
 * Project: Enigma
+* Tutorial: TasksCase
 
-### [Week 6 Tuesday](class-11)
+---
+
+## Week 6
+
+### [Tuesday](class-11)
 
 * Warmup and review from last class
 
-#### Exercises
-
-* Maybe none?
-
-### [Week 6 Thursday](class-12)
+### [Thursday](class-12)
 
 * Warmup and review from last class
 
