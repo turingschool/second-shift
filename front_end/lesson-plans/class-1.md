@@ -18,20 +18,26 @@
 ## Warmup (10 min)
 
 LSAT problem.
+https://drive.google.com/drive/u/0/folders/0Bx6JZxtPBe_FblNwRWdMNEwzOFU
 
 ## How computers work (25 min + 5 min break)
 
-Our computer is just a machine, also referred to as hardware. It receives instructions either entered by us directly from the keyboard, or generated from applications running on the computer. These applications are called software, instructions programmed and designed to make common and more complex tasks easier on a computer. Regardless, there needs to be some kind of interaction in order for the computer to perform - that's why instructions are usually referred to as commands. Commands are computed and the result is communicated back to us, usually via a display.
+Our computer is just a machine, also referred to as **hardware**. It receives **instructions** either entered by us directly from the keyboard, or generated from applications running on the computer. These applications are called **software**, instructions programmed and designed to make common and more complex tasks easier on a computer. Regardless, there needs to be some kind of interaction in order for the computer to perform - that's why instructions are usually referred to as commands. Commands are computed and the result is communicated back to us, usually via a display.
 
-The so-called brain of the computer is the CPU, the central processing unit, or simply just the processor. It consists of three units; the control unit which interprets and schedules instructions to be carried out, the arithmetic logical unit (ALU) which carries out logical/arithmetic operations, and the cache memory which is a short term memory storage.
+The so-called brain of the computer is the **CPU**, the central processing unit, or simply just the processor. It consists of three units; **the control unit** which interprets and schedules instructions to be carried out, **the arithmetic logical unit** (ALU) which carries out logical/arithmetic operations, and the **cache memory** which is a short term memory storage.
 
-Memory is an interesting topic and for a given consumer computer there are a few different kinds of memory. Some data you might only want to store temporarily, others you might want to store permanently. Of the data you store permanently, some data you may want to access frequently whereas others you won't need very often. 
+Memory is an interesting topic and for a given consumer computer there are a few different kinds of memory. Some data you might only want to store temporarily, others you might want to store permanently. Of the data you store permanently, some data you may want to access frequently whereas others you won't need very often.
 
-Data that you want to store temporarily goes to the RAM, or random access memory. Chrome is an application that uses a lot of your RAM, there are a lot of pieces of data Chrome need to store temporarily, for example buffering a video on youtube.
+Data that you want to store temporarily goes to the **RAM**, or random access memory. Chrome is an application that uses a lot of your RAM, there are a lot of pieces of data Chrome need to store temporarily, for example buffering a video on youtube.
 
-Data that you want to store permamently goes to either the SSD (solid state drive) or the HDD (hard disk drive). The SSD supports faster read/writes, but are not as large as HDD's. HDD's are not as fast as SSD's but will get you more storage for less. 
+Data that you want to store permamently goes to either the **SSD** (solid state drive) or the **HDD** (hard disk drive). The SSD supports faster read/writes, but are not as large as HDD's. HDD's are not as fast as SSD's but will get you more storage for less.
 
-Almost all computers have an operating system which defines how to interact with the underlying system. Operating systems need to comply with POSIX standards which is a protocol for maintaining compatability between operating systems. Most operating systems have two interfaces, one GUI (graphical user interface) and one CLI (command line interface). Most users only use the GUI, however the CLI is necessary for performing more lower level tasks. Using the CLI for common tasks can greatly speed up your workflow as well as allow for automation of some tasks.
+Almost all computers have an **operating system** which defines how to interact with the underlying system. Operating systems need to comply with **POSIX** standards which is a protocol for maintaining compatability between operating systems. Most operating systems have two interfaces, one **GUI** (graphical user interface) and one **CLI** (command line interface). Most users only use the GUI, however the CLI is necessary for performing more lower level tasks. Using the CLI for common tasks can greatly speed up your workflow as well as allow for automation of some tasks.
+
+More resources:
+
+* [How computers work](https://www.youtube.com/watch?v=_QElVrqBwnk)
+* [How computer memory works](https://www.youtube.com/watch?v=p3q5zWCw8J4)
 
 ### Goals
 
@@ -47,11 +53,11 @@ Almost all computers have an operating system which defines how to interact with
 
 ## Introduction to JavaScript (25 min + 5 min break)
 
-For a long time, JavaScript could only be executed in the browser. Every programming language needs to be parsed and translated (compiled) to lower level languages so that they can be executed by the CPU. The thing that compiles JavaScript down to bytecode is called the JavaScript engine. Every browser has a JavaScript engine - Chrome uses V8, Firefox uses SpiderMonkey, Safari uses Nitro. Even though the engines are different, they all perform the same task: they execute JavaScript code.
+For a long time, JavaScript could only be executed in the browser. Every programming language needs to be **parsed and translated** (compiled) to lower level languages so that they can be executed (read) by the CPU. The thing that compiles JavaScript down to bytecode is called the **JavaScript engine**. Every browser has a JavaScript engine - Chrome uses V8, Firefox uses SpiderMonkey, Safari uses Nitro. Even though the engines are different, they all perform the same task: they execute JavaScript code.
 
-In addition to a engine, there is also the runtime. A runtime is essentially a wrapper which provides some additional objects to interact with. In the browser, we can interact with the DOM, document object model, and the window object. These parts are not part of JavaScript itself but just enable interactivity. For example, if you want to use JavaScript to make a website to be interactive, you need a way to access specific elements on your page and do something with them.
+In addition to a engine, there is also the **runtime**. A runtime is essentially a wrapper which provides some additional objects to interact with. In the browser, we can interact with the DOM, document object model, and the window object. These parts are not part of JavaScript itself but enable interactivity between JavaScript and the native elements. For example, if you want to use JavaScript to make a website to be interactive, you need a way to access specific elements on your page and do something with them.
 
-In 2009, the Node.js project was initially released. It's a runtime which can be used outside of the browser, meaning that JavaScript could be used to write server side code! Node.js uses the V8 engine to execute JavaScript. The Node.js runtime provides some really cool functions you can use to interact with the computer. There is an `fs` module to access the filesystem, you can work with `buffers` and `streams` to perform async tasks, and the `crypto` module provides cryptographic capabilities.
+In 2009, the **Node.js** project was initially released. It's a runtime which can be used outside of the browser, meaning that JavaScript could be used to write server side code! Node.js uses the V8 engine to execute JavaScript. The Node.js runtime provides some really cool functions you can use to interact with the computer. There is an `fs` module to access the filesystem, you can work with `buffers` and `streams` to perform async tasks, and the `crypto` module provides cryptographic capabilities.
 
 To get to the browser console, right click in the browser and select `Inspect element`.
 To get to the Node.js console, navigate to a terminal and enter the command `node` - make sure it's installed it if it doesn't work.
@@ -63,7 +69,7 @@ To get to the Node.js console, navigate to a terminal and enter the command `nod
   * JavaScript runtime
 * Know how to use the browser console to execute JavaScript
 
----
+--- 
 
 ## Preparing your development environment (30 min)
 
@@ -214,7 +220,7 @@ The `parseInt` function is used to parse strings to integers.
 NaN
 ```
 
-#### Exercises
+#### Check-ins
 
 * What's the difference between the function `parseInt` and `parseFloat`?
 * What's the difference between the function `isNaN` and `isInteger`?
@@ -266,12 +272,9 @@ true
 true
 ```
 
-### Exercises
+### Check-ins
 
 * Write down two statements using the `||` operator and two using the `&&` operator. Verifying the return value of the statements in the Node console first, let the person next to you guess whether the four statements will evaluate to `true` or `false`. 
-
-### Exercises
-
 * String, Number, Variable, and Arithmetic operators
   * Greeting
     * Create three variables - `name`, `age`, and, `homeTown` - and assign them values.

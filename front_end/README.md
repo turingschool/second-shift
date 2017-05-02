@@ -60,6 +60,7 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 * Warmup and review from last class
 * JavaScript 3: Objects and Arrays
 * JavaScript 4: Iterating through collections
+* Introduction to testing
 
 #### Exercises
 
@@ -74,7 +75,7 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 ## Week 3
 
 ### [Tuesday](class-5)
-
+  
 * Warmup and review from last class
 * Adding JavaScript to an HTML page
 * Interacting with the DOM 1
