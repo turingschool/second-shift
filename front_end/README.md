@@ -34,11 +34,16 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 * How computers work
 * Introduction to JavaScript
 * Preparing your development environment
-* JavaScript 1: Strings, Integers, Operators
+* JavaScript 1: Strings, Integers
 
 ### [Thursday](class-2)
 
 * Warmup and review from last week
+* Logical operators
+* Boolean
+* Undefined/null
+* Conditionals and control flow
+* Functions
 * [Slides](https://docs.google.com/presentation/d/1VtwM9YMaoCH8oS9Y-7BdJOTc836odeeKkf6MoCtFLbk/edit?usp=sharing)
 
 #### Exercises
