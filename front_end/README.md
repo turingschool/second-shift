@@ -50,6 +50,7 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 
 * [Superfizz](https://gist.github.com/applegrain/dedf53076576bbe7335ea2b359968dc7)
 * [string and integer exercises](https://s3.amazonaws.com/TrainingNerd/JavaScriptForBeginners/exercises/variables.html)
+* [if/elsif/else exercises](https://gist.github.com/applegrain/063391d11804f688890afe618a358428)
 
 ---
 
