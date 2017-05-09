@@ -27,7 +27,7 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 
 ## Week 1
 
-### [Tuesday]
+### Tuesday
 
 * Introduction and how to be successful at Turing
 * Warmup
@@ -36,7 +36,7 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 * Preparing your development environment
 * JavaScript 1: Strings, Integers
 
-### [Thursday]
+### Thursday
 
 * Warmup and review from last week
 * Logical operators
@@ -154,12 +154,12 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 
 ## Week 6
 
-### [Tuesday]
+### Tuesday
 
 * Warmup and review from last class
 * Project: Enigma
 
-### [Thursday]
+### Thursday
 
 * Warmup and review from last class
 
