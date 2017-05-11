@@ -2,10 +2,12 @@
 
 `If/else/` statements are used to control the flow of your code - if you need to do, or not do, something based on a certain condition, you can use `if/else` statements. For example, let's say that you only go to bed after 10pm. In code, you could write something that determines `If it's after 10pm, I will go to bed`. Or, you could write something like `If I oversleep, I will buy coffee`.
 
-* if statement
-* if/else statement
-* if/else if/else statement
-* exercises
+## Contents
+
+* If statement
+* If/else statement
+* If/else if/else statement
+* Exercises
 
 ## If statement
 
@@ -13,7 +15,7 @@ The if statement starts with the `if` keyword, a condition in parenthesis, and c
 
 If the `_condition_` returns a `true` or truthy value, the `_code_` in the body within the curly braces will execute.
 
-```
+```JavaScript
 if (_condition_) {
   _code_
 }
@@ -29,7 +31,7 @@ Here, we have added the `else` keyword on the same line as the closing brace for
 
 We will run `_some_other_code_` if the `_condition_` in the `if` clause returns false.
 
-```
+```JavaScript
 if (_condition_) {
   _code_
 } else {
@@ -43,7 +45,7 @@ But what if we want to say things like `If it's after 10pm, I will go to bed. If
 
 In the previous statement, we have two conditions (`it's after 10pm`, `after 2pm and before 4pm`) and one statement which represent all other outcomes (`Otherwise`).
 
-```
+```JavaScript
 if (_condition_) {
   _code_
 } else if (_other_condition_) {
@@ -55,7 +57,7 @@ if (_condition_) {
 
 You can add as many `else if` clauses as you want, but you can only have one single `if` clause and one single `else` clause.
 
-```
+```JavaScript
 if (_condition_) {
   _code_
 } else if (_other_condition_) {
@@ -77,7 +79,7 @@ if (_condition_) {
 1. 
 Start with the following code:
 
-```
+```JavaScript
 if () {
 
 }

@@ -43,7 +43,6 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 * Boolean
 * Undefined/null
 * Conditionals and control flow
-* Functions
 * [Slides](https://docs.google.com/presentation/d/1VtwM9YMaoCH8oS9Y-7BdJOTc836odeeKkf6MoCtFLbk/edit?usp=sharing)
 
 #### Exercises
@@ -58,17 +57,15 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 ### Tuesday
 
 * Warmup and review from last class
+* Conditionals and control flow
 * Functions
-* Arrays
-* Iterating through collections
 * [Slides](https://docs.google.com/presentation/d/1Hg6N2c2bpo5r4jOyI0fqr0QPglt9FdDtfLSPBXh76hE/edit?usp=sharing)
 
 ### Thursday
 
 * Warmup and review from last class
-* Objects
-* What is `this`?
-* Intro to testing
+* Functions
+* Arrays
 
 #### Exercises
 
