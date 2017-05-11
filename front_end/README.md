@@ -66,13 +66,11 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 * Warmup and review from last class
 * Functions
 * Arrays
+* Iterating over collections
 
 #### Exercises
 
-* Mythical Creatures
 * [function exercises](https://gist.github.com/applegrain/063391d11804f688890afe618a358428)
-* [javascript-foundations/wizarding-objects](https://github.com/turingschool-examples/javascript-foundations/tree/master/wizarding-objects)
-* [javascript-foundations/wizarding-arrays](https://github.com/turingschool-examples/javascript-foundations/tree/master/wizarding-arrays)
 
 ---
 
@@ -81,25 +79,21 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 ### Tuesday
 
 * Warmup and review from last class
-* Object oriented JavaScript
-* More testing
+* Iterating over collections
+* Objects
+* Testing
 
 ### Thursday
 
 * Warmup and review from last class
-* JavaScript Review:
-  * Data types and data structures: String, Integer, Number, Null, Undefined, Boolean, Object, Array
-  * Control flow (if/elsif/else)
-  * Logical operators
-  * Comparison operators
-  * Functions
-  * Constructors
+* Object oriented JavaScript
+* Testing
 
 #### Exercises
 
 * Mythical Creatures
-* JavaScript foundations exercises
-* Write your own mythical creature exercise
+* [javascript-foundations/wizarding-objects](https://github.com/turingschool-examples/javascript-foundations/tree/master/wizarding-objects)
+* [javascript-foundations/wizarding-arrays](https://github.com/turingschool-examples/javascript-foundations/tree/master/wizarding-arrays)
 
 ---
 
