@@ -66,7 +66,6 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 * Warmup and review from last class
 * Functions
 * Arrays
-* Iterating over collections
 
 #### Exercises
 
@@ -79,8 +78,8 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 ### Tuesday
 
 * Warmup and review from last class
-* Iterating over collections
 * Objects
+* Iterating over collections
 * Testing
 
 ### Thursday
@@ -92,6 +91,7 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 #### Exercises
 
 * Mythical Creatures
+* Material exercises
 * [javascript-foundations/wizarding-objects](https://github.com/turingschool-examples/javascript-foundations/tree/master/wizarding-objects)
 * [javascript-foundations/wizarding-arrays](https://github.com/turingschool-examples/javascript-foundations/tree/master/wizarding-arrays)
 
@@ -102,11 +102,31 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 ### Tuesday
 
 * Warmup and review from last class
+* JavaScript review
+* Exercises
+
+### Thursday
+
+* Warmup and review from last class
+* Mini project
+
+#### Exercises
+
+* Finish Control Flow, Arrays, Functions, Iterating exercises
+* Finish the mini project
+
+---
+
+## Week 5
+
+### Tuesday
+
+* Warmup and review from last class
 * Intro to HTML
 * Intro to CSS
 * Project: personal website
 
-### Thursday
+### [Thursday]
 
 * Warmup and review from last class
 * Adding JavaScript to a page
@@ -120,26 +140,6 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 * Continue working on RainbowRoom
 * Start building a personal website
 
----
-
-## Week 5
-
-### Tuesday
-
-* Warmup and review from last class
-* Interacting with the dom
-* Project: TodoList
-
-### [Thursday]
-
-* Warmup and review from last class
-* Intro to WebStorage
-* Deploy a page to Github Pages
-* Project: TodoList
-
-#### Exercises
-
-* Tutorial: TasksCase
 
 ---
 
