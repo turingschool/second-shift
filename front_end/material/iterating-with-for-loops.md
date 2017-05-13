@@ -95,6 +95,34 @@ for (var i = 0; i < names.length; i++) {
 
 For loops work great for arrays, but if we want to iterate over objects, we can use the `for..in` loop.
 
+```JavaScript
+var object = { 1: "1", 2: "2", 3: "3" }
+
+for (var key in object) {
+  console.log("key:", key, "value", object[key]);
+}
+```
+
+Objects are key-value pairs, and when we use `for...in` loops, we iterate over the keys. Given the object `var people = { friends: ["bob", "sarah"], colleagues: ["phil", "jaime"], teamMates: ["oscar", "victoria"] }` we can iterate over the object and print out the names of the people in our lives.
+
+```JavaScript
+for (var group in people) {
+
+  var result = ''
+
+  result = result + " My " + group + "are "
+
+
+  for (var i = 0; i < people[group].length; i++) {
+    result = result + people[group][i] + ", "
+  }
+
+  console.log(result)
+}
+```
+
+Try to recreate the above loop with different data. For example, you can have an object with keys representing music genres, and values as arrays holding names of songs. Or, you can have an object with keys like `breakfast`, `lunch`, `dinner`, `snack`, and have arrays as values holding names of different foods.
+
 ---
 
 ## Exercises: for loop
@@ -144,4 +172,14 @@ Example array: `[45, 67, 92, 72, 10, 86, 99, 16, 86, 39, 68]`.
 9.
 
 Create a function which takes in an array of numbers and an `upperBound`. Your job is to recreate the behavior of the previous exercise, iterating over the array that's passed in and use the `upperBound` instead of the hardcoded `100`.
+
+---
+
+## Exercises: for-in loop
+
+1.
+
+Write a for loop that iterates 100 times over an array. Print out the number to the console so you know you're iterating correctly. Populate an object with two keys: `even` and `odd` - the values should be arrays holding either all even numbers or all odd numbers.
+
+Iterate over the object with the odd and even numbers, in the loop, iterate over the value array and sum all the numbers. You can create a new object outside of the `for...in` loop where you can keep the sums of the value arrays.
 
