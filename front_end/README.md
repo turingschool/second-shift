@@ -39,11 +39,16 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 * [control_flow](./materials/control_flow.md)
 * [iterating-with-for-loops](./materials/iterating-with-for-loops.md)
 * [object-oriented-javascript](./materials/object-oriented-javascript.md)
+* [introduction-to-testing](./materials/testing.md)
+* [test-drive-a-tyrannosaurus-rex](./materials/test-drive-a-tyrannosaurus-rex.md)
+* [intro-to-html-and-css](./materials/html-and-css.md)
+* [intro-to-interacting-with-the-dom](./materials/interacting-with-the-dom.md)
 
 ### Projects
 
 * [number-guesser](./projects/number-guesser.md)
 * [rainbow-room](./projects/rainbow-room.md)
+* [todo-list](./projects/todo-list.md)
 
 ---
 
@@ -149,9 +154,7 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 ### [Thursday]
 
 * Warmup and review from last class
-* Adding JavaScript to a page
 * Intro to interacting with the Dom
-* Project: Number Guesser
 
 #### Exercises
 
@@ -165,8 +168,8 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 ### Tuesday
 
 * Warmup and review from last class
-* Accessible HTML and CSS
-* CSS transformations
+* Event listeners
+* Project: Number Guesser
 
 ### Thursday
 
