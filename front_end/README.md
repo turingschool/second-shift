@@ -1,12 +1,14 @@
 # Course Outline
 
-This course will cover the basics of JavaScript, HTML, and CSS. Students will: 
+This course will cover the basics of JavaScript, HTML, and CSS. Students will:
 
 * Know how to use foundational JavaScript, HTML, and CSS
 * understand how JavaScript, HTML, and CSS come together to create a web page
 * know how to create an HTML document
 * know how to add CSS and style a web page
-* know how to add JavaScript to a web page and make it more dynamic  
+* know how to add JavaScript to a web page and make it more dynamic
+
+---
 
 ## Class details, working agreements, and class goals
 
@@ -24,6 +26,26 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 * Assume positive intent
 * Respect other's learning
 * There are no stupid questions
+
+---
+
+## Class material and resources
+
+### Material and exercises
+
+* [functions](./materials/functions.md)
+* [arrays](./materials/arrays.md)
+* [objects](./materials/objects.md)
+* [control_flow](./materials/control_flow.md)
+* [iterating-with-for-loops](./materials/iterating-with-for-loops.md)
+* [object-oriented-javascript](./materials/object-oriented-javascript.md)
+
+### Projects
+
+* [number-guesser](./projects/number-guesser.md)
+* [rainbow-room](./projects/rainbow-room.md)
+
+---
 
 ## Week 1
 
@@ -80,7 +102,6 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 * Warmup and review from last class
 * Objects
 * Iterating over collections
-* Testing
 
 ### Thursday
 
@@ -102,18 +123,17 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 ### Tuesday
 
 * Warmup and review from last class
-* JavaScript review
-* Exercises
+* Testing
+* Write your own mythical creature
 
 ### Thursday
 
 * Warmup and review from last class
-* Mini project
+* JavaScript review
 
 #### Exercises
 
 * Finish Control Flow, Arrays, Functions, Iterating exercises
-* Finish the mini project
 
 ---
 
@@ -131,15 +151,12 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 * Warmup and review from last class
 * Adding JavaScript to a page
 * Intro to interacting with the Dom
-* Project: RainbowRoom
+* Project: Number Guesser
 
 #### Exercises
 
 * [CSS selectors: CSS Diner](https://flukeout.github.io/)
 * [CSS selectors: CSS grid garden](http://cssgridgarden.com/)
-* Continue working on RainbowRoom
-* Start building a personal website
-
 
 ---
 
@@ -148,9 +165,13 @@ Retro and Gear Up are things Turing students do every Friday and are also big pa
 ### Tuesday
 
 * Warmup and review from last class
-* Project: Enigma
+* Accessible HTML and CSS
+* CSS transformations
 
 ### Thursday
 
 * Warmup and review from last class
-
+* buffer
+* CSS flex-box
+* Number Guesser
+* Rainbow Room
