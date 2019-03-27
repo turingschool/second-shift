@@ -1,6 +1,6 @@
 title: "Second Shift"
 description: "Open source curriculum for the Turing School of Software and Design's second shift program."
-url: ""
+url: "https://turingschool.github.io/second-shift/"
 
 baseurl: ''
 permalink: /:title
