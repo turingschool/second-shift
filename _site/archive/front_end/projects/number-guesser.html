@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Number Guesser - Second Shift</title>
+
+<link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="assets/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+<link rel="shortcut icon" type="image/png" href="http://localhost:4000assets/favicons/favicon-16x16.png">
+<link rel="manifest" href="assets/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<meta content='Number Guesser - Second Shift' name='title' />
+<meta content='Number Guesser - Second Shift' name='og:title' />
+
+
+  <meta content='http://localhost:4000' property='og:url' />
+  <meta content="Open source curriculum for the Turing School of Software and Design's second shift program." property='og:description' />
+  <meta content="blog" property="og:type" />
+
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/styles-base.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/assets/javascript/navigation.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="sidebar">
+        
+        <nav class="sidebar-navigation">
+  <section class="sidebar-navigation--logo">
+    <a href='/'><img src="/assets/images/logo.png"
+                     alt="Turing School of Software and Design"
+                     class="turing-logo">
+    </a>
+  </section>
+  <div class="sidebar-navigation--links" >
+    <section class="sidebar-navigation--before">
+
+      
+        <h1>Intro to SQL</h1>
+          <ul>
+            
+              <li><a href="/intro_to_sql/lessons/">Lessons</a></li>
+            
+              <li><a href="/intro_to_sql/labs/">Labs</a></li>
+            
+          </ul>
+      
+    </section>
+  </div>
+</nav>
+
+      </section>
+      <section class="content">
+        <article>
+          <header>
+            <h1>
+              Number Guesser
+              <small></small>
+            </h1>
+          </header>
+          <h1 id="number-guesser">Number Guesser</h1>
+
+<p>For this project, you are going to build a number guesser game. The program will set a secret number in the beginning of the round, and the user will enter guesses through a text field. If the guess is either above or below the secret number, we will print “Too high!” or “Too low!” to the screen. If the user guesses the secret number, we will let the user know they won and start a new round.</p>
+
+<hr />
+
+<h2 id="iteration-1---create-the-project">Iteration 1 - create the project</h2>
+
+<p>Set up your project. You need an HTML document with <code class="highlighter-rouge">html</code>, <code class="highlighter-rouge">head</code>, and <code class="highlighter-rouge">body</code> section. The <code class="highlighter-rouge">head</code> should have a <code class="highlighter-rouge">title</code>. Add an <code class="highlighter-rouge">h1</code> tag to the <code class="highlighter-rouge">body</code> section with the text <code class="highlighter-rouge">Number Guesser</code>.</p>
+
+<p>Add <a href="https://code.jquery.com/">jQuery</a> to your project as well as a <code class="highlighter-rouge">script</code> section. Within the <code class="highlighter-rouge">script</code> tags, make sure that <code class="highlighter-rouge">console.log($)</code> prints out a jQuery object.</p>
+
+<h2 id="iteration-2---set-a-secret-number">Iteration 2 - set a secret number</h2>
+
+<p>First, we want to be able to set a secret number that the user can guess.</p>
+
+<p>Within the script tags, create a variable called <code class="highlighter-rouge">secretNumber</code> which gets set to a new random number every time the page loads. Print out the variable <code class="highlighter-rouge">secretNumber</code> using <code class="highlighter-rouge">console.log()</code> and make sure that the number changes when you refresh the page.</p>
+
+<h2 id="iteration-3---print-the-secret-number-when-you-click-a-button">Iteration 3 - print the secret number when you click a button</h2>
+
+<p>Add a button to the page. Add an <code class="highlighter-rouge">id</code> selector to it, and set the value to <code class="highlighter-rouge">"show-secret-number"</code>. This number is going to be our “cheat button” so that we don’t have to guess a million times before beating the game.</p>
+
+<p>Within the <code class="highlighter-rouge">script</code> tags, add an event listener which prints out the <code class="highlighter-rouge">secretNumber</code> everytime you press the button.</p>
+
+<p>Once you have been able to print the number to the console, change the event listener so that it appends a new <code class="highlighter-rouge">p</code> element to the dom with the text: “The secret number is: XX”, where <code class="highlighter-rouge">XX</code> is the secret number.</p>
+
+<h2 id="iteration-4---add-an-input-field">Iteration 4 - add an input field</h2>
+
+<p>Add an input field to the page with an <code class="highlighter-rouge">id</code> selector set to <code class="highlighter-rouge">guess-input-field</code>. After having entered some value in the input field, play around in the console and try to fetch the current value of the input field.</p>
+
+<h2 id="iteration-5---add-a-submit-button">Iteration 5 - add a submit button</h2>
+
+<p>Add a button to the page with <code class="highlighter-rouge">type="Submit"</code> and an <code class="highlighter-rouge">id</code> selector set to <code class="highlighter-rouge">"submit-button"</code>. Add an event listener so that when you click the button, something gets printed to the console.</p>
+
+<p>Once you have gotten that working, change the event listener so that when you click the button, the current value of the input field is printed to the console.</p>
+
+<h2 id="iteration-6---compare-the-guess-to-the-secret-number">Iteration 6 - compare the guess to the secret number</h2>
+
+<p>In this iteration we are going to be putting it all together. We are going to take the number we entered in the input field and compare it to the <code class="highlighter-rouge">secretNumber</code>.</p>
+
+<p>If the number is higher than the <code class="highlighter-rouge">secretNumber</code>, we are going to print an <code class="highlighter-rouge">h2</code> tag to the screen with the text: “Too high!”. If the number is lower than the <code class="highlighter-rouge">secretNumber</code>, we are going to print an <code class="highlighter-rouge">h2</code> tag to the screen with the text “Too high!”. If the <code class="highlighter-rouge">secretNumber</code> is equal to the number we entered, print the text “You guessed right!” to the screen.</p>
+
+<h2 id="iteration-7---start-a-new-round">Iteration 7 - start a new round</h2>
+
+<p>Now that we have a way of beating the game, we need to have a way to start a new game.</p>
+
+<p>Add a button to the page with the text “Start new game” which simply resets the value of <code class="highlighter-rouge">secretNumber</code>.</p>
+
+        </article>
+        
+      </section>
+    </div>
+    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+  </body>
+</html>

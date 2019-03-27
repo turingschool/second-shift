@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Functions - Second Shift</title>
+
+<link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="assets/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+<link rel="shortcut icon" type="image/png" href="http://localhost:4000assets/favicons/favicon-16x16.png">
+<link rel="manifest" href="assets/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<meta content='Functions - Second Shift' name='title' />
+<meta content='Functions - Second Shift' name='og:title' />
+
+
+  <meta content='http://localhost:4000' property='og:url' />
+  <meta content="Open source curriculum for the Turing School of Software and Design's second shift program." property='og:description' />
+  <meta content="blog" property="og:type" />
+
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/styles-base.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/assets/javascript/navigation.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="sidebar">
+        
+        <nav class="sidebar-navigation">
+  <section class="sidebar-navigation--logo">
+    <a href='/'><img src="/assets/images/logo.png"
+                     alt="Turing School of Software and Design"
+                     class="turing-logo">
+    </a>
+  </section>
+  <div class="sidebar-navigation--links" >
+    <section class="sidebar-navigation--before">
+
+      
+        <h1>Intro to SQL</h1>
+          <ul>
+            
+              <li><a href="/intro_to_sql/lessons/">Lessons</a></li>
+            
+              <li><a href="/intro_to_sql/labs/">Labs</a></li>
+            
+          </ul>
+      
+    </section>
+  </div>
+</nav>
+
+      </section>
+      <section class="content">
+        <article>
+          <header>
+            <h1>
+              Functions
+              <small></small>
+            </h1>
+          </header>
+          <h1 id="functions">Functions</h1>
+
+<p>Functions keep collections of instructions that are executed together. If we are always brushing our teeth, taking a shower, and eating breakfast in the morning, we can put those instructions in a function and just call that function whenever we are ready to do our morning routine.</p>
+
+<p>It would look something like this:</p>
+
+<pre><code class="language-JavaScript">function morningRoutine() {
+  brush_teeth
+  take_shower
+  eat_breakfast
+}
+
+morningRoutine();
+</code></pre>
+
+<h2 id="contents">Contents</h2>
+
+<ul>
+  <li>Syntax</li>
+  <li>Return value</li>
+  <li>Arguments</li>
+  <li>First-class objects</li>
+  <li>Exercises</li>
+</ul>
+
+<hr />
+
+<h2 id="syntax">Syntax</h2>
+
+<p>Let’s break down the syntax. The bare minimum of a function is the <code class="highlighter-rouge">function</code> keyword, parentheses <code class="highlighter-rouge">()</code>, and a opening and closing brace between which we’ll put the code to run.</p>
+
+<pre><code class="language-JavaScript">function () {
+
+}
+</code></pre>
+
+<p>A function without a name is called an anonymous function. Anonymous functions are really useful for a lot of things, but the downside is that there is no way for us to reference anonymous functions. We need to give it a name (or assign to a variable, more on that below) so that we can talk about it.</p>
+
+<p>We declare a function like so:</p>
+
+<pre><code class="language-JavaScript">function myFunctionName() {
+  console.log('my function');
+}
+</code></pre>
+
+<p>And then invoke the function like this:</p>
+
+<pre><code class="language-JavaScript">myFunctionName();
+</code></pre>
+
+<hr />
+
+<h2 id="return-value">Return value</h2>
+
+<p>Functions will always return <code class="highlighter-rouge">undefined</code> by default.</p>
+
+<pre><code class="language-JavaScript">function lol() {
+
+}
+
+lol(); //=&gt; undefined
+</code></pre>
+
+<p>Even when we have some code in the function body, it returns <code class="highlighter-rouge">undefined</code> by default. In the example below, note that the string get printed to the screen, but our return value, the last value, is <code class="highlighter-rouge">undefined</code>.</p>
+
+<pre><code class="language-JavaScript">function lol() {
+  console.log('this is coming from the function')
+}
+
+lol();
+//=&gt; 'this is coming from the function'
+//=&gt; undefined
+</code></pre>
+
+<p>We almost always care about the return value of a function, and we can use the <code class="highlighter-rouge">return</code> keyword to override the default return value to have the function return whatever we want.</p>
+
+<pre><code class="language-JavaScript">function hello() {
+  return 'Hello, World!'
+}
+
+hello(); //=&gt; "Hello, World!"
+</code></pre>
+
+<hr />
+
+<h2 id="arguments">Arguments</h2>
+
+<p>Our code becomes more interesting when we can pass data to it and make it behave in different ways. What if we wanted to switch up <code class="highlighter-rouge">"Hello, World"</code>, and say hi to different people?</p>
+
+<p>In the function declaration we can specify arguments that our function will accept. These will be assigned data that is passed in when we invoke the function.</p>
+
+<pre><code class="language-JavaScript">function hello(name) {
+  return 'Hello, ' + name + "!";
+}
+
+hello("Rey"); //=&gt; "Hello, Rey!"
+</code></pre>
+
+<p>A function can take multiple arguments, but it is not necessary to pass all arguments in when invoking the function. Arguments are assigned to values by position, so if there’s not enough value, some will simply equal <code class="highlighter-rouge">undefined</code>.</p>
+
+<pre><code class="language-JavaScript">function hello(name, question) {
+  return 'Hello, ' + name + "! " + question;
+}
+
+hello("Rey"); //=&gt; "Hello, Rey! undefined"
+
+hello("Rey", "Where are you heading?"); //=&gt; "Hello, Rey! Where are you heading?"
+</code></pre>
+
+<hr />
+
+<h2 id="first-class-objects">First-class objects</h2>
+
+<p>Functions are so called first-class object in JavaScript. It makes them really powerful - they can be assigned to variables, passed to other functions as arguments, stored in data structures, and returned from functions.</p>
+
+<ul>
+  <li>functions can be assigned to variables</li>
+</ul>
+
+<pre><code class="language-JavaScript">var hello = function () {
+  return "Hello, World!"
+}
+
+hello //=&gt; [Function]
+hello(); //=&gt; "Hello, World!"
+</code></pre>
+
+<ul>
+  <li>functions can be passed to other functions as arguments</li>
+</ul>
+
+<p><strong>Note:</strong> JavaScript functions that are passed to other functions are typically called <em>callbacks</em></p>
+
+<pre><code class="language-JavaScript">var hello = function () {
+  return "Hello, World!"
+}
+
+function runCode(callback) {
+  return callback();
+}
+
+runCode(hello);
+</code></pre>
+
+<ul>
+  <li>functions can be stored in data structures</li>
+</ul>
+
+<pre><code class="language-JavaScript">var hello = function () {
+  return "Hello, World!"
+}
+
+var goToWork = function () {
+  return "Hello, World!"
+}
+
+var actions = [hello, goToWork];
+
+actions[1] //=&gt; [Function: goToWork]
+actions[1]();
+</code></pre>
+
+<ul>
+  <li>functions can be returned from other functions</li>
+</ul>
+
+<pre><code class="language-JavaScript">function sayHelloLater(name) {
+  return function () {
+    "Hello, " + name + "!"
+  }
+}
+
+var helloLater = sayHelloLater("Kylo Ren");
+
+helloLater //=&gt; [Function]
+helloLater() //=&gt; "Hello, Kylo Ren!";
+</code></pre>
+
+<hr />
+
+<h2 id="exercises">Exercises</h2>
+
+<p>1.</p>
+
+<p>Create a function called <code class="highlighter-rouge">dinnerIsReady</code>. The function should return the string <code class="highlighter-rouge">"Dinner is ready!"</code> when invoked.</p>
+
+<p>2.</p>
+
+<p>Create a function called <code class="highlighter-rouge">foodIsReady</code>. The function should take one argument, <code class="highlighter-rouge">meal</code>, which specifies which meal is ready. For example, if the function is invoked with <code class="highlighter-rouge">"Lunch"</code>, it should print <code class="highlighter-rouge">"Lunch is ready!"</code>.</p>
+
+<p>3.</p>
+
+<p>Create a function called <code class="highlighter-rouge">introduceMyself</code>. The function takes four arguments, <code class="highlighter-rouge">name</code>, <code class="highlighter-rouge">age</code>, <code class="highlighter-rouge">homeTown</code>, and <code class="highlighter-rouge">profession</code>. When invoked and passed all four arguments, it should return: <code class="highlighter-rouge">"Hello! My name is NAME and I am AGE years old. I live in HOMETOWN. I work as a PROFESSION".</code>.</p>
+
+<p>If the function is not passed the last argument, <code class="highlighter-rouge">profession</code>, omit that sentence from the statement.</p>
+
+<p>Expected results:</p>
+
+<pre><code class="language-JavaScript">introducyMyself("Nick", "36", "Kansas City", "Waiter"); // "Hello! My name is Nick and I am 36 years old. I live in Kansas City. I work as a Waiter."
+
+introducyMyself("Bella", "24", "Houston"); // "Hello! My name is Bella and I am 24 years old. I live in Houston. "
+</code></pre>
+
+<p>4.</p>
+
+<p>Create a function called <code class="highlighter-rouge">computeSquare</code>. It should take one argument, a <code class="highlighter-rouge">number</code>. When invoked, it should return the square of that number.</p>
+
+<p>Expected results:</p>
+
+<pre><code class="language-JavaScript">computeSquare(10); //=&gt; 100
+computeSquare(5); //=&gt; 25
+computeSquare(12); //=&gt; 144
+</code></pre>
+
+<p>When the number is even, compute the square. When the number is odd, mulitply it by <code class="highlighter-rouge">10</code> and return the product.</p>
+
+<p>Expected results:</p>
+
+<pre><code class="language-JavaScript">computeSquare(10); //=&gt; 100
+computeSquare(5); //=&gt; 50
+computeSquare(11); //=&gt; 110
+</code></pre>
+
+<p>5.</p>
+
+<p>Create a function called <code class="highlighter-rouge">firstAndLast</code>. It takes one argument, a <code class="highlighter-rouge">word</code> which is a string. When invoked, the function should return the first and the last letter of the <code class="highlighter-rouge">word</code>.</p>
+
+<p>Expected results:</p>
+
+<pre><code class="language-JavaScript">firstAndLast("turing"); //=&gt; "tg"
+firstAndLast("dinosaur"); //=&gt; "dr"
+firstAndLast("table"); //=&gt; "te"
+</code></pre>
+
+<p>6.</p>
+
+<p>Create a function called <code class="highlighter-rouge">food()</code>. The function should take one argument, <code class="highlighter-rouge">time</code>, which is an argument which can be any number between 1-24. The number represents the hour of the day, where <code class="highlighter-rouge">1</code> is 1am and <code class="highlighter-rouge">24</code> is midnight.</p>
+
+<ul>
+  <li>If the time is later than 5 but earlier than 9, print “Breakfast is ready!”</li>
+  <li>If the time is later than 11 but earlier than 14, print “Lunch is ready!”</li>
+  <li>If the time is later than 18 but earlier than 22, print “Dinner is ready!”</li>
+  <li>Else, print “Wait until next meal.”</li>
+</ul>
+
+<p>Test your code with the following invocations:</p>
+
+<pre><code class="language-JavaScript">food(3); // "Wait until next meal."
+food(6); // "Breakfast is ready!"
+food(10); // "Wait until next meal."
+food(13); // "Lunch is ready!"
+food(16); // "Wait until next meal."
+food(19); // "Dinner is ready!"
+</code></pre>
+
+        </article>
+        
+      </section>
+    </div>
+    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+  </body>
+</html>

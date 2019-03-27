@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title> - Second Shift</title>
+
+<link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="assets/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+<link rel="shortcut icon" type="image/png" href="http://localhost:4000assets/favicons/favicon-16x16.png">
+<link rel="manifest" href="assets/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<meta content=' - Second Shift' name='title' />
+<meta content=' - Second Shift' name='og:title' />
+
+
+  <meta content='http://localhost:4000' property='og:url' />
+  <meta content="Open source curriculum for the Turing School of Software and Design's second shift program." property='og:description' />
+  <meta content="blog" property="og:type" />
+
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/styles-base.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/assets/javascript/navigation.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="sidebar">
+        
+        <nav class="sidebar-navigation">
+  <section class="sidebar-navigation--logo">
+    <a href='/'><img src="/assets/images/logo.png"
+                     alt="Turing School of Software and Design"
+                     class="turing-logo">
+    </a>
+  </section>
+  <div class="sidebar-navigation--links" >
+    <section class="sidebar-navigation--before">
+
+      
+        <h1>Intro to SQL</h1>
+          <ul>
+            
+              <li><a href="/intro_to_sql/lessons/">Lessons</a></li>
+            
+              <li><a href="/intro_to_sql/labs/">Labs</a></li>
+            
+          </ul>
+      
+    </section>
+  </div>
+</nav>
+
+      </section>
+      <section class="content">
+        <article>
+          <header>
+            <h1>
+              
+              <small></small>
+            </h1>
+          </header>
+          <p>RPN, or Reverse Polish Notation, is a convention for writing arithemetic expressions. Typically, most arithemetic expressions are written as 1 + 2: the operation is in the middle, with arguments (in this case, 1 and 2) on either side. In Polish Notation, this order is changed so that the operation comes before all of the arguments, i.e. <code class="highlighter-rouge">+ 1 2</code>.</p>
+
+<p>Reverse Polish Notation is almost the same, as Polish Notation, except that the operation comes after all of the arguments, i.e. <code class="highlighter-rouge">1 2 +</code></p>
+
+<p><em>Your challenge will be to create a simplified calculator for evaluating expressions written in RPN.</em></p>
+
+<p>The calculator should continue to prompt the user for calculations until you enter quit, where it will then say goodbye and quit.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Enter Calculation:
+
+1 2 +
+
+3
+
+Enter Calculation:
+
+2 1 -
+
+1
+
+Enter Calculation:
+
+quit
+
+Goodbye!
+
+</code></pre></div></div>
+
+<p>Hint: Look at the split method to convert a string into an array.</p>
+
+<p>Bonus: If you complete the above, tweak your calculator to be able to handle expressions with more than one operation, i.e. <code class="highlighter-rouge">1 2 3 + -</code></p>
+
+        </article>
+        
+      </section>
+    </div>
+    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+  </body>
+</html>

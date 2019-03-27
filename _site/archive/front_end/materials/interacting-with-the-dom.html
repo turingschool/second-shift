@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Introduction to interacting with the DOM - Second Shift</title>
+
+<link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="assets/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+<link rel="shortcut icon" type="image/png" href="http://localhost:4000assets/favicons/favicon-16x16.png">
+<link rel="manifest" href="assets/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<meta content='Introduction to interacting with the DOM - Second Shift' name='title' />
+<meta content='Introduction to interacting with the DOM - Second Shift' name='og:title' />
+
+
+  <meta content='http://localhost:4000' property='og:url' />
+  <meta content="Open source curriculum for the Turing School of Software and Design's second shift program." property='og:description' />
+  <meta content="blog" property="og:type" />
+
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/styles-base.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/assets/javascript/navigation.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="sidebar">
+        
+        <nav class="sidebar-navigation">
+  <section class="sidebar-navigation--logo">
+    <a href='/'><img src="/assets/images/logo.png"
+                     alt="Turing School of Software and Design"
+                     class="turing-logo">
+    </a>
+  </section>
+  <div class="sidebar-navigation--links" >
+    <section class="sidebar-navigation--before">
+
+      
+        <h1>Intro to SQL</h1>
+          <ul>
+            
+              <li><a href="/intro_to_sql/lessons/">Lessons</a></li>
+            
+              <li><a href="/intro_to_sql/labs/">Labs</a></li>
+            
+          </ul>
+      
+    </section>
+  </div>
+</nav>
+
+      </section>
+      <section class="content">
+        <article>
+          <header>
+            <h1>
+              Introduction to interacting with the DOM
+              <small></small>
+            </h1>
+          </header>
+          <h1 id="introduction-to-interacting-with-the-dom">Introduction to interacting with the DOM</h1>
+
+<h2 id="adding-javascript-to-an-html-page">Adding JavaScript to an HTML page</h2>
+
+<p>All browsers support the <a href="mdn.io/script-tag"><code class="highlighter-rouge">&lt;script&gt;&lt;/script&gt;</code></a> tag which executes JavaScript.</p>
+
+<p>It’s fairly straightforward to embed JavaScript between the script tags on your page.</p>
+
+<pre><code class="language-JavaScript">&lt;script&gt;
+  console.log("so snowy outside!");
+&lt;/script&gt;
+</code></pre>
+
+<p>Let’s try to make the following things happen using JavaScript:</p>
+
+<ul>
+  <li>Make an alert box pop up with any message when a user loads the page.</li>
+  <li>Create an array with three different messages. Make the alert box display all three messages.
+    <ul>
+      <li>Change it so that only the first message displays.</li>
+      <li>Change it so that it selects one message to display at random.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<p>Directly embedding JavaScript to an HTML page works great, but it isn’t how developers usually do it. Mixing JavaScript code with your HTML is not necessarily a bad idea, but the more complex your JavaScript code becomes, it might be a bit difficult to organize and keep track of it all. That’s why it’s more common to require one of more JavaScript files - that way your JavaScript’s footprint in our shared space, the HTML document, doesn’t get messier the more JavaScript code we write.</p>
+
+<p>To require a JavaScript file, we use the script tag but with a few added attributes.</p>
+
+<p>The <code class="highlighter-rouge">src</code> attributes denotes where to find the resource - the resource being, in our case, a JavaScript file - and the <code class="highlighter-rouge">type</code> attribute sets the (MIME) type, identifying what we are about to import. If you don’t specify a <code class="highlighter-rouge">type</code>, the browser will read the imported code as JavaScript by default.</p>
+
+<pre><code class="language-JavaScript">&lt;script src="index.js" type="text/javascript"&gt;&lt;/script&gt;
+</code></pre>
+
+<h3 id="check-ins">Check-ins</h3>
+
+<ul>
+  <li>Create an HTML document, add a <code class="highlighter-rouge">script</code> tag and make some JavaScript happen in the browser
+    <ul>
+      <li>Wrap the code from the previous step in a function</li>
+      <li>Trigger the alert message every 10 seconds</li>
+    </ul>
+  </li>
+  <li>Now, create a file <code class="highlighter-rouge">script.js</code> and require it in the HTML file. Add some JavaScript in the file so you know it’s required ok.</li>
+  <li>What are blocking vs non-blocking operations?</li>
+</ul>
+
+<hr />
+
+<h2 id="interacting-with-the-dom">Interacting with the DOM</h2>
+
+<ul>
+  <li><a href="http://frontend.turing.io/lessons/module-1/js-3-dom-manipulation.html">Lesson plan</a></li>
+</ul>
+
+<h3 id="check-ins---1">Check-ins - 1</h3>
+
+<ul>
+  <li>Create an HTML page with an <code class="highlighter-rouge">h1</code> tag.</li>
+  <li>Add a button with the text “blue”. Add a background color and text color to the button.</li>
+  <li>Add an event listener to the button, so that when it’s clicked, an alert box pops up with the text “blue”.</li>
+  <li>Change the event listener so that when the button is clicked, the color of the <code class="highlighter-rouge">h1</code> tag becomes blue.</li>
+  <li>Add another button, with the text “red”. When you click that button, the <code class="highlighter-rouge">h1</code> text becomes red.</li>
+  <li>If the <code class="highlighter-rouge">h1</code> text already is blue when you click the <code class="highlighter-rouge">blue</code> button, display an alert box that says “Already blue!”, and the text becomes magenta.</li>
+  <li>If the <code class="highlighter-rouge">h1</code> text already is red when you click the <code class="highlighter-rouge">red</code> button, display an alert box that says “Already red!”, and the text becomes magenta.</li>
+</ul>
+
+<h3 id="check-ins---2">Check-ins - 2</h3>
+
+<ul>
+  <li>Add <code class="highlighter-rouge">p</code> tag with some text in it.</li>
+  <li>Add a button next to it which when clicked changes the text in the <code class="highlighter-rouge">p</code> tag to be all uppercase.</li>
+  <li>Clicking the button again makes the text all lowercase.</li>
+  <li>Add a button which changes the color of the <code class="highlighter-rouge">p</code> tag.</li>
+  <li>Add another button which when clicked changes the background color of the page.</li>
+</ul>
+
+<h3 id="check-ins---3">Check-ins - 3</h3>
+
+<ul>
+  <li>Create an empty input field and a button with the text “display”</li>
+  <li>Add an empty <code class="highlighter-rouge">h1</code> tag.</li>
+  <li>Enter some text in the input field. When you click submit, log the text to the console.</li>
+  <li>Update the event listener so that when you have entered text and click the button, the <code class="highlighter-rouge">h1</code> is updated to have the text entered in the input field.</li>
+  <li>Empty the input field after the <code class="highlighter-rouge">display</code> button is clicked.</li>
+</ul>
+
+<h3 id="check-ins-4">Check-ins 4</h3>
+
+<ul>
+  <li>Add a box to the page with a 200px width and a 200px height.</li>
+  <li>Add an input field under the box and a button with the text “set color”.</li>
+  <li>In the input field, enter the name of a color. When you click the button and have entered for example “green”, the box should change to have green background color.</li>
+  <li>Add same input fields/button pairs to also change the width and the height of the box.</li>
+  <li>Empty the input field after the <code class="highlighter-rouge">display</code> button is clicked.</li>
+</ul>
+
+        </article>
+        
+      </section>
+    </div>
+    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+  </body>
+</html>

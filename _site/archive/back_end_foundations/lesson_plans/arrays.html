@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Arrays - Second Shift</title>
+
+<link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="assets/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+<link rel="shortcut icon" type="image/png" href="http://localhost:4000assets/favicons/favicon-16x16.png">
+<link rel="manifest" href="assets/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<meta content='Arrays - Second Shift' name='title' />
+<meta content='Arrays - Second Shift' name='og:title' />
+
+
+  <meta content='http://localhost:4000' property='og:url' />
+  <meta content="Open source curriculum for the Turing School of Software and Design's second shift program." property='og:description' />
+  <meta content="blog" property="og:type" />
+
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/styles-base.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/assets/javascript/navigation.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="sidebar">
+        
+        <nav class="sidebar-navigation">
+  <section class="sidebar-navigation--logo">
+    <a href='/'><img src="/assets/images/logo.png"
+                     alt="Turing School of Software and Design"
+                     class="turing-logo">
+    </a>
+  </section>
+  <div class="sidebar-navigation--links" >
+    <section class="sidebar-navigation--before">
+
+      
+        <h1>Intro to SQL</h1>
+          <ul>
+            
+              <li><a href="/intro_to_sql/lessons/">Lessons</a></li>
+            
+              <li><a href="/intro_to_sql/labs/">Labs</a></li>
+            
+          </ul>
+      
+    </section>
+  </div>
+</nav>
+
+      </section>
+      <section class="content">
+        <article>
+          <header>
+            <h1>
+              Arrays
+              <small></small>
+            </h1>
+          </header>
+          <h2 id="learning-goals">Learning Goals</h2>
+
+<ul>
+  <li>Understand the basic idea of a collection type</li>
+  <li>Develop a mental model to understand arrays</li>
+  <li>Gain some familiarity with common array methods</li>
+</ul>
+
+<h2 id="structure">Structure</h2>
+
+<ul>
+  <li>5 - Warmup</li>
+  <li>25 - Together - Data Structures, Collections, and Programming</li>
+  <li>5 - Break</li>
+  <li>25 - Group Exercise</li>
+  <li>5 - Break</li>
+  <li>25 - Independent Practice</li>
+</ul>
+
+<h2 id="supplies">Supplies</h2>
+
+<p>Before we begin, collect the following Arts &amp; Crafts supplies:</p>
+
+<ul>
+  <li>1 piece of paper</li>
+  <li>5 paper cups</li>
+  <li>6 wooden beads</li>
+  <li>A pen or marker</li>
+</ul>
+
+<p>Then take your five paper cups and use a marker to number them “0” through “4”.</p>
+
+<h2 id="together---data-structures-collections-and-programming">Together - Data Structures, Collections, and Programming</h2>
+
+<ul>
+  <li>What is a “Data Structure”?</li>
+  <li>Why are Arrays so ubiquitous?</li>
+  <li>What does an Array model conceptually?</li>
+  <li>What are some of the properties of an array?</li>
+</ul>
+
+<h3 id="arrays---group-exercise">Arrays - Group Exercise</h3>
+
+<p>Arrays are the most fundamental collection type in programming. Just about every language has them. Arrays are collections of data where each element is addressed by an arbitrary number called the <em>index</em> or <em>position</em>.</p>
+
+<p>Let’s model some of the core concepts. In this section, we’ll step through using some of the fundamental Array methods, including:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">[]</code></li>
+  <li><code class="highlighter-rouge">count</code></li>
+  <li><code class="highlighter-rouge">&lt;&lt;</code> / <code class="highlighter-rouge">push</code></li>
+  <li><code class="highlighter-rouge">unshift</code></li>
+  <li><code class="highlighter-rouge">insert</code></li>
+  <li><code class="highlighter-rouge">pop</code></li>
+  <li><code class="highlighter-rouge">shift</code></li>
+  <li><code class="highlighter-rouge">shuffle</code></li>
+</ul>
+
+<p>As we go, we’ll work side-by-side with our physical Array model and with an IRB/Pry session.</p>
+
+<ol>
+  <li>Lay down your large piece of paper and write <code class="highlighter-rouge">data</code> in large letters. This is the name of your collection. How many elements are in your collection so far?</li>
+  <li>Put the empty <code class="highlighter-rouge">0</code> cup on the paper. If you now fetched the value inside <code class="highlighter-rouge">data[0]</code>, what would you get back?</li>
+  <li>Store a “blue” bead into the zero cup, the equivalent of maybe <code class="highlighter-rouge">data[0] = "blue"</code>. What would you expect the answer of <code class="highlighter-rouge">data.count</code> to be?</li>
+  <li>We can explicitly set the value of another cup. Add <code class="highlighter-rouge">data[1] = "red"</code>. That does note change the answer to <code class="highlighter-rouge">data.first</code>, but does change <code class="highlighter-rouge">data.last</code>. Why?</li>
+  <li>The “shovel” operator (<code class="highlighter-rouge">&lt;&lt;</code>) adds an element to the end of an existing array. Pretend you ran <code class="highlighter-rouge">data &lt;&lt; "green"</code>. How many beads are in the array in total?</li>
+  <li>It turns out that “shovel” is just syntactic sugar for the method named <code class="highlighter-rouge">push</code>. Pretend you ran <code class="highlighter-rouge">data.push(nil)</code>. How does that affect your array? What is the value of <code class="highlighter-rouge">data.count</code> now?</li>
+  <li>Sometimes you want to add an element to the <em>beginning</em> of an array. You do that with <code class="highlighter-rouge">data.unshift("purple")</code>. But wait a minute. You can’t add the cup with marker <code class="highlighter-rouge">4</code> to the beginning of <code class="highlighter-rouge">data</code>. What do you do?</li>
+  <li>You can also insert data into a specific location. Say you ran <code class="highlighter-rouge">data.insert(3, "orange")</code>. How does that change things?</li>
+  <li>You can remove the last element of an array by running <code class="highlighter-rouge">data.pop</code>. Do that now.</li>
+  <li>You can remove the first element of an array by running <code class="highlighter-rouge">data.shift</code>. Do that now.</li>
+  <li>If you run <code class="highlighter-rouge">.shuffle</code> on an array it creates a copy of the array with the values shuffled in random order. But you only have enough cups for one array. How about you run <code class="highlighter-rouge">data = data.shuffle</code>?</li>
+  <li>There’s a ton you can do with <em>enumerable</em> methods. But the fundamental enumerator is the method <code class="highlighter-rouge">each</code>. On the side of your paper, write the output for this code: <code class="highlighter-rouge">data.each {|b| puts b }</code>.</li>
+</ol>
+
+<p>Got it? Here are the important concepts you’ve seen:</p>
+
+<ul>
+  <li>You can directly assign a value to a location in an array using <code class="highlighter-rouge">[]</code></li>
+  <li>You can access the value stored at a position by using <code class="highlighter-rouge">[]</code></li>
+  <li>You can add an element to the end of an array with <code class="highlighter-rouge">&lt;&lt;</code> or <code class="highlighter-rouge">.push</code></li>
+  <li>You can remove an element from the end of an array with <code class="highlighter-rouge">.pop</code></li>
+  <li>You can add an element to the front of an array with <code class="highlighter-rouge">.unshift</code>.</li>
+  <li>The <code class="highlighter-rouge">insert</code> method takes two arguments: first is the position where you want to insert the data, the second is the data to be inserted</li>
+  <li><code class="highlighter-rouge">shuffle</code> returns a copy of your array with the elements randomly jumbled up</li>
+  <li><code class="highlighter-rouge">each</code> is an <em>enumerable</em> method which takes a block parameter and runs that block once for <em>each</em> element in the collection.</li>
+</ul>
+
+<h2 id="group-exercise">Group Exercise</h2>
+
+<p>For this exercise you’ll work in threes.</p>
+
+<ul>
+  <li>Person <code class="highlighter-rouge">A</code> is in charge of reading the instructions</li>
+  <li>Person <code class="highlighter-rouge">B</code> is in charge of the physical model</li>
+  <li>Person <code class="highlighter-rouge">C</code> is in charge of working in IRB (in such a way that the others can see!)</li>
+</ul>
+
+<p>Start with an empty <code class="highlighter-rouge">data</code> array in both the physical space and IRB.</p>
+
+<h4 id="steps">Steps</h4>
+
+<ol>
+  <li>Insert a “blue” bead to index 1 <code class="highlighter-rouge">data[1] = "blue"</code></li>
+  <li>Check the value of index 0 <code class="highlighter-rouge">data[0]</code></li>
+  <li>Check the value of index 1 <code class="highlighter-rouge">data[1]</code></li>
+  <li>Check the count of the array <code class="highlighter-rouge">data.count</code></li>
+  <li>Push a green and a red bead onto the array <code class="highlighter-rouge">data.push("green")</code> then <code class="highlighter-rouge">data.push("red")</code></li>
+  <li>Pop the last bead off of the array <code class="highlighter-rouge">data.pop</code></li>
+  <li>Remove the first element from the array <code class="highlighter-rouge">data.shift</code> – what value will this return to you?</li>
+  <li>Check the count of the array <code class="highlighter-rouge">data.count</code></li>
+  <li>Insert a red bead at index 1 <code class="highlighter-rouge">data.insert(1, "red")</code></li>
+  <li>Insert an orange bead at index 1 <code class="highlighter-rouge">data.insert(1, "orange")</code></li>
+  <li>Prepend a purple bead to the front of the array <code class="highlighter-rouge">data.unshift("purple")</code></li>
+  <li>Overwrite the value at index 1 by inserting a yellow bead there <code class="highlighter-rouge">data[1] = "yellow"</code></li>
+</ol>
+
+<h2 id="independent-work">Independent Work</h2>
+
+<p>You can continue to sit in your threes to work independently and ask eachother
+questions / compare answers:</p>
+
+<h3 id="from-the-top">From the Top</h3>
+
+<p>Start over with the <a href="http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html#7.-arrays">arrays section of Ruby in 100 Minutes</a>. Make sure to run the code snippets.</p>
+
+<h3 id="check-your-understanding">Check Your Understanding</h3>
+
+<p>Here are some questions to check your understanding of arrays:</p>
+
+<ul>
+  <li>We say that arrays are “zero-indexed”. Why does that make counting and positions
+somewhat confusing?</li>
+  <li>Why would <code class="highlighter-rouge">array &lt;&lt; 7</code> be useful as opposed to setting a specific index (ie <code class="highlighter-rouge">array[12] = 7</code>)</li>
+  <li>It’s easy to mix up <code class="highlighter-rouge">push</code> and <code class="highlighter-rouge">pop</code> or <code class="highlighter-rouge">shift</code> and <code class="highlighter-rouge">unshift</code>. Can you come
+up with a way to keep them straight?</li>
+  <li>Which methods that you’ve seen here can grow the size of the array? Which
+shrink it?</li>
+  <li>What happens if you try to access a position outside the length of the array
+(like <code class="highlighter-rouge">array[100000]</code>)?</li>
+  <li>What happens when you call <code class="highlighter-rouge">pop</code> on an empty array?</li>
+</ul>
+
+        </article>
+        
+      </section>
+    </div>
+    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+  </body>
+</html>

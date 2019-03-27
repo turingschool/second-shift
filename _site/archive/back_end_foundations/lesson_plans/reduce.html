@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>reduce/inject - Second Shift</title>
+
+<link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="assets/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+<link rel="shortcut icon" type="image/png" href="http://localhost:4000assets/favicons/favicon-16x16.png">
+<link rel="manifest" href="assets/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<meta content='reduce/inject - Second Shift' name='title' />
+<meta content='reduce/inject - Second Shift' name='og:title' />
+
+
+  <meta content='http://localhost:4000' property='og:url' />
+  <meta content="Open source curriculum for the Turing School of Software and Design's second shift program." property='og:description' />
+  <meta content="blog" property="og:type" />
+
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/styles-base.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/assets/javascript/navigation.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="sidebar">
+        
+        <nav class="sidebar-navigation">
+  <section class="sidebar-navigation--logo">
+    <a href='/'><img src="/assets/images/logo.png"
+                     alt="Turing School of Software and Design"
+                     class="turing-logo">
+    </a>
+  </section>
+  <div class="sidebar-navigation--links" >
+    <section class="sidebar-navigation--before">
+
+      
+        <h1>Intro to SQL</h1>
+          <ul>
+            
+              <li><a href="/intro_to_sql/lessons/">Lessons</a></li>
+            
+              <li><a href="/intro_to_sql/labs/">Labs</a></li>
+            
+          </ul>
+      
+    </section>
+  </div>
+</nav>
+
+      </section>
+      <section class="content">
+        <article>
+          <header>
+            <h1>
+              reduce/inject
+              <small></small>
+            </h1>
+          </header>
+          <h2 id="reduceinject">reduce/inject</h2>
+
+<h3 id="preface">Preface</h3>
+<p>Reduce is the Cadillac of enumerables. The power of reduce is that if you really, really understand reduce, you don’t have to remember how any other enumerable works. You can recreate its functionality with reduce. That’s why reduce is really powerful.</p>
+
+<p>But remember two important lessons I’ve repeated to you time and time again.</p>
+
+<ol>
+  <li>Don’t be clever. No one likes a clever programmer. No one.</li>
+  <li>Clarity is King. Or Queen.</li>
+</ol>
+
+<p>All this to say that <em>even if</em> you can implement your desired functionality using a single complex reduce statement, opt instead for a couple simple enumerables chained together in a readable, decipherable way.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"The era of developers working alone is over.
+ Welcome to the communication
+age"
+
+- Sarah Mei
+(March 3, 2016 via Twitter)
+Founder of Railsbridge,
+Director of Ruby Central,
+Chief Consultant of DevMynd Software.
+
+</code></pre></div></div>
+
+<p>If you EVER write clever code, you will feel a prickling at the back of your neck and that will be me, psychically judging you from afar.</p>
+
+<h3 id="using-reduce">Using reduce</h3>
+
+<p>So let’s talk about how to use it. Three pieces:
+1) The starting value, which is the starting value of the second item,
+2) The first block parameter and is accepted as an argument in reduce/inject, and
+3) The third item, the second block parameter.</p>
+
+<p>If you don’t want to punch me in the face after that explanation you are a better person than I. Let’s explain things by diagramming things out and talking about how this all works.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>collection.inject(starting_value) { |running_total, variable| block }
+</code></pre></div></div>
+
+<p>Now, in practice.</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="o">=&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="n">array</span><span class="p">.</span><span class="nf">reduce</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">sum</span><span class="p">,</span> <span class="n">num</span><span class="o">|</span> <span class="n">sum</span> <span class="o">+=</span> <span class="n">num</span> <span class="p">}</span>
+<span class="o">=&gt;</span> <span class="mi">15</span>
+</code></pre></div></div>
+
+<p>So, with this general case in mind, we should look at the example with the sum. We pass start to the inject method. Start is the initial value, and if we don’t define start or pass anything to inject, its value is the first item over the array we are iterating over. Result is what gets passed when the enumerable is complete. Variable is the variable name we use each time we iterate through the collection, and block is whatever operation we need to perform each time we iterate through.</p>
+
+<h3 id="check-for-understanding">Check for Understanding</h3>
+<p>Summing is easy, but we can also use <code class="highlighter-rouge">reduce</code> to build other things.</p>
+
+<p><strong>Challenge #1:</strong> Start with a array of 6 words, and write a <code class="highlighter-rouge">reduce</code> block that returns a string with the first letter of all the words in the array.</p>
+
+<p><strong>Challenge #2:</strong> Start with a string of one long word (your choice). Write a <code class="highlighter-rouge">reduce</code> block that returns a count of all the letters in the word.</p>
+
+<p><strong>Challenge #3:</strong> Given an array of the numbers 1 through ten, use inject to return an array of even numbers.</p>
+
+        </article>
+        
+      </section>
+    </div>
+    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+  </body>
+</html>

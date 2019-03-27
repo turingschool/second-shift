@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    {% include head.html %}
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="sidebar">
+        {% include header.html %}
+        {% include navigation.html %}
+      </section>
+      <section class="content">
+        <article>
+          <header>
+            <h1>
+              Turing School of Software and Design
+              <small>Second Shift Program</small>
+            </h1>
+          </header>
+          <section class="main-content">
+            {{ content }}
+          </section>
+
+        </article>
+        {% include footer.html %}
+      </section>
+    </div>
+    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+  </body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Object oriented JavaScript - Second Shift</title>
+
+<link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="assets/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+<link rel="shortcut icon" type="image/png" href="http://localhost:4000assets/favicons/favicon-16x16.png">
+<link rel="manifest" href="assets/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<meta content='Object oriented JavaScript - Second Shift' name='title' />
+<meta content='Object oriented JavaScript - Second Shift' name='og:title' />
+
+
+  <meta content='http://localhost:4000' property='og:url' />
+  <meta content="Open source curriculum for the Turing School of Software and Design's second shift program." property='og:description' />
+  <meta content="blog" property="og:type" />
+
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/styles-base.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/assets/javascript/navigation.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="sidebar">
+        
+        <nav class="sidebar-navigation">
+  <section class="sidebar-navigation--logo">
+    <a href='/'><img src="/assets/images/logo.png"
+                     alt="Turing School of Software and Design"
+                     class="turing-logo">
+    </a>
+  </section>
+  <div class="sidebar-navigation--links" >
+    <section class="sidebar-navigation--before">
+
+      
+        <h1>Intro to SQL</h1>
+          <ul>
+            
+              <li><a href="/intro_to_sql/lessons/">Lessons</a></li>
+            
+              <li><a href="/intro_to_sql/labs/">Labs</a></li>
+            
+          </ul>
+      
+    </section>
+  </div>
+</nav>
+
+      </section>
+      <section class="content">
+        <article>
+          <header>
+            <h1>
+              Object oriented JavaScript
+              <small></small>
+            </h1>
+          </header>
+          <h1 id="object-oriented-javascript">Object oriented JavaScript</h1>
+
+<p>Object oriented programming is a code pattern in which all entities of a program are represented by objects. All the logic that relates to that object is kept in the object. Code encapsulation is important so that the methods available to any object are just the ones that matters to it.</p>
+
+<ul>
+  <li>Principlies of object oriented programming</li>
+  <li>Object oriented JavaScript</li>
+  <li>Exercises</li>
+</ul>
+
+<hr />
+
+<h2 id="principles-of-object-oriented-programming">Principles of object oriented programming</h2>
+
+<p>There is a lot to object oriented programming, below are some of the more important ones to know when starting out.</p>
+
+<h3 id="single-responsibility">Single Responsibility</h3>
+
+<p>An object should have a single responsibility. For example, if we have <code class="highlighter-rouge">Car</code> and <code class="highlighter-rouge">Motorcycle</code> objects, they should only keep data that relates to them. A <code class="highlighter-rouge">Car</code> should not know anything about the <code class="highlighter-rouge">Motorcycle</code>, and vice versa.</p>
+
+<h3 id="open-closed-principle">Open-Closed Principle</h3>
+
+<p>This means that objects cannot be <em>modified</em>, but the can be <em>extended</em>. For example, the <code class="highlighter-rouge">Car</code> and the <code class="highlighter-rouge">Motorcycle</code> object might have a lot in common. Both of them have an engine, break, some number of wheels, and some sort of steering instrument. That shared logic could be held in a <code class="highlighter-rouge">Vehicle</code> object, which both the <code class="highlighter-rouge">Car</code> and <code class="highlighter-rouge">Motorcycle</code> extends. They cannot change any of the <code class="highlighter-rouge">Vehicle</code>’s implementaion, only add to it.</p>
+
+<hr />
+
+<h2 id="object-oriented-javascript-1">Object oriented JavaScript</h2>
+
+<h3 id="creating-a-constructor-function">Creating a constructor function</h3>
+
+<p>Constructor functions are “blueprints” for new objects of that type. We pass data to differentiate between the different instances of that object, but all objects of the same type share a same set of properties and behavior. For example, we can have many instances of the <code class="highlighter-rouge">Animal</code> object, but they have slightly different properties - like a <code class="highlighter-rouge">dog</code>, <code class="highlighter-rouge">cat</code>, <code class="highlighter-rouge">parrot</code>, or <code class="highlighter-rouge">snake</code>.</p>
+
+<p>The convention is to have function names with capital letter when creating constructor functions. We can ask the <code class="highlighter-rouge">cat</code> object we just instantiated what its constructor is, and it will say it is of type <code class="highlighter-rouge">Animal</code>. We also say that the <code class="highlighter-rouge">cat</code> object’s <em>prototype</em> is <code class="highlighter-rouge">Animal</code>.</p>
+
+<p>The <code class="highlighter-rouge">Animal</code> constructor takes two arguments which we tie to the object by doing <code class="highlighter-rouge">this.type = type</code>. In JavaScript, <code class="highlighter-rouge">this</code> represents the context at any given moment. The context can be set in a few different ways, but usually it is set to the object which called it. So, for example, inside the objects that are of type <code class="highlighter-rouge">Animal</code>, the <code class="highlighter-rouge">this</code> context will be equal to those objects. Look at the return values for <code class="highlighter-rouge">{dog,cat}.whoAmI()</code>.</p>
+
+<pre><code class="language-JavaScript">function Animal(type, name) {
+  this.type = type
+  this.name = name
+}
+
+var cat = new Animal("cat", "kelly")
+cat.constructor //=&gt; [Function: Animal]
+cat.name //=&gt; "kelly"
+</code></pre>
+
+<h3 id="extending-an-object-using-prototype-functions">Extending an object using prototype functions</h3>
+
+<p>All entities in JavaScript have prototypes, objects from which they inherit prototype functions that are available on them. When we create a new array and ask it for its <code class="highlighter-rouge">constructor</code> we get <code class="highlighter-rouge">Array</code>.</p>
+
+<pre><code class="language-JavaScript">var array = [1,2,3]
+array.constructor //=&gt; [Function: Array]
+</code></pre>
+
+<p>We can extend the prototype and add functions or properties that will become avilable for all objects with the same property.</p>
+
+<pre><code class="language-JavaScript">var array = [1,2,3]
+array.constructor //=&gt; [Function: Array]
+
+array.lol //=&gt; undefined
+
+Array.prototype.lol = "lol what's up"
+array.lol //=&gt; "lol what's up"
+
+var newArray = ["hey"]
+newArray.lol //=&gt; "lol what's up"
+</code></pre>
+
+<h3 id="object-context-this">Object context: <code class="highlighter-rouge">this</code></h3>
+
+<p>All functions have a context, and it is usually set by the object that called the function. Here, we have added a prototype function to the <code class="highlighter-rouge">Animal</code> object called <code class="highlighter-rouge">whoAmI</code>. When we call it, we will log the current value of <code class="highlighter-rouge">this</code>.</p>
+
+<pre><code class="language-JavaScript">function Animal(type, name) {
+  this.type = type
+  this.name = name
+}
+
+Animal.prototype.whoAmI = function() {
+  console.log(this)
+}
+
+cat.whoAmI() //=&gt; Animal { type: 'cat', name: 'kelly', whoAmI: [Function] }
+</code></pre>
+
+<p>We get a representation of the object that called the <code class="highlighter-rouge">whoAmI</code> function, holding all available properties on it. All functions stem from <code class="highlighter-rouge">Function</code>, so there are in fact <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">a few more available methods</a>.</p>
+
+<p>Most of the time, the value of <code class="highlighter-rouge">this</code> is not an issue, but if you’re getting the error <code class="highlighter-rouge">undefined is not a function</code> and you are mostly sure that it is a function, log the value of <code class="highlighter-rouge">this</code> to make sure that the current execution context is what you think it is.</p>
+
+<h3 id="full-animal-example">Full Animal example</h3>
+
+<pre><code class="language-JavaScript">function Animal(type, name) {
+  this.type = type
+  this.name = name
+  this.whoAmI = function() {
+      console.log (this)
+  }
+}
+
+var cat = new Animal("cat", "kelly")
+
+cat.type //=&gt; "cat"
+cat.type //=&gt; "kelly"
+cat.constructor //=&gt; [Function: Animal]
+cat.whoAmI() //=&gt; Animal { type: 'cat', name: 'kelly', whoAmI: [Function] }
+
+var dog = new Animal("dog", "burt")
+
+dog.type //=&gt; "dog"
+dog.type //=&gt; "burt"
+dog.constructor //=&gt; [Function: Animal]
+dog.whoAmI() //=&gt; Animal { type: 'dog', name: 'burt', whoAmI: [Function] }
+</code></pre>
+
+<h3 id="example-twitter">Example: Twitter</h3>
+
+<p>For a site like Twitter, there might be one object called <code class="highlighter-rouge">Tweet</code> which holds all logic related to tweets, one object called <code class="highlighter-rouge">User</code> which holds logic related to users. The <code class="highlighter-rouge">Tweet</code> object might have a property called <code class="highlighter-rouge">timeStamp</code>, <code class="highlighter-rouge">content</code>, or an array called <code class="highlighter-rouge">replies</code> which holds other <code class="highlighter-rouge">Tweet</code> objects. The <code class="highlighter-rouge">User</code> object might have properties like <code class="highlighter-rouge">name</code>, <code class="highlighter-rouge">username</code>, <code class="highlighter-rouge">bio</code>, or an array called <code class="highlighter-rouge">tweets</code> which holds multiple <code class="highlighter-rouge">Tweet</code> objects.</p>
+
+<pre><code class="language-JavaScript">function Tweet(timeStamp, content) {
+  this.timeStamp = timeStamp
+  this.content = content
+  this.replies = []
+}
+
+function User(name, username, bio) {
+  this.name = name
+  this.username = username
+  this.bio = bio
+  this.tweets = []
+  this.following = []
+  this.followers = []
+}
+</code></pre>
+
+<hr />
+
+<h2 id="exercises">Exercises</h2>
+
+<p>On pen and paper, draw out the different objects that might be in place for Facebook, Yelp, or another web app of your choice.</p>
+
+<hr />
+
+<p>In this section we are going to create a <code class="highlighter-rouge">animalDex</code> to keep track of animals that we explore and study.</p>
+
+<p>Required features of the <code class="highlighter-rouge">Dex</code> and <code class="highlighter-rouge">Entry</code> objects are below.</p>
+
+<ul>
+  <li>It should have a property <code class="highlighter-rouge">entries</code> which starts out as an empty array.</li>
+  <li>It should have a function which allows me to add an animal. When adding an entry in the <code class="highlighter-rouge">animalDex</code>, you are adding an instance of the <code class="highlighter-rouge">entry</code> object to the <code class="highlighter-rouge">entries</code> array. More info on the <code class="highlighter-rouge">Entry</code> object below.</li>
+  <li>It should have a function which allows me to find an animal by <code class="highlighter-rouge">name</code>.</li>
+  <li>It should have a function which allows me to update data in an <code class="highlighter-rouge">entry</code>.</li>
+</ul>
+
+<p><strong>Dex</strong></p>
+
+<p>The <code class="highlighter-rouge">Dex</code> object is what we use to instantiate the <code class="highlighter-rouge">animalDex</code>. The <code class="highlighter-rouge">Dex</code> object takes a <code class="highlighter-rouge">topic</code> argument - if the topic is Pokemon, the <code class="highlighter-rouge">topic</code> should be set to <code class="highlighter-rouge">pokemon</code>. When instantiated, the <code class="highlighter-rouge">Dex</code> also has the properties <code class="highlighter-rouge">entries</code> which is set to an empty array.</p>
+
+<p><strong>Entry</strong></p>
+
+<p>The <code class="highlighter-rouge">Entry</code> object is representing entries in a <code class="highlighter-rouge">Dex</code>. The <code class="highlighter-rouge">Entry</code> object can have any keys, and only the <code class="highlighter-rouge">name</code> attribute is required when instantiated. We are going to set up some rules about property names so that the <code class="highlighter-rouge">Entry</code> objects share some standards and make it easier to write programs around.</p>
+
+<p>All <code class="highlighter-rouge">Entry</code> objects should have a unique <code class="highlighter-rouge">id</code>.</p>
+
+<h3 id="iterations">Iterations</h3>
+
+<h4 id="1">1.</h4>
+
+<p>Create the <code class="highlighter-rouge">Dex</code> object.</p>
+
+<pre><code class="language-JavaScript">var animalDex = new Dex("animals")
+
+animalDex.topic //=&gt; "animals"
+animalDex.entries //=&gt; []
+</code></pre>
+
+<h4 id="2">2.</h4>
+
+<p>Create the <code class="highlighter-rouge">Entry</code> object.</p>
+
+<pre><code class="language-JavaScript">var testEntry = new Entry("test")
+
+testEntry.name //=&gt; "test"
+</code></pre>
+
+<h4 id="3">3.</h4>
+
+<p>Let’s decide that we are going to have some standard fields for the <code class="highlighter-rouge">Entry</code>. When instantiating a new <code class="highlighter-rouge">Entry</code>, let’s pass it an object which has all the standard properties so that we can ensure that all the <code class="highlighter-rouge">Entry</code> objects are of the same shape.</p>
+
+<p>Below is an example of what fields to use - use at least these but feel free to add additional ones.</p>
+
+<pre><code class="language-JavaScript">var defaultData = {
+  canBeFoundIn: [],
+  climate: [],
+  diet: [],
+  lifeExpectancyInYears: 0
+}
+
+var testEntry = new Entry("name", defaultData)
+
+testEntry.name //=&gt; "name"
+testEntry.data //=&gt; {
+  canBeFoundIn: [],
+  climate: [],
+  diet: [],
+  lifeExpectancyInYears: 0
+}
+</code></pre>
+
+<h4 id="4">4.</h4>
+
+<p>Add a prototype function to the <code class="highlighter-rouge">Dex</code> called <code class="highlighter-rouge">addEntry</code>. To the <code class="highlighter-rouge">addEntry</code> function we need to pass the <code class="highlighter-rouge">"name"</code> of the new entry. When you create the <code class="highlighter-rouge">Entry</code>, pass the <code class="highlighter-rouge">"name"</code> and an object that looks something like <code class="highlighter-rouge">defaultData</code> in the previous section.</p>
+
+<h4 id="3-1">3.</h4>
+
+<p>Add a prototype function to <code class="highlighter-rouge">Dex</code> which allows me to find an animal by <code class="highlighter-rouge">name</code>.</p>
+
+<h4 id="4-1">4.</h4>
+
+<p>Add a prototype function to the <code class="highlighter-rouge">Dex</code> called <code class="highlighter-rouge">addInfoToEntry</code>. The function takes three arguments: <code class="highlighter-rouge">id</code>, <code class="highlighter-rouge">field</code>, <code class="highlighter-rouge">value</code>. The <code class="highlighter-rouge">id</code> we use to find the <code class="highlighter-rouge">Entry</code> to update, the <code class="highlighter-rouge">field</code> is the field in the <code class="highlighter-rouge">entry</code> we are going to update, and the <code class="highlighter-rouge">value</code> is what we are going to set the value to.</p>
+
+<p>You can either populate one of the fields on the given entry, but you can also add new ones.</p>
+
+<h4 id="6">6.</h4>
+
+<p>Add a prototype function which finds the entry associated with the lowest <code class="highlighter-rouge">lifeExpectancy</code>. If there is one, return the name of the species. If there are 
+multiple, return all of them.</p>
+
+<h4 id="7">7.</h4>
+
+<p>Add a prototype function which finds the entry associated with the highest <code class="highlighter-rouge">lifeExpectancy</code>. If there is one, return the name of the species. If there are 
+multiple, return all of them.</p>
+
+        </article>
+        
+      </section>
+    </div>
+    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+  </body>
+</html>

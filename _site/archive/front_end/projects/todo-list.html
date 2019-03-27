@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Project: TodoList - Second Shift</title>
+
+<link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="assets/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+<link rel="shortcut icon" type="image/png" href="http://localhost:4000assets/favicons/favicon-16x16.png">
+<link rel="manifest" href="assets/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<meta content='Project: TodoList - Second Shift' name='title' />
+<meta content='Project: TodoList - Second Shift' name='og:title' />
+
+
+  <meta content='http://localhost:4000' property='og:url' />
+  <meta content="Open source curriculum for the Turing School of Software and Design's second shift program." property='og:description' />
+  <meta content="blog" property="og:type" />
+
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/styles-base.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/assets/javascript/navigation.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="sidebar">
+        
+        <nav class="sidebar-navigation">
+  <section class="sidebar-navigation--logo">
+    <a href='/'><img src="/assets/images/logo.png"
+                     alt="Turing School of Software and Design"
+                     class="turing-logo">
+    </a>
+  </section>
+  <div class="sidebar-navigation--links" >
+    <section class="sidebar-navigation--before">
+
+      
+        <h1>Intro to SQL</h1>
+          <ul>
+            
+              <li><a href="/intro_to_sql/lessons/">Lessons</a></li>
+            
+              <li><a href="/intro_to_sql/labs/">Labs</a></li>
+            
+          </ul>
+      
+    </section>
+  </div>
+</nav>
+
+      </section>
+      <section class="content">
+        <article>
+          <header>
+            <h1>
+              Project: TodoList
+              <small></small>
+            </h1>
+          </header>
+          <h1 id="project-todolist">Project: TodoList</h1>
+
+<p>Customer problem statement:</p>
+
+<p><em>It’s almost guaranteed that I will forget things I have to do if I don’t write them down. I’m also having difficulties to organize my todo list and never seem to be able to complete things in time.</em></p>
+
+<p>In this project we are going to build out a smarter TodoList for our customer. The base requirements are:</p>
+
+<ul>
+  <li>being able to add new todo items</li>
+  <li>being able to remove todo items</li>
+  <li>being able to set a deadline</li>
+</ul>
+
+<p>The additional requirements are:</p>
+
+<ul>
+  <li>being able to set an estimated duration</li>
+  <li>being able to set one of three labels: <code class="highlighter-rouge">non-urgent</code>, <code class="highlighter-rouge">important</code>, <code class="highlighter-rouge">urgent</code></li>
+  <li>being able to mark todos as complete</li>
+</ul>
+
+<p>We are going to be building this iteratively, writing just as much code needed to fulfill the requirement in order to get an MVP out the door for feedback.</p>
+
+<h3 id="iteration-1-being-able-to-add-new-items">Iteration 1: being able to add new items</h3>
+
+<p>We should first create a basic HTML document. Make sure to include the following tags:  <code class="highlighter-rouge">html</code>, <code class="highlighter-rouge">head</code>, <code class="highlighter-rouge">body</code>, <code class="highlighter-rouge">footer</code>, and <code class="highlighter-rouge">header</code>. We don’t have a lot of data right now to put on the page, so add some FPO data as you see appropriate.</p>
+
+<p>If we are adding new items, we need to have an input field where the user can enter the title of their new todo, as well as a button they can click once they wish to add the todo to the page. When they click the button, we need to take the text that they have entered in the input field. Next, we need to display that data, actually printing it to the screen. We can keep all todos in a simple unordered list for now.</p>
+
+<ul>
+  <li>Add an input field to the page</li>
+  <li>Add a button to the page with text <code class="highlighter-rouge">Submit</code>. When the button is clicked, <code class="highlighter-rouge">console.log</code> the value of the input field.</li>
+  <li>Now, change the button to create a new list item with the value of the input field as text and print it to the screen when clicked.</li>
+  <li>Make sure that you can add multiple list items to the screen.</li>
+</ul>
+
+<h3 id="iteration-2-being-able-to-remove-items">Iteration 2: being able to remove items</h3>
+
+<p>You probably have more items than you want on your page now since there’s no way to delete them! Our check list for deleting items looks something like this:</p>
+
+<ul>
+  <li>Add a button or link to every list item that says <code class="highlighter-rouge">Delete</code> or <code class="highlighter-rouge">Remove</code>.</li>
+  <li>When clicked, that button should remove the list item it was clicked for.</li>
+</ul>
+
+<h3 id="iteration-3-being-able-to-set-a-deadline">Iteration 3: being able to set a deadline</h3>
+
+<p>Our list is becoming a bit overloaded as we are about to add the third separate element for a given list tag. It needs to hold the <code class="highlighter-rouge">title</code>, <code class="highlighter-rouge">Delete</code> button, and now also a date indicating when it’s due. Since each row will have mutliple different pieces of information, let’s convert the list to an HTML table.</p>
+
+<ul>
+  <li>Convert unordered list to an HTML table</li>
+  <li>Add a second input field where the user can set or pick a date</li>
+  <li>When the user clicks <code class="highlighter-rouge">Submit</code>, the date should also be printed to the screen</li>
+  <li>The table should have three columns for each row: a <code class="highlighter-rouge">title</code>, a <code class="highlighter-rouge">due date</code>, and a button which when clicked removes an item</li>
+</ul>
+
+<hr />
+
+<h3 id="iteration-4-being-able-to-set-an-estimated-duration">Iteration 4: being able to set an estimated duration</h3>
+
+<p>Our user needs help better organizing thier time. Let’s help out by allowing them to set an estimated duration for each task in minutes. By default we slot 30 min to each todo.</p>
+
+<ul>
+  <li>Add an additional input field which takes an estimated duration in minutes</li>
+  <li>The table should have an additional column <code class="highlighter-rouge">duration</code> with the estimated times in</li>
+  <li>The user should be able to edit the estimated time in the table</li>
+</ul>
+
+<h3 id="iteration-5-being-able-to-set-one-of-three-labels-non-urgent-important-urgent">Iteration 5: being able to set one of three labels: <code class="highlighter-rouge">non-urgent</code>, <code class="highlighter-rouge">important</code>, <code class="highlighter-rouge">urgent</code></h3>
+
+<p>To further help them organize when to do which task, let’s add a feature to add different labels to the todo items. By default we set the label to <code class="highlighter-rouge">non-urgent</code>.</p>
+
+<ul>
+  <li>Add a dropdown from which the user can choose <code class="highlighter-rouge">non-urgent</code>, <code class="highlighter-rouge">important</code>, or <code class="highlighter-rouge">urgent</code></li>
+  <li>When an option is selected and the user clicks <code class="highlighter-rouge">Submit</code>, the option should display on the table</li>
+  <li>The user should be able to change the value in the table</li>
+</ul>
+
+<h3 id="iteration-6-being-able-to-mark-todos-as-complete">Iteration 6: being able to mark todos as complete</h3>
+
+<p>To avoid doing the same work twice, let’s add a checkbox to each row in the table to indicate whether or not the item has been completed. By default the todos should not be completed.</p>
+
+<ul>
+  <li>Add a column <code class="highlighter-rouge">status</code> in the table</li>
+  <li>Have the value for all the items in the table be <code class="highlighter-rouge">Incomplete</code> by default</li>
+  <li>When the field is clicked, change the text to <code class="highlighter-rouge">Complete</code></li>
+</ul>
+
+        </article>
+        
+      </section>
+    </div>
+    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+  </body>
+</html>

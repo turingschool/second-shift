@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Introduction to testing - Second Shift</title>
+
+<link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="assets/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+<link rel="shortcut icon" type="image/png" href="http://localhost:4000assets/favicons/favicon-16x16.png">
+<link rel="manifest" href="assets/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<meta content='Introduction to testing - Second Shift' name='title' />
+<meta content='Introduction to testing - Second Shift' name='og:title' />
+
+
+  <meta content='http://localhost:4000' property='og:url' />
+  <meta content="Open source curriculum for the Turing School of Software and Design's second shift program." property='og:description' />
+  <meta content="blog" property="og:type" />
+
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/styles-base.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/assets/javascript/navigation.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="sidebar">
+        
+        <nav class="sidebar-navigation">
+  <section class="sidebar-navigation--logo">
+    <a href='/'><img src="/assets/images/logo.png"
+                     alt="Turing School of Software and Design"
+                     class="turing-logo">
+    </a>
+  </section>
+  <div class="sidebar-navigation--links" >
+    <section class="sidebar-navigation--before">
+
+      
+        <h1>Intro to SQL</h1>
+          <ul>
+            
+              <li><a href="/intro_to_sql/lessons/">Lessons</a></li>
+            
+              <li><a href="/intro_to_sql/labs/">Labs</a></li>
+            
+          </ul>
+      
+    </section>
+  </div>
+</nav>
+
+      </section>
+      <section class="content">
+        <article>
+          <header>
+            <h1>
+              Introduction to testing
+              <small></small>
+            </h1>
+          </header>
+          <h1 id="introduction-to-testing">Introduction to testing</h1>
+
+<p>To verify that your code is performing the way you expect, you can add tests which exercise your code in a specified way.</p>
+
+<h2 id="what-is-testing">What is testing?</h2>
+
+<p>Below is a small example on how you might do it. We have a function called <code class="highlighter-rouge">hello</code> which takes one argument and then prints out a string using that argument passed in. Nothing special.</p>
+
+<p>However, in the <strong>test</strong> block, we have some new things. We have an <code class="highlighter-rouge">it</code> block which is a function that takes two arguments - one string which describes in text what the test is doing, and a callback function which holds the code to be executed when running the test.</p>
+
+<p><strong>implementation</strong></p>
+<pre><code class="language-JavaScript">function hello(name) {
+  return "Hello, " + name + "!"
+}
+</code></pre>
+
+<p>We use the <code class="highlighter-rouge">assert.equal</code> function from the <code class="highlighter-rouge">chai</code> library. <code class="highlighter-rouge">assert.equal</code> takes two arguments, and in order for the test to pass, those need to be euqal to each other.</p>
+
+<p><strong>test</strong></p>
+<pre><code class="language-JavaScript">it('says hello', function() {
+  assert.equal(hello("Lovisa"), "Hello, Lovisa!");
+});
+</code></pre>
+
+<hr />
+
+<h2 id="how-do-i-run-tests">How do I run tests?</h2>
+
+<p>There are many different libraries you can use to test your code, but we are going to use <a href="https://mochajs.org/">mocha</a> as our test runner, and <a href="http://chaijs.com/">chai</a> for our assertion library.</p>
+
+<p>To run a test file, you use the command <code class="highlighter-rouge">mocha</code> and then pass it the path to the test to run. For example, if you want to run the <code class="highlighter-rouge">car-test.js</code> file in the <code class="highlighter-rouge">test</code> directory, you run <code class="highlighter-rouge">mocha test/car-test.js</code>.</p>
+
+<h2 id="how-do-i-write-tests">How do I write tests?</h2>
+
+<p>When you write a test, you want to name it the same as the file whose code you’re exercising. The <code class="highlighter-rouge">car-test.js</code> file will import code from the <code class="highlighter-rouge">car.js</code> file.</p>
+
+<p>You also need to import the <code class="highlighter-rouge">assert</code> object from chai.</p>
+
+<pre><code class="language-JavaScript">var Car = require('car');
+var assert = require('chai').assert;
+</code></pre>
+
+<p>Once you’ve done that, it’s time to start writing the actual tests. When writing tests, there are two “blocks” you need to be aware of. There are <code class="highlighter-rouge">describe</code> and <code class="highlighter-rouge">it</code> blocks. <code class="highlighter-rouge">describe</code> blocks usually describe a scenario, and <code class="highlighter-rouge">it</code> blocks describe specific assertions.</p>
+
+<p>See the example below. If we are careful about how we organize the <code class="highlighter-rouge">describe</code> and <code class="highlighter-rouge">it</code> blocks, the test suite can read very well and make it easy for us to understand what we are testing. We can also use it as a way to DRY up our code and make it more concise.</p>
+
+<pre><code class="language-JavaScript">describe("A vehicle", function() {
+
+  it("is of type Vehicle", function() {
+    ....
+  });
+
+  describe("with two wheels", function() {
+
+    var vehicle = new Vehicle(2);
+
+    it("has a pedal to kickstart it", function() {
+      // use vehicle with two wheels here
+      ....
+    });
+
+  });
+
+  describe("with four wheels", function() {
+
+    var vehicle = new Vehicle(4);
+
+    it("has a steering wheel", function() {
+      // use vehicle with four wheels here
+      ....
+    });
+
+  });
+
+});
+</code></pre>
+
+<h2 id="how-do-i-get-started-with-testing">How do I get started with testing?</h2>
+
+<p>Create a new workspace by cloning the <a href="https://github.com/turingschool-examples/javascript-foundations">javascript-foundations</a> repo.</p>
+
+<p>Let’s run and implement the <code class="highlighter-rouge">Centaur</code> in the mythical-creatures repo together.</p>
+
+        </article>
+        
+      </section>
+    </div>
+    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+  </body>
+</html>

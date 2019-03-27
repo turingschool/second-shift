@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Test drive a Tyrannosaurus Rex - Second Shift</title>
+
+<link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="assets/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+<link rel="shortcut icon" type="image/png" href="http://localhost:4000assets/favicons/favicon-16x16.png">
+<link rel="manifest" href="assets/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<meta content='Test drive a Tyrannosaurus Rex - Second Shift' name='title' />
+<meta content='Test drive a Tyrannosaurus Rex - Second Shift' name='og:title' />
+
+
+  <meta content='http://localhost:4000' property='og:url' />
+  <meta content="Open source curriculum for the Turing School of Software and Design's second shift program." property='og:description' />
+  <meta content="blog" property="og:type" />
+
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/styles-base.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/assets/javascript/navigation.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="sidebar">
+        
+        <nav class="sidebar-navigation">
+  <section class="sidebar-navigation--logo">
+    <a href='/'><img src="/assets/images/logo.png"
+                     alt="Turing School of Software and Design"
+                     class="turing-logo">
+    </a>
+  </section>
+  <div class="sidebar-navigation--links" >
+    <section class="sidebar-navigation--before">
+
+      
+        <h1>Intro to SQL</h1>
+          <ul>
+            
+              <li><a href="/intro_to_sql/lessons/">Lessons</a></li>
+            
+              <li><a href="/intro_to_sql/labs/">Labs</a></li>
+            
+          </ul>
+      
+    </section>
+  </div>
+</nav>
+
+      </section>
+      <section class="content">
+        <article>
+          <header>
+            <h1>
+              Test drive a Tyrannosaurus Rex
+              <small></small>
+            </h1>
+          </header>
+          <h1 id="test-drive-a-tyrannosaurus-rex">Test drive a Tyrannosaurus Rex</h1>
+
+<p>In this section, we are going to build a Tyrannosaurus Rex using test driven development. We are going to write one test, and then write code to make the test pass.</p>
+
+<h2 id="iteration-1---setup">Iteration 1 - setup</h2>
+
+<p>If you haven’t done so already, clone the <a href="git@github.com:turingschool-examples/javascript-foundations.git">javascript-foundations</a> repo.</p>
+
+<p><code class="highlighter-rouge">cd</code> into the <code class="highlighter-rouge">mythical-creatures</code> directory. In the <code class="highlighter-rouge">test</code> directory, create a new file called <code class="highlighter-rouge">dinosaur-test.js</code>. In the <code class="highlighter-rouge">exercises</code> directory, create a new file called <code class="highlighter-rouge">dinosaur.js</code></p>
+
+<p>At the top of the <code class="highlighter-rouge">dinosaur-test.js</code> file, add the lines below. The first line requires the <code class="highlighter-rouge">assert</code> object which we are going to use to make test assertions, and the second line is requiring the <code class="highlighter-rouge">Dinosaur</code> object from the <code class="highlighter-rouge">exercises/dinosaur.js</code> file (which we are yet to write).</p>
+
+<pre><code class="language-JavaScript">var assert = require('chai').assert;
+var Dinosaur = require('../exercises/dinosaur');
+</code></pre>
+
+<p>In the console, run the command <code class="highlighter-rouge">mocha test/dinosaur-test.js</code>. Mocha should try to run the <code class="highlighter-rouge">dinosaur-test.js</code> file and you should get some errors in the console probably related to <code class="highlighter-rouge">Dinosaur</code> not being found.</p>
+
+<h2 id="iteration-2---first-test">Iteration 2 - first test</h2>
+
+<p>It’s time to write our first test. Let’s start with a top-level <code class="highlighter-rouge">describe</code> block. <code class="highlighter-rouge">describe</code> and <code class="highlighter-rouge">it</code> blocks are used to organize tests and if you name them well, your test suite can read very well and sort of tell a story about the functionality of the thing being tested.</p>
+
+<pre><code class="language-JavaScript">describe("A dinosaur", function() {
+
+});
+</code></pre>
+
+<p>Now that we have a top-level describe block, we can add our first <code class="highlighter-rouge">it</code> block. In this test, we are just asserting that when we instantiate a new <code class="highlighter-rouge">Dinosaur</code> its constructor is <code class="highlighter-rouge">Dinosaur</code>.</p>
+
+<pre><code class="language-JavaScript">describe("A dinosaur", function() {
+
+  it("is a type of Dinosaur", function() {
+    var dinosaur = new Dinosaur();
+    assert.equal(dinosaur.constructor, Dinosaur);
+  });
+
+});
+</code></pre>
+
+<h2 id="iteration-3---more-tests">Iteration 3 - more tests</h2>
+
+<p>Now let’s add some more tests. Remember to write one test before continuing to the next one. Below I have listed the test cases. Try first to write the test yourself. If not, a suggested implementation for each test can be found after the numbered list.</p>
+
+<ol>
+  <li>The dinosaur function takes a <code class="highlighter-rouge">numberOfLegs</code> argument when instantiated. Assert that the value of <code class="highlighter-rouge">numberOfLegs</code> passed in, is the same as <code class="highlighter-rouge">dinosaur.numberOfLegs</code>.</li>
+  <li>The dinosaur function takes an argument called <code class="highlighter-rouge">diet</code> which can be set to <code class="highlighter-rouge">"carnivore"</code>, <code class="highlighter-rouge">"omnivore"</code>, or <code class="highlighter-rouge">"herbivore"</code>.</li>
+  <li>The dinosaur starts out as hungry. <code class="highlighter-rouge">dinosaur.hungry</code> should return true.</li>
+  <li>The dinosaur starts out as thirsty. <code class="highlighter-rouge">dinosaur.thirsty</code> should return true.</li>
+  <li>The dinosaur can tell you if it needs to eat or drink, using a prototype function called <code class="highlighter-rouge">status</code>. If the dinosaur is thirsty (aka if that value is true), the function should return “I am thirsty!”. If the dinosaur is for example both thirsty and hungry`, the function should return “I am hungry! I am thirsty!”. So when we call this function right after the function invokes it should return “I am hungry! I am thirsty!”.</li>
+  <li>The dinosaur can eat. When calling the <code class="highlighter-rouge">eat</code> prototype function, the string “yuuuuum” should be returned.</li>
+  <li>The dinosaur can drink. When calling the <code class="highlighter-rouge">drink</code> prototype function, the string “sluuuuuurp” should be returned.</li>
+  <li>After eating three times, the dinosaur is not hungry anymore.</li>
+  <li>After drinking three times, the dinosaur is not thirsty anymore.</li>
+</ol>
+
+<h3 id="suggested-test-implementations">Suggested test implementations</h3>
+
+<p>1.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>it('is assigned a number of legs', function() {
+  var dino = new Dinosaur(4);
+  assert.equal(dino.numberOfLegs, 4);
+});
+</code></pre></div></div>
+
+<p>2.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>it('is assigned a diet', function() {
+  var dino = new Dinosaur(4, "carnivore");
+  assert.equal(dino.diet, "carnivore");
+});
+</code></pre></div></div>
+
+<p>3.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>it('starts out as hungry', function() {
+  var dino = new Dinosaur(4, "carnivore");
+  assert.equal(dino.hungry, true);
+});
+</code></pre></div></div>
+
+<p>4.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>it('starts out as thirsty', function() {
+  var dino = new Dinosaur(4, "carnivore");
+  assert.equal(dino.thirsty, true);
+});
+</code></pre></div></div>
+
+<p>5.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>it('can tell you it'\s status', function() {
+  var dino = new Dinosaur(4, "carnivore");
+  assert.equal(dino.status(), "I am hungry! I am thirsty!");
+});
+</code></pre></div></div>
+
+<p>6.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>it('can eat', function() {
+  var dino = new Dinosaur(4, "carnivore");
+  assert.equal(dino.eat(), "yuuuuuum");
+});
+</code></pre></div></div>
+
+<p>7.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>it('can drink', function() {
+  var dino = new Dinosaur(4, "carnivore");
+  assert.equal(dino.drink(), "sluuuuuurp");
+});
+</code></pre></div></div>
+
+<p>8.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>it('is not hungry after eating three times', function() {
+  var dino = new Dinosaur(4, "carnivore");
+  assert.equal(dino.status(), "I am hungry! I am thirsty!");
+
+  dino.eat();
+  dino.eat();
+  dino.eat();
+
+  assert.equal(dino.status(), "I am thirsty!");
+});
+</code></pre></div></div>
+
+<p>9.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>it('is not thirsty after drinking three times', function() {
+  var dino = new Dinosaur(4, "carnivore");
+  assert.equal(dino.status(), "I am hungry! I am thirsty!");
+
+  dino.drink();
+  dino.drink();
+  dino.drink();
+
+  assert.equal(dino.status(), "I am hungry!");
+});
+
+it('is not thirsty after drinking three times', function() {
+  var dino = new Dinosaur(4, "carnivore");
+  assert.equal(dino.status(), "I am hungry! I am thirsty!");
+
+  dino.drink();
+  dino.drink();
+  dino.drink();
+
+  dino.eat();
+  dino.eat();
+  dino.eat();
+
+  assert.equal(dino.status(), "I am very happy.");
+});
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="your-turn">Your turn</h2>
+
+<p>Test drive either your own dinosaur or some other animal - it can be completely made up. Before you start, write down a list of potential test cases that you can use.</p>
+
+        </article>
+        
+      </section>
+    </div>
+    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+  </body>
+</html>

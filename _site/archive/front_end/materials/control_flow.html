@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Control flow - Second Shift</title>
+
+<link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="assets/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+<link rel="shortcut icon" type="image/png" href="http://localhost:4000assets/favicons/favicon-16x16.png">
+<link rel="manifest" href="assets/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<meta content='Control flow - Second Shift' name='title' />
+<meta content='Control flow - Second Shift' name='og:title' />
+
+
+  <meta content='http://localhost:4000' property='og:url' />
+  <meta content="Open source curriculum for the Turing School of Software and Design's second shift program." property='og:description' />
+  <meta content="blog" property="og:type" />
+
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/styles-base.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/assets/javascript/navigation.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="sidebar">
+        
+        <nav class="sidebar-navigation">
+  <section class="sidebar-navigation--logo">
+    <a href='/'><img src="/assets/images/logo.png"
+                     alt="Turing School of Software and Design"
+                     class="turing-logo">
+    </a>
+  </section>
+  <div class="sidebar-navigation--links" >
+    <section class="sidebar-navigation--before">
+
+      
+        <h1>Intro to SQL</h1>
+          <ul>
+            
+              <li><a href="/intro_to_sql/lessons/">Lessons</a></li>
+            
+              <li><a href="/intro_to_sql/labs/">Labs</a></li>
+            
+          </ul>
+      
+    </section>
+  </div>
+</nav>
+
+      </section>
+      <section class="content">
+        <article>
+          <header>
+            <h1>
+              Control flow
+              <small></small>
+            </h1>
+          </header>
+          <h1 id="control-flow">Control flow</h1>
+
+<p><code class="highlighter-rouge">If/else/</code> statements are used to control the flow of your code - if you need to do, or not do, something based on a certain condition, you can use <code class="highlighter-rouge">if/else</code> statements. For example, let’s say that you only go to bed after 10pm. In code, you could write something that determines <code class="highlighter-rouge">If it's after 10pm, I will go to bed</code>. Or, you could write something like <code class="highlighter-rouge">If I oversleep, I will buy coffee</code>.</p>
+
+<h2 id="contents">Contents</h2>
+
+<ul>
+  <li>If statement</li>
+  <li>If/else statement</li>
+  <li>If/else if/else statement</li>
+  <li>Exercises</li>
+</ul>
+
+<h2 id="if-statement">If statement</h2>
+
+<p>The if statement starts with the <code class="highlighter-rouge">if</code> keyword, a condition in parenthesis, and curly braces which encapsule the body.</p>
+
+<p>If the <code class="highlighter-rouge">_condition_</code> returns a <code class="highlighter-rouge">true</code> or truthy value, the <code class="highlighter-rouge">_code_</code> in the body within the curly braces will execute.</p>
+
+<pre><code class="language-JavaScript">if (_condition_) {
+  _code_
+}
+</code></pre>
+
+<h2 id="ifelse-statement">If/else statement</h2>
+
+<p>A single <code class="highlighter-rouge">if</code> statement is useful when you only want to execute some code under a certain condition. But what if you want to be able to do something else if the condition is not true? Do not despair, we can add an <code class="highlighter-rouge">else</code> clause.</p>
+
+<p>With this, we can write things like <code class="highlighter-rouge">If I oversleep, I will buy coffee. If not, I will go to the gym</code>.</p>
+
+<p>Here, we have added the <code class="highlighter-rouge">else</code> keyword on the same line as the closing brace for the <code class="highlighter-rouge">if</code> clause. The <code class="highlighter-rouge">else</code> is followed by an opening brace and a closing brace. In between the braces we put the code to run.</p>
+
+<p>We will run <code class="highlighter-rouge">_some_other_code_</code> if the <code class="highlighter-rouge">_condition_</code> in the <code class="highlighter-rouge">if</code> clause returns false.</p>
+
+<pre><code class="language-JavaScript">if (_condition_) {
+  _code_
+} else {
+  _some_other_code_
+}
+</code></pre>
+
+<h2 id="ifelse-ifelse">If/else if/else</h2>
+
+<p>But what if we want to say things like <code class="highlighter-rouge">If it's after 10pm, I will go to bed. If it's after 2pm and before 4pm, I will go to bed. Otherwise, I will stay awake</code>.</p>
+
+<p>In the previous statement, we have two conditions (<code class="highlighter-rouge">it's after 10pm</code>, <code class="highlighter-rouge">after 2pm and before 4pm</code>) and one statement which represent all other outcomes (<code class="highlighter-rouge">Otherwise</code>).</p>
+
+<pre><code class="language-JavaScript">if (_condition_) {
+  _code_
+} else if (_other_condition_) {
+  _other_code_
+} else {
+  _some_other_code_
+}
+</code></pre>
+
+<p>You can add as many <code class="highlighter-rouge">else if</code> clauses as you want, but you can only have one single <code class="highlighter-rouge">if</code> clause and one single <code class="highlighter-rouge">else</code> clause.</p>
+
+<pre><code class="language-JavaScript">if (_condition_) {
+  _code_
+} else if (_other_condition_) {
+  _other_code_
+} else if (_other_condition_) {
+  _other_code_
+} else if (_other_condition_) {
+  _other_code_
+  .
+  .
+  .
+} else {
+  _some_other_code_
+}
+</code></pre>
+
+<h2 id="exercises">Exercises</h2>
+
+<ol>
+  <li>Start with the following code:</li>
+</ol>
+
+<pre><code class="language-JavaScript">if () {
+
+}
+</code></pre>
+
+<p>Add a condition which you know will return true, a boolean value is a good start. Then, add <code class="highlighter-rouge">console.log("Hello, World!")</code> in the body of the <code class="highlighter-rouge">if</code> statement.</p>
+
+<p>Run the code. Do you get <code class="highlighter-rouge">Hello, World</code>?</p>
+
+<p>2.
+Create an <code class="highlighter-rouge">if</code> statement which will return the string <code class="highlighter-rouge">5 squared is equal to 25</code>, given that there is a variable <code class="highlighter-rouge">x</code> assigned to <code class="highlighter-rouge">5</code>.</p>
+
+<p>Change the value of <code class="highlighter-rouge">x</code> to other integers and make sure your output changes according to <code class="highlighter-rouge">x</code>.</p>
+
+<p>3.
+Create an <code class="highlighter-rouge">if</code> statement which will return the string <code class="highlighter-rouge">100 is an even number</code>, given that there is a variable <code class="highlighter-rouge">y</code> assigned to <code class="highlighter-rouge">100</code>.</p>
+
+<p>If <code class="highlighter-rouge">y</code> is not an even number (for example <code class="highlighter-rouge">101</code>), print the string <code class="highlighter-rouge">101 is not an even number</code> to the screen.</p>
+
+<p>Change the value of <code class="highlighter-rouge">y</code> to other integers and make sure your output changes.</p>
+
+<p>4.
+It’s raining outside and numbers are determining the sounds the drops make when they fall.</p>
+
+<ul>
+  <li>If the number is divisible by 3, print “Drip”</li>
+  <li>If the number is divisible by 5, print “Drop”</li>
+  <li>If the number is divisible by both 3 and 5, print “DripDrop”</li>
+</ul>
+
+<p>5.
+Write code to determine what to wear given the temperature.</p>
+
+<ul>
+  <li>If the temperature is below 45 degrees F, print <code class="highlighter-rouge">Wear a jacket!</code> to the screen.</li>
+  <li>If the temperature is over 45 degrees but below 65 degrees F, print <code class="highlighter-rouge">Bring a sweater!</code> to the screen.</li>
+  <li>If the temperature is over 65 degrees, print <code class="highlighter-rouge">Bring sunscreen!</code> to the screen.</li>
+</ul>
+
+        </article>
+        
+      </section>
+    </div>
+    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+  </body>
+</html>
