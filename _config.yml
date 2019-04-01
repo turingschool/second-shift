@@ -26,10 +26,10 @@ defaults:
       layout: "page"
 
 assets:
-  root_url: '/blank/assets'
+  root_url: '/second_shift/assets'
 
 images:
-  root_url: '/blank/assets/images'
+  root_url: '/second_shift/assets/images'
 
 plugins:
   - jemoji
