@@ -1,7 +1,0 @@
-toc:
-  - title: Intro to SQL
-    subfolderitems:
-      - page: Lessons
-        url: /intro_to_sql/lessons/
-      - page: Labs
-        url: /intro_to_sql/labs/

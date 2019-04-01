@@ -1,6 +1,6 @@
-title: "Second Shift"
+title: "Second Shift Curriculum - Turing School of Software and Design"
 description: "Open source curriculum for the Turing School of Software and Design's second shift program."
-url: "https://turingschool.github.io/second-shift/"
+url: "https://s-espinosa.github.io/second_shift"
 
 baseurl: ''
 permalink: /:title
@@ -26,10 +26,10 @@ defaults:
       layout: "page"
 
 assets:
-  root_url: '/assets'
+  root_url: '/blank/assets'
 
 images:
-  root_url: '/assets/images'
+  root_url: '/blank/assets/images'
 
 plugins:
   - jemoji
