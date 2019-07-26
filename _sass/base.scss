@@ -101,9 +101,9 @@ header {
   }
 }
 
-// .content {
-//   width: 80%;
-// }
+.content {
+  width: 100%;
+}
 
 @media (max-width: $tablet-width) {
   .content: 100%;
@@ -111,4 +111,9 @@ header {
 
 .underline {
   text-decoration: underline;
+}
+
+.landing-container {
+  width: 95%;
+  margin: 0 auto;
 }

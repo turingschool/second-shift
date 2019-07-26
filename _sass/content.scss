@@ -1,13 +1,12 @@
 /* Content */
 
-.content {
-  padding: 2em;
+.content .lesson-title {
+  padding: 23px 35px;
 }
 
 .main-content {
   h1, h2, h3, h4, h5, h6 {
     &:first-child {
-      margin-top: 1em;
     }
   }
 }

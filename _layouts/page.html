@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    {% include head.html %}
-  </head>
+<head>
+  {% include head.html %}
+</head>
 
-  <body>
-    <div class="container">
-      <section class="sidebar">
-        {% include header.html %}
-        {% include navigation.html %}
-      </section>
-      <section class="content">
-        <article>
-          <header>
-            <h1>
-              {{ page.title }}
-              <small>{{ page.subheading }}</small>
-            </h1>
-          </header>
-          {{content}}
-        </article>
-        {% include footer.html %}
-      </section>
-    </div>
-    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-    {% if jekyll.environment == 'production' %}
-    {% include analytics.html %}
-    {% endif %}
-    <script>
+<body>
+  <div class="container">
+    <section class="content">
+      <header class="page-header">
+          <h1>
+            <a href="/aws1/lessons" title="">{{ page.course }}</a>
+            <small>{{ page.title }}</small>
+          </h1>
+        </header>
+      <article>
+        <div id="meta">
+          <p><span><a href="{{ site.url }}{{ page.courselanding }}/{{ page.class }}" title="">Class {{ page.class }}</a></span> | <span>{{ page.title}}</span></p>
+        </div>
+
+        {{content}}
+      </article>
+      {% include footer.html %}
+    </section>
+  </div>
+  <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+  {% if jekyll.environment == 'production' %}
+  {% include analytics.html %}
+  {% endif %}
+  <script>
     /**
     * Function that tracks a click on an outbound link in Analytics.
     * This function takes a valid URL string as an argument, and uses that URL string
@@ -36,11 +36,11 @@
     * using 'navigator.sendBeacon' in browser that support it.
     */
     var trackOutboundLink = function(url) {
-       ga('send', 'event', 'outbound', 'click', url, {
-         'transport': 'beacon',
-         'hitCallback': function(){document.location = url;}
-       });
-    }
-    </script>
-  </body>
+     ga('send', 'event', 'outbound', 'click', url, {
+       'transport': 'beacon',
+       'hitCallback': function(){document.location = url;}
+     });
+   }
+ </script>
+</body>
 </html>

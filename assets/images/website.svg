@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" id="svg4585" sodipodi:docname="1411151936.svg" viewBox="0 0 402.00001 268" version="1.1" inkscape:version="0.48.5 r10040">
+  <defs id="defs4587"/>
+  <sodipodi:namedview id="base" bordercolor="#666666" inkscape:pageshadow="2" inkscape:window-y="19" fit-margin-left="0" pagecolor="#ffffff" inkscape:window-height="1181" inkscape:window-maximized="1" inkscape:zoom="1" inkscape:window-x="0" showgrid="false" borderopacity="1.0" inkscape:current-layer="g4079" inkscape:cx="54.495521" inkscape:cy="109.04046" fit-margin-top="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:window-width="1920" inkscape:pageopacity="0.0" inkscape:document-units="px" inkscape:showpageshadow="false" showborder="false"/>
+  <g id="layer1" inkscape:label="Camada 1" inkscape:groupmode="layer" transform="translate(-31.117502,-401.02562)">
+    <g id="g3771" transform="translate(-131.541,88.019993)">
+      <g transform="matrix(0.5,0,0,0.5,52.346,193.49)" id="g4079">
+        <path inkscape:connector-curvature="0" style="fill:#fcfcfc;stroke:#565656;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" d="m 1022.1,253.54 c 0,-6.627 -5.373,-12 -12,-12 H 235.14 c -6.627,0 -12,5.373 -12,12 v 507 c 0,6.627 5.373,12 12,12 h 775 c 6.627,0 12,-5.373 12,-12 v -507 z" id="path3172-8"/>
+        <path id="path3769" d="m 1022.1,253.54 c 0,-6.627 -5.373,-12 -12,-12 H 235.14 c -6.627,0 -12,5.373 -12,12 v 507 c 0,6.627 5.373,12 12,12 h 775 c 6.627,0 12,-5.373 12,-12 v -507 z" style="fill:#fcfcfc;stroke:none" inkscape:connector-curvature="0"/>
+        <path d="m 235.14,241.67 c -6.627,0 -12,4.5017 -12,10.054 v 72.63 h 799 v -72.63 c 0,-5.5524 -5.373,-10.054 -12,-10.054 h -775 z" inkscape:connector-curvature="0" style="fill:#e8e8e8" id="path3172"/>
+        <path sodipodi:cx="704.88287" sodipodi:cy="412.23389" transform="matrix(0.5614,0,0,0.5614,-136.38,51.58)" d="m 715.69695,412.23389 c 0,5.97244 -4.84163,10.81407 -10.81408,10.81407 -5.97244,0 -10.81407,-4.84163 -10.81407,-10.81407 0,-5.97245 4.84163,-10.81408 10.81407,-10.81408 5.97245,0 10.81408,4.84163 10.81408,10.81408 z" sodipodi:type="arc" style="fill:#949494;fill-opacity:1" sodipodi:ry="10.814074" sodipodi:rx="10.814074" id="path4555"/>
+        <use x="0" y="0" width="1600" height="1000" transform="translate(23.732,2.3452e-6)" xlink:href="#path4555" id="use4557" style="fill:#949494;fill-opacity:1"/>
+        <use x="0" y="0" width="1600" height="1000" transform="translate(23.733,2.3452e-6)" xlink:href="#use4557" id="use4559" style="fill:#949494;fill-opacity:1"/>
+        <rect x="340.01001" y="265.32001" width="611.53998" height="35.386002" ry="3" rx="3" style="fill:#ffffff" id="rect4561"/>
+        <path d="m 368.68,274.4 c -4.7279,0 -8.5625,3.8486 -8.5625,8.5938 0,4.7452 3.8343,8.625 8.5625,8.625 3.5302,0 6.5631,-2.1516 7.875,-5.2188 l 0.21875,-0.53125 c -0.98428,-0.29608 -1.7553,-0.55578 -2.6562,-0.84375 l -0.1875,0.40625 c -0.9148,1.9855 -2.9263,3.3438 -5.25,3.3438 -3.1883,0 -5.75,-2.575 -5.75,-5.7812 0,-3.2062 2.5612,-5.7812 5.75,-5.7812 2.4587,0 4.4818,1.5788 5.3125,3.75 h -1.5938 l 3.2561,3.7057 3.4314,-3.7057 h -2.1562 c -0.92162,-3.7541 -4.2305,-6.5625 -8.25,-6.5625 z" inkscape:connector-curvature="0" style="text-indent:0;text-transform:none;block-progression:tb;color:#000000;fill:#949494;fill-opacity:1" sodipodi:nodetypes="sssccccssscccccs" id="path3116"/>
+        <rect x="973.95001" y="273.97" width="22.931999" height="4.8562999" style="fill:#949494;fill-opacity:1" id="rect3935"/>
+        <use x="0" y="0" width="1600" height="1000" transform="translate(-1.4942e-6,6.6099)" xlink:href="#rect3935" id="use3937" style="fill:#949494;fill-opacity:1"/>
+        <use x="0" y="0" width="1600" height="1000" transform="translate(-1.4942e-6,6.6099)" xlink:href="#use3937" id="use3939" style="fill:#949494;fill-opacity:1"/>
+        <rect x="223.14" y="323.81" width="799" height="2.4623001" style="fill:#dedede" id="rect4551"/>
+      </g>
+      <text sodipodi:linespacing="125%" x="247.11682" y="337.47412" xml:space="preserve" style="font-size:8px;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#5b5b5b;fill-opacity:1;font-family:Sans" id="text4412">
+        <tspan y="337.47412" style="font-size:8px;fill:#5b5b5b;fill-opacity:1" x="247.11682" sodipodi:role="line" id="tspan4414">http://example.com</tspan>
+      </text>
+    </g>
+  </g>
+  <metadata id="metadata24">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title/>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
