@@ -232,5 +232,12 @@ li:hover, p:hover {
   @media (max-width: $tablet-width - 50px) {
     flex-direction: column;
   }
+}
 
+.bright {
+  color: #9b0428;
+}
+
+.cors {
+  background-color: eee;
 }
