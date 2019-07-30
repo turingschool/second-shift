@@ -37,7 +37,7 @@ s3 = Aws::S3::Client.new(region: 'us-east-2')</pre>
 		<hr />
 		<section>
 			<h2><a name="Topic1">Creating Buckets</a></h2>
-			<p>Use the <a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#createBucket-property">createBucket</a> documentation (and/or Google) to write code that creates an empty bucket in your account.</p>
+			<p>Use the <a href="https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/S3/Client.html#create_bucket-instance_method">Client#create_bucket</a> documentation (and/or Google) to write code that creates an empty bucket in your account.</p>
 			<p>Extensions:</p>
 			<ul>
 				<li>Can you accept a command line argument for the bucket name? Need help? Try this code in a file: <code>puts "Hello, #{ARGV[0]}"</code> And run it using <code>ruby myfile.rb bob</code></li>
@@ -52,7 +52,7 @@ response = gets.chomp</pre>
 		<hr />
 		<section>
 			<h2><a name="Topic1">Uploading Objects</a></h2>
-			<p>Use the <a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#putObject-property">putObject</a> documentation (and/or Google) to write code that uploads a file (object) in the bucket you just created.</p>
+			<p>Use the <a href="https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/S3/Client.html#put_object-instance_method">Client#put_object</a> documentation (and/or Google) to write code that uploads a file (object) in the bucket you just created.</p>
 			<p>Extensions:</p>
 			<ul>
 				<li>Can you accept a dynamic value for the object to be uploaded that is entered while the program is running?</li>				
@@ -61,7 +61,7 @@ response = gets.chomp</pre>
 		<hr />
 		<section>
 			<h2><a name="Topic1">Listing Objects</a></h2>
-			<p>Use the <a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#listObjects-property">listObjects</a> documentation (and/or Google) to write code that lists all of the objects in a bucket.</p>
+			<p>Use the <a href="https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/S3/Client.html#list_objects-instance_method">Client#list_objects</a> documentation (and/or Google) to write code that lists all of the objects in a specific bucket.</p>
 			<p>Extensions:</p>
 			<ul>
 				<li>Can you accept a dynamic value for the bucket name that is entered while the program is running? Hint:</li>				
@@ -71,7 +71,7 @@ response = gets.chomp</pre>
 		<hr />
 		<section>
 			<h2><a name="Topic1">Deleting Objects</a></h2>
-			<p>Use the <a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#deleteObject-property">deleteObject</a> documentation (and/or Google) to write code that deletes an object in the bucket.</p>
+			<p>Use the <a href="https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/S3/Client.html#delete_bucket-instance_method">Client#delete_bucket</a> documentation (and/or Google) to write code that deletes an object in the bucket.</p>
 			<p>Extensions:</p>
 			<ul>
 				<li>Can you accept a dynamic value for the object that is entered while the program is running?</li>				
@@ -80,8 +80,7 @@ response = gets.chomp</pre>
 		<hr />
 		<section>
 			<h2><a name="Topic1">Listing Buckets</a></h2>
-			<p>Use the <a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#listBuckets-property">listBuckets</a> documentation (and/or Google) to write code that lists all of the buckets in your account.</p>
-			<p>Extensions:</p>
+			<p>Use the <a href="https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/S3/Client.html#list_buckets-instance_method">Client#list_buckets</a> documentation (and/or Google) to write code that lists all of the buckets in your account.</p>
 		</section>
 		<hr />
 		<section>
