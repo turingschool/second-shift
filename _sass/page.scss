@@ -224,8 +224,8 @@ li:hover, p:hover {
 }
 
 .together {
-  background-color: lighten(#9b0428, 55);
-  border: 1px solid #9b0428;
+  background-color: lighten(#f9ae06, 45);
+  border: 1px solid #f9ae06;
   padding: 1em;
   margin-bottom: 3em;
 
@@ -240,4 +240,10 @@ li:hover, p:hover {
 
 .cors {
   background-color: eee;
+}
+
+.section-header {
+  margin-top: 1px;
+  border-bottom: 3px solid lighten($medium-gray, 20);
+  display: table; 
 }
