@@ -94,7 +94,7 @@ session: 3
 			<p>Next, click "Modify" under the <b>Security</b> configurations box. Choose a keypair from the dropdown (make sure this is a keypair that you have access to!), then save.</p>
 			<p>The rest of the settings are beyond the scope of this exercise. It may be tempting to click on the Database setting, but we'll skip this for now, as we want our database to be separated from our Beanstalk environment. This is best practice so that your data is preserved even if you delete your app's environment.</p>
 			<p>Click on the blue <b>Create app</b> button at the bottom.</p>
-			<p>Compared to Heroku, AWS Elastic Beanstalk takes a surprisingly long time to provision and configure your resources. This process will probably take about 5-10 minutes, so let's move on to setting up CodePipeline while we wait.</p>
+			<p>Compared to Heroku, AWS Elastic Beanstalk takes a surprisingly long time to provision and configure your resources. This process will probably take about 5-10 minutes.</p>
 		</section>
 		<hr />
 		<section>
