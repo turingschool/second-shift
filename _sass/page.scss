@@ -247,3 +247,9 @@ li:hover, p:hover {
   border-bottom: 3px solid lighten($medium-gray, 20);
   display: table; 
 }
+
+.screenshot {
+  border: 1px solid grey;
+  padding: 5px;
+  margin: 10px;
+}
