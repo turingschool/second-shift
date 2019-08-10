@@ -21,7 +21,7 @@ session: 3
 			<p>A few quick notes about this Express app:</p>
 			<ul>
 				<li>This app uses <code>express 4.17.1</code>.</li>
-				<li>We're using <a target="blank" href="https://www.npmjs.com/package/sequelize">Sequelize</a> as the ORM for a Postgres database.</li>
+				<li>We're using <a target="blank" href="https://www.npmjs.com/package/sequelize">Sequelize</a> as the ORM for a Postgres database. This tutorial assumes that you have Postgres installed locally.</li>
 				<li>This app has one resource (tasks). The app does not have tests.</li>
 				<li>The routes available are:</li>
 				<ol>
@@ -114,7 +114,7 @@ session: 3
 				<li>This is what your environment properties should look like (with your own values). <b>The order does not matter</b>. If everything looks right, click Save.</li>
 				<img style="width: 80%" src="{{ site.url }}/assets/images/rdsnodeenvprops.png" alt="EB environment properties screenshot">
 			</ul>
-			<p>Next, click "Modify" under the <b>Security</b> configurations box. Choose a keypair from the dropdown (make sure this is a keypair that you have access to!), then save.</p>
+			<p>Next, click "Modify" under the <b>Security</b> configurations box. Choose a keypair from the dropdown (make sure this is a keypair that you have access to!), then save. You do not need to put anything for service role or IAM instance profile.</p>
 				<img class="screenshot" src="{{ site.url }}/assets/images/ebmodifysecurity.png" alt="Screen shot for modifying ssh key">
 			<p>The rest of the settings are beyond the scope of this exercise. It may be tempting to click on the Database setting, but we'll skip this for now, as we want our database to be separated from our Beanstalk environment. This is best practice so that your data is preserved even if you delete your app's environment.</p>
 			<p>Click on the blue <b>Create app</b> button at the bottom of the main screen.</p>
@@ -217,6 +217,10 @@ session: 3
       <h4>Back to EC2 for Security Groups</h4>
       <p>Now that your RDS database is gone, you can remove your RDS security group. Click on "Security Groups" from the left-hand side, select the "rds-taskmanager" group, and select "Delete Security Group" from the "Actions" dropdown.</p>
 			<img style="width: 80%" src="{{ site.url }}/assets/images/deletesg.png" alt="Screen shot for deleting RDS security group">
+			<h4>S3 Artifacts</h4>
+			<p>CodePipeline and Elastic Beanstalk both create S3 buckets to store artifacts related to your application versions.</p>
+			<p>In the S3 dashboard, select the CodePipeline bucket and delete it.</p>
+			<p>Next, click into the Elastic Beanstalk bucket. This bucket has a bucket policy that prevents it from being deleted. Find the bucket policy under the Permissions tab. Delete the bucket policy. Then go back out to the dashboard and delete the bucket.</p>
     </section>
     <hr />
 	</div>
