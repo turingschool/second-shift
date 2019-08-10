@@ -70,7 +70,7 @@ session: 3
 				<li>Uncheck <b>Enable automatic backups</b>. This would be good to have on if we were creating a real app, but to save on S3 storage, we'll skip backups.</li>
 				<li>Scroll down to the bottom and click the orange <b>Create database</b> button at the bottom.</li>
 			</ul>
-			<p>Your database is being created. In the meantime, open up the rails app that you downloaded and change the <code>config/config.js</code> file by making the production section look like this:</p>
+			<p>Your database is being created. In the meantime, open up the Node app that you downloaded and change the <code>config/config.js</code> file by making the production section look like this:</p>
 			<pre>
   production: {
     dialect: "postgres",
