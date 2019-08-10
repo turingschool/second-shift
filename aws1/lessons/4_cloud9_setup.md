@@ -24,6 +24,7 @@ session: 4
         <li>On the confirmation screen, click "Create Environment."</li>
         <li>Near the bottom, you'll see the command line. Type <code>rvm install 2.5.5</code> to get the correct version of Ruby. This will take a few minutes.</li>
         <img class="screenshot" src="{{site.url}}/assets/images/rvminstall.png" alt="Screenshot of Cloud9 terminal">
+        <li>Finally, type <code>gem install bundler</code>.</li>
       </ol>
       <p><b>You're done!</b> Head back over to the Lambda workshop page to get started.</p>
     </section>
