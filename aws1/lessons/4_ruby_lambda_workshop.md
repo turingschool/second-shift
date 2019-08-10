@@ -23,7 +23,7 @@ session: 4
       <h2>Setup</h2>
       <ol>
         <li>In S3, create two buckets: <code>&lt;bucketname&gt;</code> and <code>&lt;bucketname-grayscale&gt;</code>. For example: <code>racheloriginals</code> and <code>racheloriginals-grayscale</code>. Use the default settings. You do not need to enable public access or create a bucket policy.</li>
-        <li>Earlier, we created a role directly from the Lambda console. Since we'll be deploying from the command line in this workshop, we'll create the role separately. Go to your IAM console and click on <code>roles</code>. From there, click the blue "Create Role" button.</li>
+        <li>Go to your IAM console and click on <code>roles</code>. From there, click the blue "Create Role" button.</li>
         <li>For "Select type of trusted entity", click on Lambda:</li>
         <img class="screenshot" src="{{site.url}}/assets/images/lambdarolessc.png" alt="Choosing a Lambda role">
         <li>On the next screen, add one role for now: <b>AWSLambdaExecute</b>. This will give our Lambda function permissions to write to CloudWatch and access S3 resources. You can find it by typing in the key terms that you see in the screenshot below.</li>
@@ -35,17 +35,17 @@ session: 4
     </section>
     <section>
       <h2>Lambda Code</h2>
-      <p>Now we'll move to the command line to get our Lambda code setup. <b>If you do not have Ruby installed on your computer, jump over to <a target="blank" href="{{ site.url }}/aws1/lessons/4_cloud9_setup">these instructions first</a> to get setup with a virtual Ruby development environment.</b></p>
+      <p>Now we'll move to the command line to get our Lambda code setup.</p>
       <ol>
-        <li>Clone down the source code: <code>$ git clone https://github.com/rwarbelow/secondshiftlambdaruby.git</code>. cd into the directory and open the code in your text editor. Look at the <code>handler.rb</code> file and the <code>#process</code> method to get a better idea of what will happen the first time you run the code.</li>
+        <li>Download the <a href="https://secondshiftlambdaruby.s3-us-west-2.amazonaws.com/secondshiftlambdaruby.zip">source code</a> that contains a Ruby Lambda skeleton. Move it into a directory you're comfortable accessing from the command line. Open up the directory and look at the <code>handler.rb</code> file and the <code>#process</code> method to get a better idea of what will happen the first time you run the code.</li>
         <li>Because we need to ship the code with all of its dependencies, we need to bundle so that the dependency source code is saved within our project folder. From the command line, type <code>$ bundle install --path vendor/bundle</code>. This will create a ./vendor/bundle directory and put your dependencies there. <b>Unlike with Elastic Beanstalk, the Bundler version doesn't matter. However, it does matter that you're using Ruby 2.5.x since that's what Lambda uses.</b></li>
         <li>The AWS CLI expects a zip file when we create a Lambda function. Because of that, we'll want to compress all of our code by typing this on the command line (inside of your project directory): <code>$ zip -r function.zip .</code> (including the period!) This will compress all of our folders and files (indicated by the <b>.</b>) recursively (-r) into function.zip, a file now living inside your base directory. Type <code>ls</code> to verify that function.zip exists.</li>
         <li>Finally, we'll use the AWS CLI to push our compressed function code up to Lambda. You'll need to replace anything in capital letters. Below is the structure of this command:</li>
-        <pre>$ aws lambda create-function --function-name &lt;ARBITRARY NAME OF LAMBDA FUNCTION&gt; \
+        <pre>aws lambda create-function --function-name &lt;NAME OF FUNCTION&gt; \
 --zip-file fileb://&lt;NAME OF ZIP FILE&gt; --handler &lt;FILENAME.METHODNAME&gt; --runtime ruby2.5 \
 --role &lt;LAMBDA ROLE ARN&gt;</pre>
-        <p>Here's what my actual command looks like with the values filled in:</p>
-        <pre>$ aws lambda create-function --function-name ConvertToGrayscale \
+        <p>Here's what mine looks like:</p>
+        <pre>aws lambda create-function --function-name ConvertToGrayscale \
 --zip-file fileb://function.zip --handler handler.process --runtime ruby2.5 \
 --role arn:aws:iam::903497756277:role/lambda-grayscale-role</pre>
         <li>Open up the Lambda console in the browser and click into your newly created function.</li>
@@ -98,16 +98,11 @@ session: 4
     }
   ]
 }</pre>
-	      <li>Back in your text editor, modify your code so that it can access the bucket name and the object (or key) name. These are the two pieces of data we'll need in order to target the image for grayscale conversion. We've written the code to get the bucket name; <b>your job is to write the code to get the object key name.</b></li>
-	      <pre>require 'chunky_png'
-require 'aws-sdk-s3'
-
-def process(event:, context:)
-  bucket = event["Records"].first["s3"]["bucket"]["name"]
-  key = #### YOUR CODE HERE ###
-  puts "Here is the bucket: #{bucket}"
-  puts "Here is the key: #{key}"
-end</pre>
+	      <li>Back in your text editor, modify your code so that it can access the bucket name and the object name. These are the two pieces of data we'll need in order to target the image for grayscale conversion. We've written the code to get the bucket name; your job is to write the code to get the object key name.</li>
+	      <pre>bucket = event["Records"].first["s3"]["bucket"]["name"]
+key = 
+puts "Here is the bucket: #{bucket}"
+puts "Here is the key: #{key}"</pre>
         <li>Re-zip your updated function code, then push it back up to Lambda:</li>
         <pre>$ zip -r function.zip .
 $ aws lambda update-function-code --function-name ConvertToGrayscale --zip-file fileb://function.zip</pre>
