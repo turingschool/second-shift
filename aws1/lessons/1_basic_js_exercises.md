@@ -8,7 +8,7 @@ class: 1
 
 <div id="wrapper">
 	<nav id="toc">
-		<small><a style="font-style: italic" href="{{side.base_url}}/aws1/lessons/1" title="">< back</a></small>
+		<small><a style="font-style: italic" href="javascript:history.back()" title="">< back</a></small>
 	</nav>
 	<div id="content-container">
 		<section>
