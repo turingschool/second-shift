@@ -1,5 +1,5 @@
 ---
-title: Rails Elastic Beanstalk Workshop
+title: Node Elastic Beanstalk Workshop
 layout: page
 course: AWS Cloud Fundamentals
 courselanding: /aws1/lessons/
@@ -13,23 +13,35 @@ session: 3
 	<div id="content-container">
 		<section>
 			<a name="Topic1"></a>
-			<img class="section-image" src="{{ site.url }}/assets/images/rails.png" alt="Rails logo">
+			<img class="section-image" src="{{ site.url }}/assets/images/node.png" alt="NodeJS logo">
 			<h2 class="section-header">{{page.title}}</h2>
-			<p>In this workshop, you'll deploy a pre-built, database-backed Rails application using Elastic Beanstalk and CodeDeploy.</p>
+			<p>In this workshop, you'll deploy a pre-built, database-backed Node/Express application using Elastic Beanstalk and CodeDeploy.</p>
 			<p>Before you start, <b>make sure that you are in the N. Virginia region</b> since this is where you have created previous key pairs.</p>
-			<p>You'll want to download <a href="https://secondshifttaskmanager.s3.us-east-2.amazonaws.com/taskmanager.zip">this Rails app</a>. Unzip it and put it in a directory you want to work with on the command line. We're specifically not using git to share the code so that you can set it up with your own git repository later on, and this exercise will mimic the same steps you'll take for a brand new Rails project.</p>
-			<p>A few quick notes about this Rails app:</p>
+			<p>You'll want to download <a href="https://secondshifttaskmanagernode.s3-us-west-1.amazonaws.com/taskManagerNode.zip">this Express app</a>. Unzip it and put it in a directory you want to work with on the command line. We're specifically not using git to share the code so that you can set it up with your own git repository later on, and this exercise will mimic the same steps you'll take for a brand new Express project.</p>
+			<p>A few quick notes about this Express app:</p>
 			<ul>
-				<li>This app uses <code>ruby 2.6.3</code> and <code>rails 5.2.3</code>.</li>
-				<li>Because of Beanstalk's defaults, we are using <code>bundler 1.17.3</code>. There is <a target="blank" href="https://stackoverflow.com/questions/55360450/elastic-beanstalk-cant-find-gem-bundler-0-a-with-executable-bundle-gem">a way to use v2 of Bundler</a> with Elastic Beanstalk, but custom platform hooks are beyond the scope of this exercise. To bundle using this specific version of Bundler, you will need to type <code>bundle _1.17.3_</code> from your command line instead of <code>bundle</code>.</li>
-				<li>This app has one resource (tasks), and the functionality was built out with rails generate scaffold. The app does not have tests.</li>
+				<li>This app uses <code>express 4.17.1</code>.</li>
+				<li>We're using <a target="blank" href="https://www.npmjs.com/package/sequelize">Sequelize</a> as the ORM for a Postgres database.</li>
+				<li>This app has one resource (tasks). The app does not have tests.</li>
+				<li>The routes available are:</li>
+				<ol>
+					<li>GET /</li>
+					<li>GET /tasks</li>
+					<li>GET /tasks/:id</li>
+					<li>POST /tasks, which takes a <code>title</code> (string) and <code>priority</code> (integer) as body keys.</li>
+					<li>DELETE /tasks/:id</li>
+				</ol>
 			</ul>
 			<p>If you'd like to test out the app locally before you deploy to Elastic Beanstalk, you can do that with these commands:</p>
 			<ol>
-				<li><code>bundle _1.17.3_</code></li>
-				<li><code>rake db:create db:migrate</code></li>
-				<li><code>rails s</code></li>
-				<li>Navigate to localhost:3000 in your browser</li>
+				<li><code>npm install</code></li>
+				<li><code>npm install -g sequelize-cli</code></li>
+				<li><code>npm install -g nodemon</code></li>
+				<li><code>createdb taskmanager</code>, which will create a Postgres database locally</li>
+				<li><code>sequelize db:migrate</code>, which creates the tasks table in the database from the migration file</li>
+				<li><code>sequelize db:seed:all</code>, which will create three rows of dummy data</li>
+				<li><code>npm run dev</code></li>
+				<li>Navigate to localhost:3000/tasks in your browser. You can also try out the routes listed above either in the browser or using the <a target="blank" href="https://www.getpostman.com">Postman app</a> for POST and DELETE requests.</li>
 			</ol>
 		</section>
 		<hr />
@@ -58,14 +70,16 @@ session: 3
 				<li>Uncheck <b>Enable automatic backups</b>. This would be good to have on if we were creating a real app, but to save on S3 storage, we'll skip backups.</li>
 				<li>Scroll down to the bottom and click the orange <b>Create database</b> button at the bottom.</li>
 			</ul>
-			<p>Your database is being created. In the meantime, open up the rails app that you downloaded and change the <code>database.yml</code> file by making the production section look like this:</p>
-			<pre>production:
-  <<: *default
-  database: <%= ENV['RDS_DB_NAME'] %>
-  username: <%= ENV['RDS_USERNAME'] %>
-  password: <%= ENV['RDS_PASSWORD'] %>
-  host: <%= ENV['RDS_HOSTNAME'] %>
-  port: <%= ENV['RDS_PORT'] %></pre>
+			<p>Your database is being created. In the meantime, open up the rails app that you downloaded and change the <code>config/config.js</code> file by making the production section look like this:</p>
+			<pre>
+  production: {
+    dialect: "postgres",
+    host: process.env.RDS_HOSTNAME,
+    username: process.env.RDS_USERNAME,
+    password: process.env.RDS_PASSWORD,
+    port: process.env.RDS_PORT,
+    database: process.env.RDS_DB_NAME,
+  }</pre>
 		  <p>This sets the database name, username, password, host, and port to be environment variables that we'll set in our EB environment.</p>
 		</section>
 		<hr />
@@ -78,18 +92,18 @@ session: 3
 				<li>Open the Elastic Beanstalk console in a new tab. Keep your RDS dashboard open because we'll need to reference values from here later.</li>
 				<li>Click the blue <b>Get started</b> button.</li>
 				<li>For <b>application name</b>, type "taskmanager".</li>
-				<li>For <b>platform</b>, choose Ruby.</li>
+				<li>For <b>platform</b>, choose Node.js.</li>
 				<li>For <b>Application Code</b>, keep "Sample application" selected. We won't use the sample app, but we also don't want to upload our code through a zip file or S3. Eventually, we'll set up a pipeline to push our code from Github to EB, but that comes later.</li>
 				<li>Don't click the blue button! Instead, click the grey <b>Configure more options</b> button. This is what your screen should look like:</li>
-				<img style="width: 80%" src="{{ site.url }}/assets/images/createapp.png" alt="EB create app screenshot">
+				<img style="width: 80%" src="{{ site.url }}/assets/images/createappnode.png" alt="EB create app screenshot">
 			</ul>
 			<p>This configuration dashboard shows you what Elastic Beanstalk is about to be setup for you. You can customize anything that needs to be added or changed. For now, we'll do the following:</p>
 			<ul>
 				<li>Under the <b>Software</b> box, click "Modify".</li>
 				<img class="screenshot" src="{{ site.url }}/assets/images/ebconfiguresoftware.png" alt="Screen shot for modifying software config">
-				<li>Scroll to the bottom where you'll see inputs for <b>Environment properties</b>. In here, you'll need to add five keys, which are the database environment variables we referenced in our <code>database.yml</code> file earlier plus one more variable:</li> 
+				<li>Scroll to the bottom where you'll see inputs for <b>Environment properties</b>. In here, you'll need to add five keys, which are the database environment variables we referenced in our <code>config/config.js</code> file earlier plus one more variable:</li> 
 				<ul>
-					<li>You'll first need to set <code>SECRET_KEY_BASE</code>: you can get this by typing <code>$ rake secret</code> in your terminal while you're in the Rails app. The output is what you'll paste in for the value.</li>
+					<li>You'll first need to set <code>NODE_ENV</code>: use the value <code>production</code></li>
 					<li><code>RDS_PORT</code>: use <code>5432</code> (this is the Postgres port, which you can also find on your RDS dashboard)</li>
 					<li><code>RDS_DB_NAME</code>: use <code>taskmanager</code></li>
 					<li><code>RDS_USERNAME</code>: use <code>taskmanager</code></li>
@@ -98,12 +112,12 @@ session: 3
 					<img style="width: 50%" src="{{ site.url }}/assets/images/endpoint.png" alt="RDS endpoint screenshot">
 				</ul>
 				<li>This is what your environment properties should look like (with your own values). <b>The order does not matter</b>. If everything looks right, click Save.</li>
-				<img style="width: 80%" src="{{ site.url }}/assets/images/envprops.png" alt="EB environment properties screenshot">
+				<img style="width: 80%" src="{{ site.url }}/assets/images/rdsnodeenvprops.png" alt="EB environment properties screenshot">
 			</ul>
 			<p>Next, click "Modify" under the <b>Security</b> configurations box. Choose a keypair from the dropdown (make sure this is a keypair that you have access to!), then save.</p>
-			<img class="screenshot" src="{{ site.url }}/assets/images/ebmodifysecurity.png" alt="Screen shot for modifying ssh key">
+				<img class="screenshot" src="{{ site.url }}/assets/images/ebmodifysecurity.png" alt="Screen shot for modifying ssh key">
 			<p>The rest of the settings are beyond the scope of this exercise. It may be tempting to click on the Database setting, but we'll skip this for now, as we want our database to be separated from our Beanstalk environment. This is best practice so that your data is preserved even if you delete your app's environment.</p>
-			<p>Click on the blue <b>Create app</b> button at the bottom.</p>
+			<p>Click on the blue <b>Create app</b> button at the bottom of the main screen.</p>
 			<p>Compared to Heroku, AWS Elastic Beanstalk takes a surprisingly long time to provision and configure your resources. This process will probably take about 5-10 minutes.</p>
 		</section>
 		<hr />
@@ -138,7 +152,7 @@ session: 3
 			<img class="section-image" src="{{ site.url }}/assets/images/codepipeline.png" alt="AWS CodePipeline Logo">
 			<h2 class="section-header">Setting up a Pipeline</h2>
 			<p>CodePipline can integrate build and test tools in addition to deploy, but for now, we'll create a pipeline that just watches for a new version of code to be pushed to GitHub, then deploys that code automatically to our Beanstalk environment.</p>
-			<p>First, we'll need to initialize our Rails project as a git project and create a repository on GitHub for the code.</p>
+			<p>First, we'll need to initialize our Node project as a git project and create a repository on GitHub for the code.</p>
 			<ul>
 				<li>From the command line, do <code>git init</code>, <code>git add .</code>, and <code>git commit -m 'Initial commit'</code>.</li>
 				<li>In your GitHub account, create a new repository and push your code to it.</li>
@@ -155,18 +169,29 @@ session: 3
 				<img class="screenshot" src="{{ site.url }}/assets/images/cpsourcestage.png" alt="Screen shot for code pipeline source settings">
 				<li>Click <b>Next</b>.</li>
 				<li>We will skip the build stage, so select the grey button on bottom that says <b>Skip build stage</b>.</li>
+				<img class="screenshot" src="{{ site.url }}/assets/images/cpskipbuild.png" alt="Screen shot for code pipeline skip build">
 				<li><b>Don't worry about the scary-sounding message about not skipping the deploy stage.</b> For this stage, select <b>AWS Elastic Beanstalk</b> in the dropdown.</li>
 				<li>Choose your taskmanager application with your environment.</li>
 				<img class="screenshot" src="{{ site.url }}/assets/images/cpdeploystage.png" alt="Screen shot for code pipeline deploy stage">
 				<li>Click <b>Next</b> and review all of your settings. If these are correct, click <b>Create pipeline</b>.</li>
 			</ul>
-			<p>Again, this process will probably take a while to deploy your code. If you go to your Elastic Beanstalk dashboard, you'll know the deployment is done and successful when you see the large green checkmark.</p>
-			<p>To see your app in action on AWS, click on the url at the top of the page:</p>
+			<p>Again, this process will probably take a while to deploy your code. In the meantime, this is a good chance to check out the <code>.ebextensions</code> directory that came with the project. You can read more about <a target="blank" href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/ebextensions.html">.ebextensions</a> here, but at a high level, the files inside of this directory automate commands that we want to run on our EC2 instances. In our case, the first two commands (00 and 01) fix a weird problem with the name of the node and npm commands on Elastic Beanstalk. The next command (02) migrates the database, and the last command (03) seeds the databse. In actuality, you wouldn't want to see the database in this file since it will get re-run every time you push to Github. Instead, you would remove the line here and seed the database directly from the EC2 instance. If you want more information on how to do that, check out <a target="blank" href="https://gist.github.com/rwarbelow/ab2f7578bdc9186cca3505adeb4ce66c">this gist</a>.</p> 
+			<p>To see your app in action, go back to your Elastic Beanstalk dashboard. If you see a large green checkmark you're ready! You can click the URL at the top of the page:</p>
 			<img src="{{ site.url }}/assets/images/eburl.png" alt="Screen shot of url from elastic beanstalk">
 			<br><br>
 			<div class="try-it">
-				<h4>Trying Your App!</h4>
-				<p>Take a minute to try out everything in your app. Can you create new tasks? Edit them? Delete them?</p>
+				<h4>Trying Routes</h4>
+				<p>Try out the following routes in your app in the browser:</p>
+				<ul>
+					<li>GET /</li>
+					<li>GET /tasks</li>
+					<li>GET /tasks/:id (which takes an id, like 1)</li>
+				</ul>
+				<p>In the Postman app, try out:</p>
+				<ul>
+					<li>POST /tasks, which takes a <code>title</code> (string) and <code>priority</code> (integer) as body keys.</li>
+					<li>DELETE /tasks/:id</li>
+				</ul>
 			</div>
 		</section>
 		<hr />
