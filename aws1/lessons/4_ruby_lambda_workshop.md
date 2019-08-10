@@ -41,11 +41,11 @@ session: 4
         <li>Because we need to ship the code with all of its dependencies, we need to bundle so that the dependency source code is saved within our project folder. From the command line, type <code>$ bundle install --path vendor/bundle</code>. This will create a ./vendor/bundle directory and put your dependencies there. <b>Unlike with Elastic Beanstalk, the Bundler version doesn't matter. However, it does matter that you're using Ruby 2.5.x since that's what Lambda uses.</b></li>
         <li>The AWS CLI expects a zip file when we create a Lambda function. Because of that, we'll want to compress all of our code by typing this on the command line (inside of your project directory): <code>$ zip -r function.zip .</code> (including the period!) This will compress all of our folders and files (indicated by the <b>.</b>) recursively (-r) into function.zip, a file now living inside your base directory. Type <code>ls</code> to verify that function.zip exists.</li>
         <li>Finally, we'll use the AWS CLI to push our compressed function code up to Lambda. You'll need to replace anything in capital letters. Below is the structure of this command:</li>
-        <pre>aws lambda create-function --function-name &lt;ARBITRARY NAME OF LAMBDA FUNCTION&gt; \
+        <pre>$ aws lambda create-function --function-name &lt;ARBITRARY NAME OF LAMBDA FUNCTION&gt; \
 --zip-file fileb://&lt;NAME OF ZIP FILE&gt; --handler &lt;FILENAME.METHODNAME&gt; --runtime ruby2.5 \
 --role &lt;LAMBDA ROLE ARN&gt;</pre>
-        <p>Here's what mine looks like:</p>
-        <pre>aws lambda create-function --function-name ConvertToGrayscale \
+        <p>Here's what my actual command looks like with the values filled in:</p>
+        <pre>$ aws lambda create-function --function-name ConvertToGrayscale \
 --zip-file fileb://function.zip --handler handler.process --runtime ruby2.5 \
 --role arn:aws:iam::903497756277:role/lambda-grayscale-role</pre>
         <li>Open up the Lambda console in the browser and click into your newly created function.</li>
