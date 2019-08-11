@@ -147,7 +147,7 @@ session: 5
       <ol>
         <li>Open up the S3 console and click <b>Create Bucket</b>. Choose a name for your bucket, then click through the options and make sure to <b>uncheck the Block all public access option</b>.</li>
         <li>Upload all of your frontend files into the bucket.</li>
-        <li>In the <b>Permissions</b> tab, paste in this bucket policy that allows public access of your objects. Make sure to insert the ARN for your own bucket where indicated:</li>
+        <li>In the <b>Permissions</b> tab, paste in this bucket policy that allows public access of your objects. Make sure to insert the ARN for your own bucket where indicated <b>and don't forget to add the <code>/*</code> at the end of your bucket ARN</b> so that the bucket policy refers to objects, not the bucket.</li>
         <pre>{
   "Id": "Policy1565499669881",
   "Version": "2012-10-17",
@@ -158,7 +158,7 @@ session: 5
         "s3:GetObject"
       ],
       "Effect": "Allow",
-      "Resource": "**********INSERT YOUR BUCKET ARN HERE***********",
+      "Resource": "INSERT YOUR BUCKET ARN HERE/*",
       "Principal": "*"
     }
   ]
