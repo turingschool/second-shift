@@ -107,7 +107,7 @@ session: 5
         <li>Check off <b>DEFAULT 4xx</b> and <b>DEFAULT 5xx</b> and leave all other settings the same. Click the blue <b>Enable CORS and replace existing CORS headers</b> button. Confirm the popup.</li>
         <p>*_*_*_*_*_*_ If you're confused about how to do this step, go look at <a href="#cors">the screenshots</a> from the first time you did this. _*_*_*_*_*_*</p>
         <li>From the <b>Actions</b> menu, select <b>Deploy API</b>. Select your <b>v1</b> deployment stage and click <b>Deploy.</b></li>
-        <li>Copy your endpoint and paste it into the <code>app.js</code> file on line 6. <b>Don't forget to keep the <code>/pets/#{id}</code> path on the end!</b></li>
+        <li>Copy your endpoint and paste it into the <code>app.js</code> file on line 6. <b>Don't forget to keep the <code>/pets/${id}</code> path on the end!</b></li>
         <img class="screenshot" src="{{site.url}}/assets/images/apiurl.png" alt="Screenshot for API URL">
         <img class="screenshot" src="{{site.url}}/assets/images/jsshowpet.png" alt="Screenshot for inserting URL in JS code">
         <li>Wait a minute or two, then refresh your <code>index.html</code> file in your browser. Enter a number in the <b>Pet number</b> box and click on the <b>Get pet</b> button. It should say "Viewing pet 4" (or whatever number you entered).</li>
