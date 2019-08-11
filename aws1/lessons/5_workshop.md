@@ -124,22 +124,21 @@ session: 5
         <img class="screenshot" src="{{site.url}}/assets/images/selectpost.png" alt="Screenshot for selecting post method">
         <li>Select your Lambda function <b>createPet</b> and click <b>Save</b>.</li>
         <img class="screenshot" src="{{site.url}}/assets/images/createpet.png" alt="Screenshot for selecting Lambda function">
-        <li>Click on <b>Test</b> and scroll down to where you see the Request Body textbox. Switch over to your text editor and look at how our <code>app.js</code> file is sending the fetch request. The body is a key value pair of the name. We'll need to do the same thing when we set up our test body, using the structure <code>{ "name": "Joey" }</code>. Enter that in the textbox, then click <b>Test.</b></li>
+        <li>Click on <b>Test</b> and scroll down to where you see the Request Body textbox. Switch over to your text editor and look at how our <code>app.js</code> file is sending the fetch request. The body is an object with keys <code>name</code> and <code>id</code>. We'll need to do the same thing when we set up our test body, using the structure <code>{ "name": "Joey", "id" : "7" }</code>. Enter that in the textbox, then click <b>Test.</b></li>
         <img style="width: 50%" src="{{site.url}}/assets/images/jsbody.png" alt="Screenshot for js code">
         <img class="screenshot" src="{{site.url}}/assets/images/testbody.png" alt="Screenshot for test body">
         <li>This is what you should see for the test output:</li>
         <img class="screenshot" src="{{site.url}}/assets/images/createdpet.png" alt="Screenshot for test body">
-        <li>Like before, nothing is happening with the data we're passing in. We don't need to use Mapping Templates this time since the data is not coming out of the URL (it's coming from the body of the request, which is passed directly to Lambda). Open up the Lambda dashboard in a new tab and go to your <code>createPet</code> function. <b>Can you modify it so that you're using the <code>id</code> key of the event to print out a message that says "Created Joey" (or whatever name gets passed in)?</b></li>
+        <li>Like before, nothing is happening with the data we're passing in. We don't need to use Mapping Templates this time since the data is not coming out of the URL (it's coming from the body of the request, which is passed directly to Lambda). Open up the Lambda dashboard in a new tab and go to your <code>createPet</code> function. <b>Can you modify it so that you're using the <code>name</code> and <code>id</code> keys of the event to print out a message that says "Created Joey with ID 7" (or whatever name and ID gets passed in)?</b></li>
         <li>Once you've fixed and saved your Lambda function code, go back to API Gateway and run your test again. This is the output you should get.</li>
-        <img class="screenshot" src="{{site.url}}/assets/images/createdjoey.png" alt="Screenshot for successful pet creation">
+        <img class="screenshot" src="{{site.url}}/assets/images/successjoey.png" alt="Screenshot for successful pet creation">
         <li>Enable CORS again from the <b>Actions</b> dropdown so that this new POST request has the correct headers.</li>
         <img class="screenshot" src="{{site.url}}/assets/images/corspost.png" alt="Screenshot for enabling cors">
         <li>From the <b>Actions</b> menu, select <b>Deploy API</b>. Select your <b>v1</b> deployment stage and click <b>Deploy.</b></li>
         <li>Copy your endpoint and paste it into the <code>app.js</code> file on line 6. <b>Don't forget to keep the <code>/pets</code> path on the end!</b></li>
         <img class="screenshot" src="{{site.url}}/assets/images/apiurl.png" alt="Screenshot for API URL">
         <img class="screenshot" src="{{site.url}}/assets/images/createjs.png" alt="Screenshot for inserting URL in JS code">
-        <li>Wait two minutes, then refresh your <code>index.html</code> file in your browser. Enter a name in the <b>Pet name</b> box and click on the <b>Create pet</b> button. It should say "Created Joey" (or whatever number you entered). If this does <b>NOT</b> work, try re-enabling CORS and re-deploying.</li>
-        <img class="screenshot" src="{{site.url}}/assets/images/successjoey.png" alt="Screenshot of succesful pet creation">
+        <li>Wait two minutes, then refresh your <code>index.html</code> file in your browser. Enter a name in the <b>Pet name</b> and number in the <b>Pet id</b> box, then click on the <b>Create pet</b> button. It should say "Created Joey with ID 7" (or whatever number you entered). If this does <b>NOT</b> work, try re-enabling CORS and re-deploying.</li>
       </ol>
     </section>
     <hr>
