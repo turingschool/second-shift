@@ -30,7 +30,7 @@ session: 5
       <p>Open the Lambda console and create three functions. We will use these functions for the backend integration of our API Gateway endpoints. We will be working entirely in the dashboard instead of pushing code up from the command line.</p>
       <ul>
         <li><b>allPets</b>: should return the body "viewing all pets"</li>
-        <li><b>onePet</b>: should return the body "viewing one pets"</li>
+        <li><b>onePet</b>: should return the body "viewing one pet"</li>
         <li><b>createPet</b>: should return the body "created a pet"</li>
       </ul>
       <p>Your function dashboard should show the three functions:</p>
@@ -57,7 +57,7 @@ session: 5
             <img src="{{site.url}}/assets/images/confirm.png">
           </div>
         </div>
-        <li>Select <b>Lambda Function</b> as the integration type, and start typing the name of your <b>allPets</b> function, which should populate in the list. Click save and confirm the popup.</li>
+        <li>Select <b>Lambda Function</b> as the integration type, and start typing the name of your <b>allPets</b> function, which should populate in the list. If you don't see your function, check that you're using the correct region. Click save and confirm the popup.</li>
         <img class="screenshot" src="{{site.url}}/assets/images/allpetssetup.png" alt="Screenshot for API resource creation">
         <li>Click <b>Test</b> on the left-hand side which will bring you to the test screen. Scroll down to the blue <b>Test</b> button and click it. You should see the output below:</li>
         <img class="screenshot" src="{{site.url}}/assets/images/petstestresults.png" alt="Screenshot for test result">
