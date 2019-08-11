@@ -20,7 +20,7 @@ session: 5
     <hr>
     <section>
       <h2 class="section-header">Setup</h2>
-      <p>Downloaded the <a href="https://secondshiftapigatewayfrontend.s3-us-west-1.amazonaws.com/apigatewayfrontend.zip">static site files which will serve as our frontend</a>.</p>
+      <p>Download the <a href="https://secondshiftapigatewayfrontend.s3-us-west-1.amazonaws.com/apigatewayfrontend.zip">static site files which will serve as our frontend</a>.</p>
       <p>Open the files in your text editor and look around, particularly at the <code>app.js</code> file. There are three places labeled <b>YOUR ENDPOINT HERE</b> that we'll edit as we create our API Gateway later in this workshop.</p>
       <p>Use <code>$ open index.html</code> to open the site in your browser.</p>
     </section>
