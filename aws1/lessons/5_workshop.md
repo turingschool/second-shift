@@ -158,7 +158,7 @@ session: 5
         "s3:GetObject"
       ],
       "Effect": "Allow",
-      "Resource": "INSERT YOUR BUCKET ARN HERE/*",
+      "Resource": "INSERT YOUR BUCKET ARN HERE and don't forget to add /* to the end",
       "Principal": "*"
     }
   ]
