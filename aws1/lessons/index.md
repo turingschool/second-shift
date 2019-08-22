@@ -26,7 +26,7 @@ subheading: Sessions Overview
       <li>Using DynamoDB for serverless key-value data storage and retrieval</li>
     </ul>
     <p>Like all Turing courses, participants will be programming and building projects as much as possible -- not just listening and looking at slides. Every class session you’ll have something new to experiment with and learn about.</p>
-    <h2>Course Sessions</h2>
+    <h2>Course Curriculum</h2>
     <ul style="margin-left: -35px">
       <a class="btn btn-dark btn-curriculum" href="{{site.base_url}}/aws1/lessons/1" title="">Session 1: AWS Setup, IAM, S3, and CloudFront</a>
       <a class="btn btn-dark btn-curriculum" href="{{site.base_url}}/aws1/lessons/2" title="">Session 2: EC2 and Load Balacing</a>
