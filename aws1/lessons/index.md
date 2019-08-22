@@ -10,6 +10,7 @@ subheading: Sessions Overview
 	    <h1>{{ page.title }}</h1>
 	  </div>
 	</section>
+  <small><a style="font-style: italic" href="javascript:history.back()" title="">< back</a></small>
   <ul>
     <li><a href="{{site.base_url}}/aws1/lessons/1" title="">Session 1: AWS Setup, IAM, S3, and CloudFront</a></li>
     <li><a href="{{site.base_url}}/aws1/lessons/2" title="">Session 2: EC2 and Load Balacing</a></li>

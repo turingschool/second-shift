@@ -241,7 +241,6 @@ footer {
 
 .container {
   min-height: 100vh;
-  margin-top: 123px;
 }
 
 .hide {
@@ -458,9 +457,6 @@ nav {
   border-bottom: 2px solid $light-gray;
   font-family: $standard-copy;
   font-weight: 700;
-  position: fixed; 
-  top: 0; 
-  width: 100%; 
 }
 
 .nav-links {
