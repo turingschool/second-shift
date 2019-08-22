@@ -83,3 +83,27 @@ pre {
 .highlight .vg { color: #c82829 } /* Name.Variable.Global */
 .highlight .vi { color: #c82829 } /* Name.Variable.Instance */
 .highlight .il { color: #f5871f } /* Literal.Number.Integer.Long */
+
+table {
+  border-collapse: collapse;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+table tr th, table tr td {
+  border: 1px solid #ccc;
+  margin: 0;
+  padding: 6px 20px;
+}
+
