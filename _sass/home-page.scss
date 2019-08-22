@@ -1,7 +1,7 @@
 .splash {
   background: url('/assets/images/heroimage.jpeg') 100%;
   background-size: cover;
-  border-bottom: 8px solid $front-end-primary;
+  border-bottom: 8px solid #12f1fc;
   height: 450px;
   display: flex;
   align-items: center;
@@ -457,6 +457,10 @@ nav {
   border-bottom: 2px solid $light-gray;
   font-family: $standard-copy;
   font-weight: 700;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: #fff;
 }
 
 .nav-links {
