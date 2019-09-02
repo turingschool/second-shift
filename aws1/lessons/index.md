@@ -10,7 +10,6 @@ subheading: Sessions Overview
 	    <h1>{{ page.title }}</h1>
 	  </div>
 	</section>
-  <small><a style="font-style: italic" href="javascript:history.back()" title="">< back</a></small>
   <div style="width: 85%; margin: 0 auto; margin-top: 40px;">
     <p>Every modern web application uses public or private cloud technologies, but it’s near impossible to keep up on what tools are available. Browse <a href="https://aws.amazon.com/products/">Amazon’s AWS products</a> and you’ll find over 165 services spread across 23 categories. How do you get started?</p>
     <h2>Course Content</h2>
