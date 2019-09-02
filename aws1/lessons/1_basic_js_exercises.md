@@ -24,6 +24,7 @@ class: 1
 				<li>Make a new directory <code>s3nodeexercises</code>.</li>
 				<li>Create a new file called <code>s3repl.js</code>.</li>
 				<li>From the command line, type <code>npm init</code>. You can either set the values you want or hit enter to use the defaults.</li>
+				<li>Install the aws-sdk package: <code>npm install aws-sdk</code></li>
 				<li>At the top of your <code>s3repl.js</code>, add the following code which will require the 'aws-sdk' and create an object you will use to interact with S3:</li>
 				<pre>var AWS = require('aws-sdk');
 s3 = new AWS.S3();</pre>
@@ -36,7 +37,8 @@ s3 = new AWS.S3();</pre>
 			<p>Use the <a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#createBucket-property">createBucket</a> documentation (and/or Google) to write code that creates an empty bucket in your account.</p>
 			<p>Extensions:</p>
 			<ul>
-				<li>Can you accept a dynamic value for the bucket name that is entered while the program is running? Hint:</li>
+				<li>Can you accept a dynamic value for the bucket name that is entered while the program is running?</li>
+				<small><i>Here's a hint:</i> after <code>npm install readline-sync</code>, you can do something like this:</small>
 				<pre>var readline = require('readline-sync');
 var response = readline.question("How are you feeling today?");</pre>
 				<li>Can you create a bucket where encryption is enabled automatically?</li>

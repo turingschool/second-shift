@@ -30,7 +30,7 @@ class: 1
 gem 'aws-sdk', '~> 3'</pre>
 				<li>At the top of your <code>s3repl.rb</code>, add the following code which will require the 'aws-sdk' and create an object you will use to interact with S3:</li>
 				<pre>require 'aws-sdk-s3'
-s3 = Aws::S3::Client.new(region: 'us-east-2')</pre>
+s3 = Aws::S3::Client.new(region: 'us-east-1')</pre>
 			</ol>
 				<p>Remember, you don't need to set env variables or import keys since the SDK looks in your <code>~/.aws/configuration</code> file.</p>
 		</section>
