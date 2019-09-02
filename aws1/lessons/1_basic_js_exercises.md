@@ -40,7 +40,7 @@ s3 = new AWS.S3();</pre>
 				<li>Can you accept a dynamic value for the bucket name that is entered while the program is running?</li>
 				<small><i>Here's a hint:</i> after <code>npm install readline-sync</code>, you can do something like this:</small>
 				<pre>var readline = require('readline-sync');
-var response = readline.question("How are you feeling today?");</pre>
+var response = readline.question("&lt;INSERT PROMPT HERE&gt;");</pre>
 				<li>Can you create a bucket where encryption is enabled automatically?</li>
 				<li>Can you create a bucket where versioning is enabled automatically?</li>
 				<li>Right now, your bucket is created in the default region you set during <code>$ aws configure</code>. Using code, can you change the region where your bucket is created?</li>
