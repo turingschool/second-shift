@@ -20,12 +20,13 @@ session: 3
 			<p>You'll want to download <a href="https://secondshifttaskmanager.s3.us-east-2.amazonaws.com/taskmanager.zip">this Rails app</a>. Unzip it and put it in a directory you want to work with on the command line. We're specifically not using git to share the code so that you can set it up with your own git repository later on, and this exercise will mimic the same steps you'll take for a brand new Rails project.</p>
 			<p>A few quick notes about this Rails app:</p>
 			<ul>
-				<li>This app uses <code>ruby 2.6.3</code> and <code>rails 5.2.3</code>.</li>
+				<li>This app uses <code>ruby 2.6.4</code> and <code>rails 5.2.3</code>.</li>
 				<li>Because of Beanstalk's defaults, we are using <code>bundler 1.17.3</code>. There is <a target="blank" href="https://stackoverflow.com/questions/55360450/elastic-beanstalk-cant-find-gem-bundler-0-a-with-executable-bundle-gem">a way to use v2 of Bundler</a> with Elastic Beanstalk, but custom platform hooks are beyond the scope of this exercise. To bundle using this specific version of Bundler, you will need to type <code>bundle _1.17.3_</code> from your command line instead of <code>bundle</code>.</li>
 				<li>This app has one resource (tasks), and the functionality was built out with rails generate scaffold. The app does not have tests.</li>
 			</ul>
-			<p>If you'd like to test out the app locally before you deploy to Elastic Beanstalk, you can do that with these commands:</p>
+			<p><b>Although it's not necessary,</b> if you'd like to test out the app locally before you deploy to Elastic Beanstalk, you can do that with these commands:</p>
 			<ol>
+				<li>First, if you aren't already using ruby 2.6.4, install that version. With rbenv, first upgrade your rbenv packages with <code> brew upgrade rbenv ruby-build</code>, then install 2.6.4 with <code>rbenv install 2.6.4</code>, then set it locally with <code>rbenv local 2.6.4</code>.</li>
 				<li><code>bundle _1.17.3_</code></li>
 				<li><code>rake db:create db:migrate</code></li>
 				<li><code>rails s</code></li>
@@ -87,7 +88,7 @@ session: 3
 			<ul>
 				<li>Under the <b>Software</b> box, click "Modify".</li>
 				<img class="screenshot" src="{{ site.url }}/assets/images/ebconfiguresoftware.png" alt="Screen shot for modifying software config">
-				<li>Scroll to the bottom where you'll see inputs for <b>Environment properties</b>. In here, you'll need to add five keys, which are the database environment variables we referenced in our <code>database.yml</code> file earlier plus one more variable:</li> 
+				<li>Scroll to the bottom where you'll see inputs for <b>Environment properties</b>. In here, you'll need to add six keys, five of which are the database environment variables we referenced in our <code>database.yml</code> file earlier plus one more variable:</li> 
 				<ul>
 					<li>You'll first need to set <code>SECRET_KEY_BASE</code>: you can get this by typing <code>$ rake secret</code> in your terminal while you're in the Rails app. The output is what you'll paste in for the value.</li>
 					<li><code>RDS_PORT</code>: use <code>5432</code> (this is the Postgres port, which you can also find on your RDS dashboard)</li>
@@ -97,10 +98,11 @@ session: 3
 					<li><code>RDS_HOSTNAME</code>: go back to your RDS dashboard and find the value for endpoint which should be on the <b>Connectivity & security</b> tab. It should look like a URL. Copy that and paste it as the hostname value in your Elastic Beanstalk configuration window. <b>If it's blank, that just means AWS hasn't finished provisioning the database.</b> Just keep refreshing.</li>
 					<img style="width: 50%" src="{{ site.url }}/assets/images/endpoint.png" alt="RDS endpoint screenshot">
 				</ul>
-				<li>This is what your environment properties should look like (with your own values). <b>The order does not matter</b>. If everything looks right, click Save.</li>
+				<li>This is what your environment properties should look like (with your own values). <b>The order does not matter</b>.</li>
 				<img style="width: 80%" src="{{ site.url }}/assets/images/envprops.png" alt="EB environment properties screenshot">
+				<li>If everything looks right, click <b>Save</b> which will bring you back to the main configuration screen.</li>
 			</ul>
-			<p>Next, click "Modify" under the <b>Security</b> configurations box. Choose a keypair from the dropdown (make sure this is a keypair that you have access to!), then save. You do not need to put anything for service role or IAM instance profile.</p>
+			<p>Next, click "Modify" under the <b>Security</b> configurations box. Choose a keypair from the dropdown (make sure this is a keypair that you have access to!), then save. You do not need to put anything for service role or IAM instance profile -- AWS will generate a role for you.</p>
 			<img class="screenshot" src="{{ site.url }}/assets/images/ebmodifysecurity.png" alt="Screen shot for modifying ssh key">
 			<p>The rest of the settings are beyond the scope of this exercise. It may be tempting to click on the Database setting, but we'll skip this for now, as we want our database to be separated from our Beanstalk environment. This is best practice so that your data is preserved even if you delete your app's environment.</p>
 			<p>Click on the blue <b>Create app</b> button at the bottom.</p>
@@ -160,12 +162,13 @@ session: 3
 				<img class="screenshot" src="{{ site.url }}/assets/images/cpdeploystage.png" alt="Screen shot for code pipeline deploy stage">
 				<li>Click <b>Next</b> and review all of your settings. If these are correct, click <b>Create pipeline</b>.</li>
 			</ul>
+			<h2 class="section-header">Take a Break</h2>
 			<p>Again, this process will probably take a while to deploy your code. If you go to your Elastic Beanstalk dashboard, you'll know the deployment is done and successful when you see the large green checkmark.</p>
-			<p>To see your app in action on AWS, click on the url at the top of the page:</p>
-			<img src="{{ site.url }}/assets/images/eburl.png" alt="Screen shot of url from elastic beanstalk">
 			<br><br>
 			<div class="try-it">
 				<h4>Trying Your App!</h4>
+				<p>Once your deployment is done and has succeeded, you can check out your live app. To see your app in action on AWS, click on the url at the top of the page:</p>
+				<img src="{{ site.url }}/assets/images/eburl.png" alt="Screen shot of url from elastic beanstalk">
 				<p>Take a minute to try out everything in your app. Can you create new tasks? Edit them? Delete them?</p>
 			</div>
 		</section>
