@@ -15,7 +15,7 @@ session: 3
 			<a name="Topic1"></a>
 			<img class="section-image" src="{{ site.url }}/assets/images/node.png" alt="NodeJS logo">
 			<h2 class="section-header">{{page.title}}</h2>
-			<p>In this workshop, you'll deploy a pre-built, database-backed Node/Express application using Elastic Beanstalk and CodeDeploy.</p>
+			<p>In this workshop, you'll deploy a pre-built, database-backed Node/Express application using Elastic Beanstalk and CodePipeline.</p>
 			<p>Before you start, <b>make sure that you are in the N. Virginia region</b> since this is where you have created previous key pairs.</p>
 			<p>You'll want to download <a href="https://secondshifttaskmanagernode.s3-us-west-1.amazonaws.com/taskManagerNode.zip">this Express app</a>. Unzip it and put it in a directory you want to work with on the command line. We're specifically not using git to share the code so that you can set it up with your own git repository later on, and this exercise will mimic the same steps you'll take for a brand new Express project.</p>
 			<p>A few quick notes about this Express app:</p>
