@@ -53,12 +53,13 @@ session: 4
         <li>From the command line, type <code>$ npm install</code>.</li>
         <li>The AWS CLI expects a zip file when we create a Lambda function. Because of that, we'll want to compress all of our code by typing this on the command line (inside of your project directory): <code>$ zip -r function.zip .</code> (including the period!) This will compress all of our folders and files (indicated by the <b>.</b>) recursively (-r) into function.zip, a file now living inside your base directory. Type <code>ls</code> to verify that function.zip exists.</li>
         <li>Finally, we'll use the AWS CLI to push our compressed function code up to Lambda. You'll need to replace anything in capital letters. Below is the structure of this command:</li>
-        <pre>$ aws lambda create-function --function-name &lt;ARBITRARY NAME OF LAMBDA FUNCTION&gt; \
---zip-file fileb://&lt;NAME OF ZIP FILE&gt; --handler &lt;FILENAME.FUNCTIONNAME&gt; --runtime nodejs10.x \
+        <pre>$ aws lambda create-function --function-name &lt;ARBITRARY NAME OF LAMBDA FUNCTION&gt; 
+--zip-file fileb://&lt;NAME OF ZIP FILE&gt; --handler &lt;FILENAME.FUNCTIONNAME&gt; --runtime nodejs10.x 
 --role &lt;LAMBDA ROLE ARN&gt;</pre>
-        <p>Here's what my actual command looks like with the values filled in:</p>
-        <pre>$ aws lambda create-function --function-name S3TextMessageTrigger \
---zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x \
+        <p>Here's what my actual command looks like with the values filled in. I called my function <code>ConvertToGrayScale</code>, so that's how it will appear in the AWS console:</p>
+        <p><b>If you copy and paste this into your terminal, make sure that all of the commands are on one line (not separated into three like you see below).</b></p>
+        <pre>$ aws lambda create-function --function-name S3TextMessageTrigger 
+--zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x 
 --role arn:aws:iam::903497756277:role/lambda-sns-role</pre>
         <li>Open up the Lambda console in the browser and click into your newly created function.</li>
         <li>Create a new test event and check that your event data gets logged. The test should succeed but return null since we're not explicitly returning anything from the method.</li>
