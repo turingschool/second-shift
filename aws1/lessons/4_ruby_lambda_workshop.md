@@ -37,16 +37,18 @@ session: 4
       <h2>Lambda Code</h2>
       <p>Now we'll move to the command line to get our Lambda code setup. <b>If you do not have Ruby installed on your computer, jump over to <a target="blank" href="{{ site.url }}/aws1/lessons/4_cloud9_setup">these instructions first</a> to get setup with a virtual Ruby development environment.</b></p>
       <ol>
+        <li>First, make sure that you're using Ruby 2.5. <b>Unlike with Elastic Beanstalk, the Bundler version doesn't matter. However, it does matter that you're using Ruby 2.5 since that's what Lambda uses.</b> The patch number doesn't matter (like 2.5.1 or 2.5.2, etc.)</li>
         <li>Clone down the source code: <code>$ git clone https://github.com/rwarbelow/secondshiftlambdaruby.git</code>. cd into the directory and open the code in your text editor. Look at the <code>handler.rb</code> file and the <code>#process</code> method to get a better idea of what will happen the first time you run the code.</li>
-        <li>Because we need to ship the code with all of its dependencies, we need to bundle so that the dependency source code is saved within our project folder. From the command line, type <code>$ bundle install --path vendor/bundle</code>. This will create a ./vendor/bundle directory and put your dependencies there. <b>Unlike with Elastic Beanstalk, the Bundler version doesn't matter. However, it does matter that you're using Ruby 2.5.x since that's what Lambda uses.</b></li>
-        <li>The AWS CLI expects a zip file when we create a Lambda function. Because of that, we'll want to compress all of our code by typing this on the command line (inside of your project directory): <code>$ zip -r function.zip .</code> (including the period!) This will compress all of our folders and files (indicated by the <b>.</b>) recursively (-r) into function.zip, a file now living inside your base directory. Type <code>ls</code> to verify that function.zip exists.</li>
-        <li>Finally, we'll use the AWS CLI to push our compressed function code up to Lambda. You'll need to replace anything in capital letters. Below is the structure of this command:</li>
-        <pre>$ aws lambda create-function --function-name &lt;ARBITRARY NAME OF LAMBDA FUNCTION&gt; \
---zip-file fileb://&lt;NAME OF ZIP FILE&gt; --handler &lt;FILENAME.METHODNAME&gt; --runtime ruby2.5 \
+        <li>Because we need to ship the code with all of its dependencies, we need to bundle so that the dependency source code is saved within our project folder. From the command line, type <code>$ bundle install --path vendor/bundle</code>. This will create a ./vendor/bundle directory and put your dependencies there.</li>
+        <li>The AWS CLI expects a zip file when we create a Lambda function. Because of that, we'll want to compress all of our code by typing this on the command line (inside of your project directory): <code>$ zip -r function.zip .</code> <b>(including the period!)</b> This will compress all of our folders and files (indicated by the <b>.</b>) recursively (-r) into function.zip, a file now living inside your base directory. Type <code>ls</code> to verify that function.zip exists.</li>
+        <li>Finally, we'll use the AWS CLI to push our compressed function code up to Lambda. Below is the structure of this command:</li>
+        <pre>$ aws lambda create-function --function-name &lt;ARBITRARY NAME OF LAMBDA FUNCTION&gt; 
+--zip-file fileb://&lt;NAME OF ZIP FILE&gt; --handler &lt;FILENAME.METHODNAME&gt; --runtime ruby2.5 
 --role &lt;LAMBDA ROLE ARN&gt;</pre>
-        <p>Here's what my actual command looks like with the values filled in:</p>
-        <pre>$ aws lambda create-function --function-name ConvertToGrayscale \
---zip-file fileb://function.zip --handler handler.process --runtime ruby2.5 \
+        <p>Here's what my actual command looks like with the values filled in. I called my function <code>ConvertToGrayScale</code>, so that's how it will appear in the AWS console:</p>
+        <p><b>If you copy and paste this into your terminal, make sure that all of the commands are on one line (not separated into three like you see below).</b></p>
+        <pre>$ aws lambda create-function --function-name ConvertToGrayscale 
+--zip-file fileb://function.zip --handler handler.process --runtime ruby2.5 
 --role arn:aws:iam::903497756277:role/lambda-grayscale-role</pre>
         <li>Open up the Lambda console in the browser and click into your newly created function.</li>
         <li>Create a new test event and check that your event data gets logged. The test should succeed but return null since we're not explicitly returning anything from the method.</li>
