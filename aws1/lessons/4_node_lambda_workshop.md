@@ -56,7 +56,7 @@ session: 4
         <pre>$ aws lambda create-function --function-name &lt;ARBITRARY NAME OF LAMBDA FUNCTION&gt; 
 --zip-file fileb://&lt;NAME OF ZIP FILE&gt; --handler &lt;FILENAME.FUNCTIONNAME&gt; --runtime nodejs10.x 
 --role &lt;LAMBDA ROLE ARN&gt;</pre>
-        <p>Here's what my actual command looks like with the values filled in. I called my function <code>ConvertToGrayScale</code>, so that's how it will appear in the AWS console:</p>
+        <p>Here's what my actual command looks like with the values filled in. I called my function <code>S3TextMessageTrigger</code>, so that's how it will appear in the AWS console:</p>
         <p><b>If you copy and paste this into your terminal, make sure that all of the commands are on one line (not separated into three like you see below).</b></p>
         <pre>$ aws lambda create-function --function-name S3TextMessageTrigger 
 --zip-file fileb://function.zip --handler index.handler --runtime nodejs10.x 
