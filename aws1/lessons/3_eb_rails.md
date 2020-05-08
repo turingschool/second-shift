@@ -17,16 +17,16 @@ session: 3
 			<h2 class="section-header">{{page.title}}</h2>
 			<p>In this workshop, you'll deploy a pre-built, database-backed Rails application using Elastic Beanstalk and CodePipeline.</p>
 			<p>Before you start, <b>make sure that you are in the N. Virginia region</b> since this is where you have created previous key pairs.</p>
-			<p>You'll want to download <a href="https://secondshifttaskmanager.s3.us-east-2.amazonaws.com/taskmanager.zip">this Rails app</a>. Unzip it and put it in a directory you want to work with on the command line. We're specifically not using git to share the code so that you can set it up with your own git repository later on, and this exercise will mimic the same steps you'll take for a brand new Rails project.</p>
+			<p>You'll want to download <a href="https://awscoursematerials.s3.us-east-2.amazonaws.com/taskmanager.zip">this Rails app</a>. Unzip it and put it in a directory you want to work with on the command line. We're specifically not using git to share the code so that you can set it up with your own git repository later on, and this exercise will mimic the same steps you'll take for a brand new Rails project.</p>
 			<p>A few quick notes about this Rails app:</p>
 			<ul>
-				<li>This app uses <code>ruby 2.6.4</code> and <code>rails 5.2.3</code>.</li>
+				<li>This app uses <code>ruby 2.6.6</code> and <code>rails 5.2.3</code>.</li>
 				<li>Because of Beanstalk's defaults, we are using <code>bundler 1.17.3</code>. There is <a target="blank" href="https://stackoverflow.com/questions/55360450/elastic-beanstalk-cant-find-gem-bundler-0-a-with-executable-bundle-gem">a way to use v2 of Bundler</a> with Elastic Beanstalk, but custom platform hooks are beyond the scope of this exercise. To bundle using this specific version of Bundler, you will need to type <code>bundle _1.17.3_</code> from your command line instead of <code>bundle</code>.</li>
-				<li>This app has one resource (tasks), and the functionality was built out with rails generate scaffold. The app does not have tests.</li>
+				<li>This app has one resource (tasks), and the functionality was built out with rails generate scaffold. The app does not have tests. Yolo.</li>
 			</ul>
 			<p><b>Although it's not necessary,</b> if you'd like to test out the app locally before you deploy to Elastic Beanstalk, you can do that with these commands:</p>
 			<ol>
-				<li>First, if you aren't already using ruby 2.6.4, install that version. With rbenv, first upgrade your rbenv packages with <code> brew upgrade rbenv ruby-build</code>, then install 2.6.4 with <code>rbenv install 2.6.4</code>, then set it locally with <code>rbenv local 2.6.4</code>.</li>
+				<li>First, if you aren't already using ruby 2.6.6, install that version. With rbenv, first upgrade your rbenv packages with <code> brew upgrade rbenv ruby-build</code>, then install 2.6.6 with <code>rbenv install 2.6.6</code>, then set it locally with <code>rbenv local 2.6.6</code>.</li>
 				<li><code>bundle _1.17.3_</code></li>
 				<li><code>rake db:create db:migrate</code></li>
 				<li><code>rails s</code></li>
@@ -77,16 +77,16 @@ session: 3
 			<p>For this exercise, we'll just create a development environment; however, it is possible to have many (ie. dev, prod).</p>
 			<ul>
 				<li>Open the Elastic Beanstalk console in a new tab. Keep your RDS dashboard open because we'll need to reference values from here later.</li>
-				<li>Click the blue <b>Get started</b> button.</li>
+				<li>Click the orange <b>Create Application</b> button.</li>
 				<li>For <b>application name</b>, type "taskmanager".</li>
-				<li>For <b>platform</b>, choose Ruby.</li>
+				<li>For <b>platform</b>, choose Ruby, and for <b>platform branch</b>, choose "Puma with Ruby 2.6 running on 64bit Amazon Linux"</li>
 				<li>For <b>Application Code</b>, keep "Sample application" selected. We won't use the sample app, but we also don't want to upload our code through a zip file or S3. Eventually, we'll set up a pipeline to push our code from Github to EB, but that comes later.</li>
 				<li>Don't click the blue button! Instead, click the grey <b>Configure more options</b> button. This is what your screen should look like:</li>
 				<img style="width: 80%" src="{{ site.url }}/assets/images/createapp.png" alt="EB create app screenshot">
 			</ul>
 			<p>This configuration dashboard shows you what Elastic Beanstalk is about to be setup for you. You can customize anything that needs to be added or changed. For now, we'll do the following:</p>
 			<ul>
-				<li>Under the <b>Software</b> box, click "Modify".</li>
+				<li>Under the <b>Software</b> box, click "Edit".</li>
 				<img class="screenshot" src="{{ site.url }}/assets/images/ebconfiguresoftware.png" alt="Screen shot for modifying software config">
 				<li>Scroll to the bottom where you'll see inputs for <b>Environment properties</b>. In here, you'll need to add six keys, five of which are the database environment variables we referenced in our <code>database.yml</code> file earlier plus one more variable:</li> 
 				<ul>
@@ -131,7 +131,7 @@ session: 3
 				<li>Click the <b>Edit</b> button.</li>
 				<li>Delete the current source (which is your computer's IP address), and start typing "sg". You should see all of your security groups pop up. Select the one that has "awseb" in its name -- this is the security group that AWS Elastic Beanstalk made for us, which is the one that our EC2 instance will be in. We want to accept PG traffic from that instance, so we'll reference its security group.</li>
 				<img src="{{ site.url }}/assets/images/ebsg.png" alt="Screenshot selecting correct security group">
-				<li>Click the blue <b>Save</b> button.</li>
+				<li>Click the orange <b>Save rules</b> button.</li>
 			</ul>
 		</section>
 		<hr />
@@ -182,23 +182,27 @@ session: 3
     	<p>In the CodePipeline landing page, select your pipeline, then click "Delete Pipeline". Confirm the deletion.</p>
 			<img src="{{ site.url }}/assets/images/deletecp.png" alt="Screen shot for deleting code pipeline">
       <h4>EC2</h4>
-      <p>In your EC2 panel, click on Security Groups. Find the security group for your RDS database. It should be called "rds-taskmanager". Delete the inbound rule that links it to the Beanstalk security group by clicking the "X" so it has no rules, then click save.</p>
+      <p>In your EC2 panel, click on Security Groups. Find the security group for your RDS database. It should be called "rds-taskmanager". Click on "Edit inbound rules", then delete the inbound rule that links it to the Beanstalk security group, then click "Save rules".</p>
 			<img src="{{ site.url }}/assets/images/deletesourcesg.png" alt="Screen shot for deleting RDS security group source">
       <h4>Elastic Beanstalk</h4>
     	<p>Go to your Elastic Beanstalk dashboard and select "Delete application" from the "Actions" dropdown. This will take a while.</p>
 			<img src="{{ site.url }}/assets/images/deleteeb.png" alt="Screen shot for deleting Elastic Beanstalk application">
       <h4>RDS</h4>
-    	<p>Go to your RDS dashboard and click on "Databases" on the left-hand side. Select your taskmanager database, then choose "Delete" from the "Actions" dropdown.</p>
+    	<p>Go to your RDS dashboard and click on "Databases" on the left-hand side. Select your taskmanager database, then choose "Delete" from the "Actions" dropdown. Uncheck "Create final snapshot?" since you don't need one (and they cost money!)</p>
 			<img src="{{ site.url }}/assets/images/deleterds.png" alt="Screen shot for deleting RDS database">
     	<p>Click on "Snapshots" on the left-hand side and delete any snapshots. It is possible that you may not have any snapshots.</p>
 			<img src="{{ site.url }}/assets/images/deleterdssnap.png" alt="Screen shot for deleting RDS snapshots">
       <h4>Back to EC2 for Security Groups</h4>
       <p>Now that your RDS database is gone, you can remove your RDS security group. Click on "Security Groups" from the left-hand side, select the "rds-taskmanager" group, and select "Delete Security Group" from the "Actions" dropdown.</p>
+			<p>If you get an error about a network interface, just wait a moment, as that means your Elastic Beanstalk application has not finished being deleted.</p>
 			<img style="width: 80%" src="{{ site.url }}/assets/images/deletesg.png" alt="Screen shot for deleting RDS security group">
 			<h4>S3 Artifacts</h4>
 			<p>CodePipeline and Elastic Beanstalk both create S3 buckets to store artifacts related to your application versions.</p>
-			<p>In the S3 dashboard, select the CodePipeline bucket and delete it.</p>
-			<p>Next, click into the Elastic Beanstalk bucket. This bucket has a bucket policy that prevents it from being deleted. Find the bucket policy under the Permissions tab. Delete the bucket policy. Then go back out to the dashboard and delete the bucket.</p>
+			<p>In the S3 dashboard, select the CodePipeline bucket and delete it. You'll need to click the "empty bucket configuration" link in order for AWS to allow you to do this. Then, go back to the dashboard, select the same bucket, and you should be able to delete it this time.</p>
+			<img style="width: 80%" src="{{ site.url }}/assets/images/emptyartifacts.png" alt="Screen shot for deleting RDS security group">
+			<p>Next, click into the Elastic Beanstalk bucket. This one has a bucket policy attached to it that does not allow you to delete it. So first, we'll need to delete that bucket policy (see below):</p>
+			<img style="width: 80%" src="{{ site.url }}/assets/images/bucketpolicydelete.png" alt="Screen shot for deleting RDS security group">
+			<p>Then, repeat the same steps that you did above with the CodePipeline bucket.</p>
     </section>
     <hr />
 	</div>
