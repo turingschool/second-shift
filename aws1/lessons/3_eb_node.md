@@ -17,7 +17,7 @@ session: 3
 			<h2 class="section-header">{{page.title}}</h2>
 			<p>In this workshop, you'll deploy a pre-built, database-backed Node/Express application using Elastic Beanstalk and CodePipeline.</p>
 			<p>Before you start, <b>make sure that you are in the N. Virginia region</b> since this is where you have created previous key pairs.</p>
-			<p>You'll want to download <a href="https://secondshifttaskmanagernode.s3-us-west-1.amazonaws.com/taskManagerNode.zip">this Express app</a>. Unzip it and put it in a directory you want to work with on the command line. We're specifically not using git to share the code so that you can set it up with your own git repository later on, and this exercise will mimic the same steps you'll take for a brand new Express project.</p>
+			<p>You'll want to download <a href="https://awscoursematerials.s3.us-east-2.amazonaws.com/taskManagerNode.zip">this Express app</a>. Unzip it and put it in a directory you want to work with on the command line. We're specifically not using git to share the code so that you can set it up with your own git repository later on, and this exercise will mimic the same steps you'll take for a brand new Express project.</p>
 			<p>A few quick notes about this Express app:</p>
 			<ul>
 				<li>This app uses <code>express 4.17.1</code>.</li>
@@ -90,16 +90,16 @@ session: 3
 			<p>For this exercise, we'll just create a development environment; however, it is possible to have many (ie. dev, prod).</p>
 			<ul>
 				<li>Open the Elastic Beanstalk console in a new tab. Keep your RDS dashboard open because we'll need to reference values from here later.</li>
-				<li>Click the blue <b>Get started</b> button.</li>
+				<li>Click the orange <b>Create Application</b> button.</li>
 				<li>For <b>application name</b>, type "taskmanager".</li>
-				<li>For <b>platform</b>, choose Node.js.</li>
+				<li>For <b>platform</b>, choose Node.js, and for platform branch, select "Node.js 12 running on 64bit Amazon Linux 2"</li>
 				<li>For <b>Application Code</b>, keep "Sample application" selected. We won't use the sample app, but we also don't want to upload our code through a zip file or S3. Eventually, we'll set up a pipeline to push our code from Github to EB, but that comes later.</li>
 				<li>Don't click the blue button! Instead, click the grey <b>Configure more options</b> button. This is what your screen should look like:</li>
 				<img style="width: 80%" src="{{ site.url }}/assets/images/createappnode.png" alt="EB create app screenshot">
 			</ul>
 			<p>This configuration dashboard shows you what Elastic Beanstalk is about to be setup for you. You can customize anything that needs to be added or changed. For now, we'll do the following:</p>
 			<ul>
-				<li>Under the <b>Software</b> box, click "Modify".</li>
+				<li>Under the <b>Software</b> box, click "Edit". NOTE: this is a screenshot from a Rails environment, so ignore those environment variables.</li>
 				<img class="screenshot" src="{{ site.url }}/assets/images/ebconfiguresoftware.png" alt="Screen shot for modifying software config">
 				<li>Scroll to the bottom where you'll see inputs for <b>Environment properties</b>. In here, you'll need to add five keys, which are the database environment variables we referenced in our <code>config/config.js</code> file earlier plus one more variable:</li> 
 				<ul>
@@ -117,7 +117,7 @@ session: 3
 			<p>Next, click "Modify" under the <b>Security</b> configurations box. Choose a keypair from the dropdown (make sure this is a keypair that you have access to!), then save. You do not need to put anything for service role or IAM instance profile.</p>
 				<img class="screenshot" src="{{ site.url }}/assets/images/ebmodifysecurity.png" alt="Screen shot for modifying ssh key">
 			<p>The rest of the settings are beyond the scope of this exercise. It may be tempting to click on the Database setting, but we'll skip this for now, as we want our database to be separated from our Beanstalk environment. This is best practice so that your data is preserved even if you delete your app's environment.</p>
-			<p>Click on the blue <b>Create app</b> button at the bottom of the main screen.</p>
+			<p>Click on the orange <b>Create app</b> button at the bottom of the main screen.</p>
 			<p>Compared to Heroku, AWS Elastic Beanstalk takes a surprisingly long time to provision and configure your resources. This process will probably take about 5-10 minutes.</p>
 		</section>
 		<hr />
@@ -143,7 +143,7 @@ session: 3
 				<li>Click the <b>Edit</b> button.</li>
 				<li>Delete the current source (which is your computer's IP address), and start typing "sg". You should see all of your security groups pop up. Select the one that has "awseb" in its name -- this is the security group that AWS Elastic Beanstalk made for us, which is the one that our EC2 instance will be in. We want to accept PG traffic from that instance, so we'll reference its security group.</li>
 				<img src="{{ site.url }}/assets/images/ebsg.png" alt="Screenshot selecting correct security group">
-				<li>Click the blue <b>Save</b> button.</li>
+				<li>Click the orange <b>Save</b> button.</li>
 			</ul>
 		</section>
 		<hr />
@@ -219,8 +219,11 @@ session: 3
 			<img style="width: 80%" src="{{ site.url }}/assets/images/deletesg.png" alt="Screen shot for deleting RDS security group">
 			<h4>S3 Artifacts</h4>
 			<p>CodePipeline and Elastic Beanstalk both create S3 buckets to store artifacts related to your application versions.</p>
-			<p>In the S3 dashboard, select the CodePipeline bucket and delete it.</p>
-			<p>Next, click into the Elastic Beanstalk bucket. This bucket has a bucket policy that prevents it from being deleted. Find the bucket policy under the Permissions tab. Delete the bucket policy. Then go back out to the dashboard and delete the bucket.</p>
+			<p>In the S3 dashboard, select the CodePipeline bucket and delete it. You'll need to click the "empty bucket configuration" link in order for AWS to allow you to do this. Then, go back to the dashboard, select the same bucket, and you should be able to delete it this time.</p>
+			<img style="width: 80%" src="{{ site.url }}/assets/images/emptyartifacts.png" alt="Screen shot for deleting RDS security group">
+			<p>Next, click into the Elastic Beanstalk bucket. This one has a bucket policy attached to it that does not allow you to delete it. So first, we'll need to delete that bucket policy (see below):</p>
+			<img style="width: 80%" src="{{ site.url }}/assets/images/bucketpolicydelete.png" alt="Screen shot for deleting RDS security group">
+			<p>Then, repeat the same steps that you did above with the CodePipeline bucket.</p>
     </section>
     <hr />
 	</div>
