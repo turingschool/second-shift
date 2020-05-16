@@ -61,7 +61,7 @@ session: 5
         <img class="screenshot" src="{{site.url}}/assets/images/allpetssetup.png" alt="Screenshot for API resource creation">
         <li>Click <b>Test</b> on the left-hand side which will bring you to the test screen. Scroll down to the blue <b>Test</b> button and click it. You should see the output below:</li>
         <img class="screenshot" src="{{site.url}}/assets/images/petstestresults.png" alt="Screenshot for test result">
-        <li>Even though this works in testing, the HTTP response for this GET request is mising the <code>Access-Control-Allow-Origin</code> header, so our outside site will not be able to get data from our API as of right now. Let's fix this by clicking on the <b>GET</b> method, then selecting <b>Enable CORS</b> from the <b>Actions</b> menu.</li>
+        <li>Even though this works in testing (and would work if were were to deploy right now and access the endpoint through the browser), the HTTP response for this GET request is mising the <code>Access-Control-Allow-Origin</code> header, so our outside site will not be able to get data from our API as of right now through JavaScript. Let's fix this by clicking on the <b>GET</b> method, then selecting <b>Enable CORS</b> from the <b>Actions</b> menu.</li>
         <img class="screenshot" src="{{site.url}}/assets/images/enablecors.png" alt="Screenshot for test result">
         <li>Check off <b>DEFAULT 4xx</b> and <b>DEFAULT 5xx</b> and leave all other settings the same. Click the blue <b>Enable CORS and replace existing CORS headers</b> button. Confirm the popup.</li>
         <a name="cors"></a>

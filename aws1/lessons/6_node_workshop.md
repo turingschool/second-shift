@@ -41,7 +41,7 @@ session: 6
 
 exports.handler = function(event, context) {
   var dynamo = new aws.DynamoDB({region: 'us-east-1' });
-  var params = { TableName : 'users'}
+  var params = { TableName : 'pets'}
 
   dynamo.scan(params, function(err, data) {
     if (err) {
@@ -52,8 +52,9 @@ exports.handler = function(event, context) {
     }
   })
 }</pre>
-        <li>Once you've updated the code, click the orange <b>save</b> button, open up the URL for your S3-hosted static site and test out your All Pets button. Tada! You should see something kind of ugly appear on the page, like this: <code>[object Object],[object Object]</code>. If you see that, it worked! You just can't see the actual data unless we stringify it. You can change it to display the raw JSON by modifying the line in your <code>app.js</code> file to say <code>document.querySelector('#results').innerText = JSON.stringify(data.body)
-</code>. Note that if you want to test this out on the S3 live site instead of just locally, you'll need to re-upload your <code>app.js</code> file.</li>
+        <li>In your <code>app.js</code> file, make sure to stringify your response body:</li>
+        <img class="screenshot" src="{{ site.url }}/assets/images/jsonstringify.png" alt="json stringify">
+        <li>Once you've updated the code, click the orange <b>save</b> button, open up your index.js (or re-upload to S3 and open the static site link) and test out your All Pets button. Tada! You should see something kind of ugly appear on the page, like this: <code>[{"id":{"N":"1"},"name":{"S":"bob"}},{"id":{"N":"2"},"name":{"S":"sarah"}}]</code>. 
         <li>OPTIONAL: If you're bothered by the way your data is showing up on your static page, you're welcome to change the JavaScript in <code>app.js</code> since this would be the frontend client's job to figure out how to parse and display the data. <b>However, that is not the focus of this workshop, so feel free to leave it in raw form.</b></li>
       </ol>
     </section>
@@ -69,7 +70,7 @@ exports.handler = function(event, context) {
   var dynamo = new aws.DynamoDB({ region: 'us-east-1' });
   
   var params = {
-    TableName: 'users',
+    TableName: 'pets',
     Item: {
       'id' : {N: event['id']},
       'name' : {S: event['name']}
@@ -102,7 +103,7 @@ exports.handler = function(event, context) {
   var dynamo = new aws.DynamoDB({ region: 'us-east-1' });
   var id = event.id;
   var params = {
-    TableName: 'users',
+    TableName: 'pets',
     Key: {
       "id": {
         "N": `${id}`

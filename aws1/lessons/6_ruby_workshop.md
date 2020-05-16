@@ -41,11 +41,13 @@ session: 6
 
 def lambda_handler(event:, context:)
     dynamodb = Aws::DynamoDB::Client.new(region: 'us-east-1')
-    result = dynamodb.scan({ table_name: 'pets' })
+    result = dynamodb.scan({ table_name: 'pets' }).to_h
     { body: result }
 end
 </pre>
-        <li>Once you've updated the code, click the orange <b>save</b> button, open up the URL for your S3-hosted static site and test out your All Pets button. Tada! You should see something kind of ugly appear on the page, like this: <code>{:items=>[{"id"=>0.2e1, "name"=>"susan"}, {"id"=>0.1e1, "name"=>"bob"}], :count=>2, :scanned_count=>2, :last_evaluated_key=>nil, :consumed_capacity=>nil}</code></li>
+        <li>In your <code>app.js</code> file, make sure to stringify your response body:</li>
+        <img class="screenshot" src="{{ site.url }}/assets/images/jsonstringify.png" alt="json stringify">
+        <li>Once you've updated the code, click the orange <b>save</b> button, open up your index.js (or re-upload to S3 and open the static site link) and test out your All Pets button. Tada! You should see something kind of ugly appear on the page, like this: <code>{"items":[{"id":"0.1e1","name":"Ted"}],"count":1,"scanned_count":1}</code></li>
         <li>OPTIONAL: If you're bothered by the way your data is showing up on your static page, you're welcome to change the JavaScript in <code>app.js</code> since this would be the frontend client's job to figure out how to parse and display the data. <b>However, that is not the focus of this workshop, so feel free to leave it in raw form.</b></li>
       </ol>
     </section>

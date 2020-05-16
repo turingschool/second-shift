@@ -35,22 +35,22 @@ session: 4
     </section>
     <section>
       <h2>Lambda Code</h2>
-      <p>Now we'll move to the command line to get our Lambda code setup. <b>If you do not have Ruby installed on your computer, jump over to <a target="blank" href="{{ site.url }}/aws1/lessons/4_cloud9_setup">these instructions first</a> to get setup with a virtual Ruby development environment.</b></p>
+      <p>Now we'll move to the command line to get our Lambda code setup.</p>
       <ol>
-        <li>First, make sure that you're using Ruby 2.5. <b>Unlike with Elastic Beanstalk, the Bundler version doesn't matter. However, it does matter that you're using Ruby 2.5 since that's what Lambda uses.</b> The patch number doesn't matter (like 2.5.1 or 2.5.2, etc.)</li>
+        <li>First, make sure that you're using Ruby 2.7.0. <b>Unlike with Elastic Beanstalk, the Bundler version doesn't matter. However, it does matter that you're using Ruby 2.7 since that's what Lambda uses.</b> The patch number doesn't matter (like 2.7.0 or 2.5.1, etc.)</li>
         <li>Clone down the source code: <code>$ git clone https://github.com/rwarbelow/secondshiftlambdaruby.git</code>. cd into the directory and open the code in your text editor. Look at the <code>handler.rb</code> file and the <code>#process</code> method to get a better idea of what will happen the first time you run the code.</li>
         <li>Because we need to ship the code with all of its dependencies, we need to bundle so that the dependency source code is saved within our project folder. From the command line, type <code>$ bundle install --path vendor/bundle</code>. This will create a ./vendor/bundle directory and put your dependencies there.</li>
         <li>The AWS CLI expects a zip file when we create a Lambda function. Because of that, we'll want to compress all of our code by typing this on the command line (inside of your project directory): <code>$ zip -r function.zip .</code> <b>(including the period!)</b> This will compress all of our folders and files (indicated by the <b>.</b>) recursively (-r) into function.zip, a file now living inside your base directory. Type <code>ls</code> to verify that function.zip exists.</li>
         <li>Finally, we'll use the AWS CLI to push our compressed function code up to Lambda. Below is the structure of this command:</li>
         <pre>$ aws lambda create-function --function-name &lt;ARBITRARY NAME OF LAMBDA FUNCTION&gt; 
---zip-file fileb://&lt;NAME OF ZIP FILE&gt; --handler &lt;FILENAME.METHODNAME&gt; --runtime ruby2.5 
+--zip-file fileb://&lt;NAME OF ZIP FILE&gt; --handler &lt;FILENAME.METHODNAME&gt; --runtime ruby2.7 
 --role &lt;LAMBDA ROLE ARN&gt;</pre>
         <p>Here's what my actual command looks like with the values filled in. I called my function <code>ConvertToGrayScale</code>, so that's how it will appear in the AWS console:</p>
         <p><b>If you copy and paste this into your terminal, make sure that all of the commands are on one line (not separated into three like you see below).</b></p>
         <pre>$ aws lambda create-function --function-name ConvertToGrayscale 
---zip-file fileb://function.zip --handler handler.process --runtime ruby2.5 
+--zip-file fileb://function.zip --handler handler.process --runtime ruby2.7
 --role arn:aws:iam::903497756277:role/lambda-grayscale-role</pre>
-        <li>Open up the Lambda console in the browser and click into your newly created function.</li>
+        <li>Open up the Lambda console in the browser and click into your newly created function. NOTE: If you don't see it, you might be in the wrong region! Not a problem; just select the region drop down in the upper right-hand corner and go to N. Virginia.</li>
         <li>Create a new test event and check that your event data gets logged. The test should succeed but return null since we're not explicitly returning anything from the method.</li>
       </ol>
     </section>
@@ -59,7 +59,7 @@ session: 4
       <h2>S3 Event Data</h2>
       <p>Next, we'll configure our test to mimic the data that would be sent over in the case of an S3 upload and see if we can get our Lambda function to pull out the relevant data: bucket name and object name.</p>
       <ol>
-        <li>Create a new test event using the S3 Put Object template. You can name the event test <code>PutS3Object</code></li>
+        <li>Create a new test event using the S3 Put Object template. You can name the event test <code>PutNewPhoto</code></li>
         <img class="screenshot" src="{{site.url}}/assets/images/tests3put.png" alt="S3 Put Object test template">
         <li>Run your test and look at the output for the event. This output indicates the data that will be sent to Lambda when a new object is uploaded to our S3 bucket. Below is the same data, just formatted nicer:</li>
         <pre>{
@@ -179,7 +179,7 @@ $ aws lambda update-function-code --function-name ConvertToGrayscale --zip-file 
         <li>Before we try uploading an image, let's open CloudWatch logs which will give us live updates. First, click on <b>Monitoring</b>, then select <b>View logs in CloudWatch</b>.</li>
         <img class="screenshot" src="{{site.url}}/assets/images/monitoring.png" alt="View monitoring on CloudWatch">
         <li>In CloudWatch, logs are divided into <span class="vocab">streams</span>, small sequences of log events broken up by time and Lambda container. For example, if you invoked a Lambda function three times in the same second, you would get three streams. If you invoke a Lambda function one right after the other, the logs would be in the same stream. Don't click on any of the logs yet since a new one might appear when we upload an image.</li>
-        <li>In a new tab, open S3, go to your <b>originals</b> bucket, and upload one of the PNG images from the samples folder.</li>
+        <li>In a new tab, open S3, go to your <b>originals</b> bucket, and upload one of the PNG images from <a href="https://secondshiftpngs.s3-us-west-2.amazonaws.com/PNGsForLambda.zip">the PNG samples folder</a>.</li>
         <li>Head back to CloudWatch and see if a new log appeared. If so, click it. If not, click the most recent one and scroll to the bottom. You should be able to see the steps Lambda is taking in addition to any errors. Watch your logs carefully. If you see something like this, that means your function took longer than the default 3 seconds to execute.</li>
         <img class="screenshot" src="{{site.url}}/assets/images/timeout.png" alt="Cloudwatch timeout indicator">
         <p>If this happens, head back over to Lambda and adjust your timeout maximum. I found that most small PNGs (less than 700x700 pixels) can be processed by ChunkyPNG in 30 seconds or less. You can find this configuration by scrolling down the page of your Lambda function:</p>
